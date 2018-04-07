@@ -1,0 +1,9 @@
+{
+    "require": {
+        "php": "^7.2",
+        "react/http": "^0.8.2",
+        "lordarryn/psrrouter": "^1.2",
+        "wyrihaximus/react-http-middleware-webroot-preload": "^1.2",
+        "wyrihaximus/react-http-middleware-session": "^1.0"
+    }
+}

@@ -1,0 +1,4 @@
+{
+	"port_server": 8080,
+	"cookie_name": "PHPSESSID"
+}
