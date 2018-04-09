@@ -7,4 +7,4 @@ Site web développé à partir de la bibliothèque ReactPHP. Serveur PHP asynchr
 1. Installer les dépendances : ```composer install```
 2. Exécuter ```schema.sql``` dans la base de données
 3. Configurer config.json
-4. Lancer le serveur : ```php server.php```
+4. Lancer le serveur : ```./start``` (l'arrêter : ```./stop```, sous Windows directement : ```php src/phpttpd```)

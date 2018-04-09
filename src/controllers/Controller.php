@@ -27,11 +27,11 @@ abstract class Controller {
 
     /**
      * Return a Response with a body from a blade template
-     * @param String $template
+     * @param React\Http\Response $response
      * @param Array $params
      * @return React\Http\Response
      */
-    public static function render(Request $request, Response $response, String $template, Array $params = []) : Response {
+    public static function render(Response $response, String $template, Array $params = []) : Response {
 
         if(is_null(self::$blade))
             self::bootBlade();
@@ -41,6 +41,20 @@ abstract class Controller {
         $body->write($stream);
 
         return $response->withBody($body);
+
+    }
+
+    /**
+     * Return an error page/status into a Response
+     * @param React\Http\Response $response
+     * @param int $code
+     * @param Array $params
+     * @return React\Http\Response
+     */
+    public static function abort(Response $response, int $code, Array $params = []) : Response {
+
+        $params['code'] = $code;
+        return self::render($response, 'error', $params)->withStatus($code);
 
     }
 
@@ -63,17 +77,6 @@ abstract class Controller {
 
         //
         return '';
-
-    }
-
-    /**
-     * Error page render
-     * @todo
-     */
-    public static function abort(Request $request, Response $response, int $status, String $page) : Response {
-
-        //
-        return $response;
 
     }
 

@@ -9,36 +9,33 @@ use React\EventLoop\Factory,
     WyriHaximus\React\Http\Middleware\SessionMiddleware,
     WyriHaximus\React\Http\Middleware\WebrootPreloadMiddleware;
 
-/**
- * Config
- */
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-if(file_exists(__DIR__.'/config.json')) {
-    $config = json_decode(file_get_contents(__DIR__.'/config.json'), true);
+#
+# Config
+#
+if(file_exists(dirname(__DIR__).'/config.json')) {
+    $config = json_decode(file_get_contents(dirname(__DIR__).'/config.json'), true);
     foreach($config as $key => $value) define($key, $value);
-} else die('Fichier de configuration introuvable');
+} else die('Config file not found');
 
-require __DIR__.'/vendor/autoload.php';
-require __DIR__.'/src/routes.php';
+require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__).'/src/routes.php';
 
 //Database connection booting
 Models\Database::boot();
 
-/**
- * Run the server
- */
+#
+# Run the server
+#
 $loop = Factory::create();
 
 $server = new Server([
-    new WebrootPreloadMiddleware(
-        __DIR__.'/public'
-    ),
-
     new SessionMiddleware(
         CONF_COOKIE_NAME,
         new ArrayCache()
+    ),
+
+    new WebrootPreloadMiddleware(
+        dirname(__DIR__).'/public'
     ),
 
     /**
@@ -55,19 +52,25 @@ $server = new Server([
             )
         );
 
-        //Match HTTP request
-        return $router->run($request, $response);
+        try {
+            //Match HTTP request
+            return $router->run($request, $response);
+        } catch(Throwable $e) {
+            //Error 500 handling
+            $errstr = '« '.$e->getMessage().' » in '.$e->getFile().' line '.$e->getLine();
+            echo $errstr;
+            return Controllers\ErrorController::error500($request, $response, $errstr);
+        }
 
     }
-]);
 
-$server->on('error', function(Throwable $e) {
-    //Error 500 handling
-    echo '« ', $e->getMessage(), ' » in ', $e->getFile(), ' line ', $e->getLine(), PHP_EOL;
-});
+    /**
+     * @todo logs http access middleware
+     */
+]);
 
 $socket = new HttpSocketServer(CONF_PORT_SERVER, $loop);
 $server->listen($socket);
-echo "Server running at http://127.0.0.1:".CONF_PORT_SERVER."\n";
+echo date('d/m H:i:s : '), "server running at http://127.0.0.1:".CONF_PORT_SERVER."\n";
 
 $loop->run();
