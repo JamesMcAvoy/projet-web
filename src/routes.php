@@ -3,8 +3,8 @@
 use PsrRouter\PsrRouter as Router,
     React\Http\Io\ServerRequest as Request,
     React\Http\Response,
-    Controllers\IndexController,
-    Controllers\ErrorController;
+    Controllers\Controller\IndexController,
+    Controllers\Controller\ErrorController;
 
 $router = new Router();
 
@@ -35,11 +35,5 @@ $router->post('/register', function(Request $request, Response $response) {
 $router->post('/login', function(Request $request, Response $response) {
 
     return $response;
-
-});
-
-$router->get('/test', function(Request $request, Response $response) {
-
-    return Controllers\Test::test($request, $response);
 
 });

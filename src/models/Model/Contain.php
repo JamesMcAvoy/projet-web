@@ -1,10 +1,10 @@
 <?php
 
-namespace Models;
+namespace Models\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contain extends Model{
+class Contain extends Model {
 
     protected $table = 'contains';
 
@@ -16,12 +16,12 @@ class Contain extends Model{
         'number_item' => '1'
     );
 
-    public function item(){
-        return $this->belongsTo('Models\Item');
+    public function item() {
+        return $this->belongsTo('Models\Model\Item');
     }
 
-    public function basket(){
-        return $this->belongsTo('Models\Basket');
+    public function basket() {
+        return $this->belongsTo('Models\Model\Basket');
     }
 
     public $timestamps = false;

@@ -9,7 +9,7 @@ use React\EventLoop\Factory,
     WyriHaximus\React\Http\Middleware\SessionMiddleware,
     WyriHaximus\React\Http\Middleware\WebrootPreloadMiddleware,
     Controllers\Middleware\HttpLogsMiddleware as Http,
-    Controllers\ErrorController as Error;
+    Controllers\Controller\ErrorController as Error;
 
 #
 # Config
@@ -61,7 +61,6 @@ $server = new Server([
         } catch(Throwable $e) {
             //Error 500 handling
             $errstr = '« '.$e->getMessage().' » in '.$e->getFile().' line '.$e->getLine();
-            echo $errstr;
             $response = Error::error500($request, $response, $errstr);
         }
         return Http::log($request, $response, $errstr);

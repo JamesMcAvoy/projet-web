@@ -1,10 +1,10 @@
 <?php
 
-namespace Models;
+namespace Models\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Idea extends Model{
+class Idea extends Model {
 
     protected $table = 'ideas';
 
@@ -21,12 +21,12 @@ class Idea extends Model{
         'state_idea' => 'waiting'
     );
 
-    public function user(){
-        return $this->belongsTo('Models\User');
+    public function user() {
+        return $this->belongsTo('Models\Model\User');
     }
 
-    public function voted(){
-        return $this->hasMany('Models\Voted');
+    public function voted() {
+        return $this->hasMany('Models\Model\Voted');
     }
 
     public $timestamps = false;

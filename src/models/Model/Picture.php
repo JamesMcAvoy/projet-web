@@ -1,10 +1,10 @@
 <?php
 
-namespace Models;
+namespace ModelsModel\;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Picture extends Model{
+class Picture extends Model {
 
     protected $table = 'pictures';
 
@@ -22,20 +22,20 @@ class Picture extends Model{
         'state_picture' => 'valid'
     );
 
-    public function event(){
-        return $this->belongsTo('Models\Event');
+    public function event() {
+        return $this->belongsTo('Models\Model\Event');
     }
 
-    public function user(){
-        return $this->belongsTo('Models\User');
+    public function user() {
+        return $this->belongsTo('Models\Model\User');
     }
 
-    public function comment(){
-        return $this->hasMany('Models\Comment');
+    public function comment() {
+        return $this->hasMany('Models\Model\Comment');
     }
 
-    public function liked(){
-        return $this->hasMany('Models\Liked');
+    public function liked() {
+        return $this->hasMany('Models\Model\Liked');
     }
 
     public $timestamps = false;

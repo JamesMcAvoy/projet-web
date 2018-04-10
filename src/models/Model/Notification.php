@@ -1,10 +1,10 @@
 <?php
 
-namespace Models;
+namespace Models\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Notification extends Model{
+class Notification extends Model {
 
     protected $table = 'notifications';
 
@@ -19,8 +19,8 @@ class Notification extends Model{
         'is_read' => '0',
     );
 
-    public function user(){
-        return $this->belongsTo('Models\User');
+    public function user() {
+        return $this->belongsTo('Models\Model\User');
     }
 
     public $timestamps = false;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Models;
+namespace Models\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model{
+class Comment extends Model {
 
     protected $table = 'comments';
 
@@ -18,12 +18,12 @@ class Comment extends Model{
         'state_comment' => 'valid'
     );
 
-    public function user(){
-        return $this->belongsTo('Models\User');
+    public function user() {
+        return $this->belongsTo('Models\Model\User');
     }
 
-    public function picture(){
-        return $this->belongsTo('Models\Picture');
+    public function picture() {
+        return $this->belongsTo('Models\Model\Picture');
     }
 
     public $timestamps = false;

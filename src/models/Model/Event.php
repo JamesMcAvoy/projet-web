@@ -1,10 +1,10 @@
 <?php
 
-namespace Models;
+namespace Models\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model{
+class Event extends Model {
 
     protected $table = 'events';
 
@@ -26,21 +26,16 @@ class Event extends Model{
         'state_event' => 'up'
     );
 
-    public function picture(){
-        return $this->hasMany('Models\Picture');
+    public function picture() {
+        return $this->hasMany('Models\Model\Picture');
     }
 
-    public function resgister(){
-        return $this->hasMany('Models\Registered');
+    public function register() {
+        return $this->hasMany('Models\Model\Registered');
     }
-    
-    /**
-     * Has Many Through relation
-     *
-     * @return Illuminate\Database\Eloquent\Relations\hasManyThrough
-     */
-    public function comment(){
-        return $this->hasManyThrough('Models\Comment', 'Models\Registered');
+
+    public function comment() {
+        return $this->hasManyThrough('Models\Model\Comment', 'Models\Model\Registered');
     }
 
     public $timestamps = false;

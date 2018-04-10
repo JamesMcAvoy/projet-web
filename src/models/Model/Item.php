@@ -1,10 +1,10 @@
 <?php
 
-namespace Models;
+namespace Models\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model{
+class Item extends Model {
 
     protected $table = 'goodies';
 
@@ -22,16 +22,16 @@ class Item extends Model{
         'nbr_orders' => '0'
     );
 
-    public function category(){
-        return $this->belongsTo('Models\Category');
+    public function category() {
+        return $this->belongsTo('Models\Model\Category');
     }
 
-    public function contain(){
-        return $this->hasMany('Models\Contain');
+    public function contain() {
+        return $this->hasMany('Models\Model\Contain');
     }
 
-    public function hasContained(){
-        return $this->hasMany('Models\HasContained');
+    public function hasContained() {
+        return $this->hasMany('Models\Model\HasContained');
     }
 
     public $timestamps = false;
