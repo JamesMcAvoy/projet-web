@@ -8,23 +8,35 @@ use PsrRouter\PsrRouter as Router,
 
 $router = new Router();
 
-//404 error
+/**
+ * HTTP errors
+ */
+$router->setParam('403', function(Request $request, Response $response) {
+
+    return ErrorController::error403($request, $response);
+
+});
+
 $router->setParam('404', function(Request $request, Response $response) {
 
     return ErrorController::error404($request, $response);
 
 });
 
-//index page
+$router->setParam('405', function(Request $request, Response $response) {
+
+    return ErrorController::error405($request, $response);
+
+});
+
+/**
+ * Pages
+ */
 $router->get('/', function(Request $request, Response $response) {
 
     return IndexController::index($request, $response);
 
 });
-
-/**
- * @todo post register/login
- */
 
 $router->post('/register', function(Request $request, Response $response) {
 
@@ -33,6 +45,15 @@ $router->post('/register', function(Request $request, Response $response) {
 });
 
 $router->post('/login', function(Request $request, Response $response) {
+
+    return $response;
+
+});
+
+/**
+ * @todo CSRF token
+ */
+$router->get('/logout', function(Request $request, Response $response) {
 
     return $response;
 
