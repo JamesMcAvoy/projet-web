@@ -238,7 +238,7 @@ CREATE TABLE `notifications` (
   `date_notif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `title_notif` varchar(64) NOT NULL,
   `notif` text NOT NULL,
-  `is_read` tinyint(1) DEFAULT NULL,
+  `is_read` tinyint(1) NOT NULL DEFAULT '0',
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -281,7 +281,7 @@ CREATE TABLE `orders` (
 DROP TABLE IF EXISTS `pictures`;
 CREATE TABLE `pictures` (
   `id_picture` int(11) NOT NULL,
-  `title_picture` varchar(64) DEFAULT NULL,
+  `title_picture` varchar(64) NOT NULL,
   `date_picture` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `picture` longblob NOT NULL,
   `description_picture` text,
