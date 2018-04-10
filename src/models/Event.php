@@ -33,6 +33,15 @@ class Event extends Model{
     public function resgister(){
         return $this->hasMany('Models\Registered');
     }
+    
+    /**
+     * Has Many Through relation
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasManyThrough
+     */
+    public function comment(){
+        return $this->hasManyThrough('Models\Comment', 'Models\Registered');
+    }
 
     public $timestamps = false;
 
