@@ -37,3 +37,9 @@ $router->post('/login', function(Request $request, Response $response) {
     return $response;
 
 });
+
+$router->get('/test', function(Request $request, Response $response) {
+
+    return Controllers\Test::test($request, $response);
+
+});

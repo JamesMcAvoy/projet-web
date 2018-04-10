@@ -143,6 +143,7 @@ CREATE TABLE `goodies` (
   `id_item` int(11) NOT NULL,
   `name_item` varchar(64) NOT NULL,
   `description_item` text NOT NULL,
+  `picture_item` longblob DEFAULT NULL,
   `price_item` float NOT NULL,
   `number_item` int(11) DEFAULT '0',
   `nbr_orders` int(11) DEFAULT '0',
