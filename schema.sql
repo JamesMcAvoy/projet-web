@@ -119,7 +119,7 @@ CREATE TABLE `events` (
   `event` text NOT NULL,
   `price_event` float NOT NULL,
   `picture_event` longblob NOT NULL,
-  `start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `time` time NOT NULL,
   `time_between_each` time NOT NULL DEFAULT '00:00:00',
   `number_event` int(11) NOT NULL DEFAULT '0',
@@ -145,8 +145,8 @@ CREATE TABLE `goodies` (
   `description_item` text NOT NULL,
   `picture_item` longblob DEFAULT NULL,
   `price_item` float NOT NULL,
-  `number_item` int(11) DEFAULT '0',
-  `nbr_orders` int(11) DEFAULT '0',
+  `number_item` int(11) NOT NULL DEFAULT '0',
+  `nbr_orders` int(11) NOT NULL DEFAULT '0',
   `id_category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -192,7 +192,7 @@ CREATE TABLE `ideas` (
   `id_idea` int(11) NOT NULL,
   `title_idea` varchar(128) NOT NULL,
   `idea` text NOT NULL,
-  `number_vote_idea` int(11) DEFAULT '0',
+  `number_vote_idea` int(11) NOT NULL DEFAULT '0',
   `state_idea` varchar(25) NOT NULL DEFAULT 'waiting',
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -285,8 +285,8 @@ CREATE TABLE `pictures` (
   `title_picture` varchar(64) NOT NULL,
   `date_picture` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `picture` longblob NOT NULL,
-  `description_picture` text,
-  `number_like_picture` int(11) DEFAULT '0',
+  `description_picture` text NOT NULL DEFAULT '',
+  `number_like_picture` int(11) NOT NULL DEFAULT '0',
   `state_picture` varchar(25) NOT NULL DEFAULT 'valid',
   `id_event` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
