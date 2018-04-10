@@ -18,9 +18,12 @@ final class HttpLogsMiddleware {
 
         $date = date('d/m H:i:s');
         $ip = $request->getServerParams()['REMOTE_ADDR'];
+        $method = $request->getMethod();
         $path = $request->getUri()->getPath();
         $status = $response->getStatusCode();
-        echo "$date : $ip $path $status $msg\n";
+        $protocol = 'HTTP/'.$response->getProtocolVersion();
+        echo "$date : $ip $method $path $protocol $status $msg\n";
+        
         return $response;
 
     }

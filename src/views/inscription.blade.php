@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-		<form action="./traitement_contact.php" method="post" id="form_contact">
+		<form action="/register" method="post" id="form_contact">
 				<div>
 					<label for="nom">Nom :</label>
 					<input type="text" id="nom" placeholder="Nom" name="nom"/>
