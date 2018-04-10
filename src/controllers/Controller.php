@@ -69,15 +69,4 @@ abstract class Controller {
 
     }
 
-    /**
-     * Return the Cesi role
-     * @todo
-     */
-    public static function getRole() : String {
-
-        //
-        return '';
-
-    }
-
 }

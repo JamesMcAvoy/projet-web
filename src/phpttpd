@@ -7,7 +7,9 @@ use React\EventLoop\Factory,
     React\Socket\Server as HttpSocketServer,
     React\Cache\ArrayCache,
     WyriHaximus\React\Http\Middleware\SessionMiddleware,
-    WyriHaximus\React\Http\Middleware\WebrootPreloadMiddleware;
+    WyriHaximus\React\Http\Middleware\WebrootPreloadMiddleware,
+    Controllers\Middleware\HttpLogsMiddleware as Http,
+    Controllers\ErrorController as Error;
 
 #
 # Config
@@ -54,19 +56,17 @@ $server = new Server([
 
         try {
             //Match HTTP request
-            return $router->run($request, $response);
+            $response = $router->run($request, $response);
+            $errstr = '';
         } catch(Throwable $e) {
             //Error 500 handling
             $errstr = '« '.$e->getMessage().' » in '.$e->getFile().' line '.$e->getLine();
             echo $errstr;
-            return Controllers\ErrorController::error500($request, $response, $errstr);
+            $response = Error::error500($request, $response, $errstr);
         }
+        return Http::log($request, $response, $errstr);
 
     }
-
-    /**
-     * @todo logs http access middleware
-     */
 ]);
 
 $socket = new HttpSocketServer(CONF_PORT_SERVER, $loop);
