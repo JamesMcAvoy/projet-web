@@ -50,6 +50,21 @@ $router->get('/inscription', function(Request $request, Response $response) {
 	return IndexController::inscription($request, $response);
 });
 
+$router->get('/evenements', function(Request $request, Response $response) {
+	
+	return IndexController::evenements($request, $response);
+});
+
+$router->get('/boite_a_idees', function(Request $request, Response $response) {
+	
+	return IndexController::boite_a_idees($request, $response);
+});
+
+$router->get('/proposer_idee', function(Request $request, Response $response) {
+	
+	return IndexController::proposer_idee($request, $response);
+});
+
 /**
  * @todo CSRF token
  */
