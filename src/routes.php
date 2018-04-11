@@ -29,7 +29,7 @@ $router->setParam('405', function(Request $request, Response $response) {
  */
 $router->get('/', function(Request $request, Response $response) {
 
-    return IndexController::inscription($request, $response);
+    return IndexController::index($request, $response);
 
 });
 
