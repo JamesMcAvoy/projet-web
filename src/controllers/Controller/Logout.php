@@ -28,7 +28,7 @@ final class logout extends Controller {
     }
 
 /*
-    vérifier si paramettre token dans logout= à son token csrm dans sa session
+    vérifier si paramettre token dans logout = à son token csrf dans sa session
     si oui redirigé vers l'index
     sinon dans le root avec erreur
     destruction de sa session
