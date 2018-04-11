@@ -4,7 +4,8 @@ use PsrRouter\PsrRouter as Router,
     React\Http\Io\ServerRequest as Request,
     React\Http\Response,
     Controllers\Controller\IndexController,
-    Controllers\Controller\ErrorController;
+    Controllers\Controller\ErrorController,
+    Controllers\Controller\RegisterController;
 
 $router = new Router();
 
@@ -34,7 +35,7 @@ $router->get('/', function(Request $request, Response $response) {
 
 $router->post('/register', function(Request $request, Response $response) {
 
-    return $response;
+    return RegisterController::register($request, $response);
 
 });
 
