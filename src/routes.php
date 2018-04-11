@@ -44,6 +44,11 @@ $router->post('/login', function(Request $request, Response $response) {
 
 });
 
+$router->get('/inscription', function(Request $request, Response $response) {
+	
+	return IndexController::inscription($request, $response);
+});
+
 /**
  * @todo CSRF token
  */
