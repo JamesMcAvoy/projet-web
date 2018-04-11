@@ -15,31 +15,36 @@
 </head>
 
 <body>	
+	<div class="container">
+		<header>
+		<div class="row">
+			
 
-	<header>
+			<img class="col-md-3 col-sm-12" src="/img/exialogo.png" alt="Logo Exia" />
 
-		<ul>
+			<div class="col-md-6 col-sm-12">
+				<nav>
+					<ul class="row">
+					<li class="col-md-4 col-sm-12">Accueil</li>
+					<li class="col-md-4 col-sm-12">Evènements</li>
+					<li class="col-md-4 col-sm-12">Boutique</li>
+					</ul>
+				</nav>
+			</div>
+				
+			<div class="col-md-3 col-sm-12"><li>Inscription</li><div>
+			
+		</div>
+		</header>
 
-			<img src="/img/exialogo.png" alt="Logo Exia" />
+		@yield('main_content')
 
-			<nav>
-			<li>Accueil</li>
-			<li>Evènements</li>
-			<li>Boutique</li>
-			<li>Inscription</li>
-			</nav>
+		<footer>
 
-		</ul>
+		<p>copyright <br>
+		MathouDreamTeam</p>
 
-	</header>
-
-	@yield('main_content')
-
-	<footer>
-
-    <p>copyright <br>
-    MathouDreamTeam</p>
-
-    </footer>
+		</footer>
+	</div>
 </body>
 </html>
