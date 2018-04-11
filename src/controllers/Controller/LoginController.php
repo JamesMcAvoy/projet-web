@@ -10,7 +10,6 @@ final class LoginController extends Controller {
     public static function login($req, $res){
 
         $session = parent::getSession($req);
-        $session->begin();
 
         //Prevent register
         if(self::sessionUserActive($session))

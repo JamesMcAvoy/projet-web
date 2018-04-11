@@ -9,7 +9,7 @@ final class LogoutController extends Controller {
 
     public static function logout($req, $res) {
 
-        $session = parent::getSession($req);
+        $session = parent::getSession($req)->getContents();
         $params = $req->getQueryParams();
 
         if(isset($params['token']) && ($params['token'] == $session['user']['token'])) {

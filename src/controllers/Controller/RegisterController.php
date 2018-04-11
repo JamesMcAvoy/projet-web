@@ -10,7 +10,6 @@ final class RegisterController extends Controller {
     public static function register($req, $res) {
 
         $session = self::getSession($req);
-        $session->begin();
 
         //Prevent register
         if(self::sessionUserActive($session))
