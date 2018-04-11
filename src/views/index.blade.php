@@ -12,11 +12,11 @@
     <section>
 
         <article>
-            <p>evenement du mois</p>
+            <p>évènements du mois</p>
         </article>
 
         <aside>
-            <p>items les plus acheter</p>
+            <p>objets les plus achetés</p>
         </aside>
 
     </section>
