@@ -20,7 +20,7 @@
 		<div class="row">
 			
 
-			<img class="col-md-3 col-sm-12" src="/img/exialogo.png" alt="Logo Exia" />
+			<img class="col-md-3 col-sm-12" src="/img/exia-logo.png" alt="Logo Exia" />
 
 			<div class="col-md-6 col-sm-12">
 				<nav>
