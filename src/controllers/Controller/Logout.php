@@ -20,7 +20,7 @@ final class logout extends Controller {
                 return $res->withStatus(302)->withHeader('Location', '/index');
             }
             else{
-                return $res->withStatus('error')->withHeder('location', '/error');
+                return $res->withStatus(500)->withHeder('location', '/error');
             }
         }
         
