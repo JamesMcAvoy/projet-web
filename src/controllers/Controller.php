@@ -69,4 +69,14 @@ abstract class Controller {
 
     }
 
+    /**
+     * Return a token
+     * @return String
+     */
+    public static function token() {
+
+        return bin2hex(openssl_random_pseudo_bytes(16));
+
+    }
+
 }
