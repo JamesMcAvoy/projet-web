@@ -8,10 +8,9 @@ final class IndexController extends Controller {
 
     public static function index($req, $res) {
 
-        return self::render($res, 'inscription');
+        return self::render($res, 'index');
 
     }
-<<<<<<< HEAD
 	
 		public static function connexion($req, $res) {
 
@@ -23,11 +22,8 @@ final class IndexController extends Controller {
         return self::render($res, 'inscription');
 
     }    
-		public static function evenements($req, $res) {
-=======
-    
+
     public static function evenements($req, $res) {
->>>>>>> 14e38c97cc9be2b127d99d72a5ababacb903aba8
 
         return self::render($res, 'evenements');
 
