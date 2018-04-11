@@ -68,7 +68,7 @@ CREATE TABLE `comments` (
   `id_comment` int(11) NOT NULL,
   `date_comment` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `comment` text NOT NULL,
-  `state_comment` varchar(25) NOT NULL DEFAULT 'valid',
+  `state_comment` ENUM('valid', 'blocked') NOT NULL DEFAULT 'valid',
   `id_user` int(11) NOT NULL,
   `id_picture` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -123,7 +123,7 @@ CREATE TABLE `events` (
   `time` time NOT NULL,
   `time_between_each` time NOT NULL DEFAULT '00:00:00',
   `number_event` int(11) NOT NULL DEFAULT '0',
-  `state_event` varchar(25) NOT NULL DEFAULT 'up'
+  `state_event` ENUM('up', 'ended', 'blocked') NOT NULL DEFAULT 'up'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -193,7 +193,7 @@ CREATE TABLE `ideas` (
   `title_idea` varchar(128) NOT NULL,
   `idea` text NOT NULL,
   `number_vote_idea` int(11) NOT NULL DEFAULT '0',
-  `state_idea` varchar(25) NOT NULL DEFAULT 'waiting',
+  `state_idea` ENUM('waiting', 'valid', 'blocked') NOT NULL DEFAULT 'waiting',
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -337,7 +337,7 @@ CREATE TABLE `users` (
   `first_name` varchar(64) NOT NULL,
   `email` varchar(64) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `type` varchar(32) NOT NULL DEFAULT 'student',
+  `type` ENUM('student', 'BDE', 'employee') NOT NULL DEFAULT 'student',
   `id_basket`  Int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
