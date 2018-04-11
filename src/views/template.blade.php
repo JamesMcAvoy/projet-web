@@ -12,7 +12,7 @@
 <body>	
 	<header>
 		<ul>
-			<li><img src="img/exialogo.png" alt="Logo Exia" /></li>
+			<li><img src="/img/exialogo.png" alt="Logo Exia" /></li>
 			<li>Accueil</li>
 			<li>Evènements</li>
 			<li>Boutique</li>
