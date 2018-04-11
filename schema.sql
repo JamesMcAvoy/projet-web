@@ -337,8 +337,8 @@ CREATE TABLE `users` (
   `first_name` varchar(64) NOT NULL,
   `email` varchar(64) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `type` varchar(32) NOT NULL DEFAULT 'student'
-  `id_basket`  Int(11) NOT NULL ,
+  `type` varchar(32) NOT NULL DEFAULT 'student',
+  `id_basket`  Int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -466,7 +466,7 @@ ALTER TABLE `registered`
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`),
   ADD KEY `FK_users_id_basket` (`id_basket`);
 
 --
@@ -609,7 +609,7 @@ ALTER TABLE `registered`
 --
 -- Contraintes pour la table `user`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD CONSTRAINT `FK_users_id_basket` FOREIGN KEY (`id_basket`) REFERENCES `basket` (`id_basket`);
 
 --
