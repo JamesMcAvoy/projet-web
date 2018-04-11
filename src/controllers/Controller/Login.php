@@ -28,7 +28,7 @@ final class Login extends Controller {
         if(isset($post['email']) && isset($post['mdp'])){
             if(User::where('email','=', $post['email'])){
                 $user = User::where('email','=', $post['email'])->get();
-                if(($user['email'] == $post['email']) && ($user['passord'] == $post['mdp'])){
+                if(($user['email'] == $post['email']) && (password_verify($post['mdp'], $user['password']))){
                     $session->setContents(
                         $user['email'],
                         $user['name_user'],
