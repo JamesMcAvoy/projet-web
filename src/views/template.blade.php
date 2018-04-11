@@ -17,7 +17,6 @@
 <body>	
 	<div class="container">
 		<header>
-<<<<<<< HEAD
 			<nav class="navbar navbar-expand-lg navbar-dark">
 			  <a class="navbar-brand" href="#"><img id="logo_exia" src="/img/exialogo.png" alt="Logo Exia"/></a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,26 +37,6 @@
 					<a id="btn_connexion" href="#" class="btn btn-outline-light btn-lg " role="button" aria-pressed="true">Connexion</a>
 			  </div>
 			</nav>	
-=======
-		<div class="row">
-			
-
-			<img class="col-md-3 col-sm-12" src="/img/exia-logo.png" alt="Logo Exia" />
-
-			<div class="col-md-6 col-sm-12">
-				<nav>
-					<ul class="row">
-					<li class="col-md-4 col-sm-12">Accueil</li>
-					<li class="col-md-4 col-sm-12">Evènements</li>
-					<li class="col-md-4 col-sm-12">Boutique</li>
-					</ul>
-				</nav>
-			</div>
-				
-			<div class="col-md-3 col-sm-12"><li>Inscription</li><div>
-			
-		</div>
->>>>>>> a620a18082570e877fcd1cdb6c708f4513e20ff8
 		</header>
 		<div id="vide_header"> </div>
 		@yield('main_content')
