@@ -17,33 +17,35 @@
 <body>	
 	<div class="container">
 		<header>
-		<div class="row">
-			
-
-			<img class="col-md-3 col-sm-12" src="/img/exia-logo.png" alt="Logo Exia" />
-
-			<div class="col-md-6 col-sm-12">
-				<nav>
-					<ul class="row">
-					<li class="col-md-4 col-sm-12">Accueil</li>
-					<li class="col-md-4 col-sm-12">Evènements</li>
-					<li class="col-md-4 col-sm-12">Boutique</li>
-					</ul>
-				</nav>
-			</div>
-				
-			<div class="col-md-3 col-sm-12"><li>Inscription</li><div>
-			
-		</div>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+			  <a class="navbar-brand" href="#"><img id="logo_exia" src="/img/exialogo.png" alt="Logo Exia"/></a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+				  <li class="nav-item active">
+					<a class="nav-link" href="http://localhost:8080/accueil">Accueil <span class="sr-only">(current)</span></a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="http://localhost:8080/evenements">Evènements</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="http://localhost:8080/boutique">Boutique</a>
+				  </li>
+				</ul>
+					<a id="btn_connexion" href="#" class="btn btn-outline-light btn-lg " role="button" aria-pressed="true">Connexion</a>
+			  </div>
+			</nav>	
 		</header>
-
+		<div id="vide_header"> </div>
 		@yield('main_content')
 
 		<footer>
 
-		<p>copyright <br>
-		MathouDreamTeam</p>
-
+		<p>copyright</p>
+		<p>MathouDreamTeam</p>
+		
 		</footer>
 	</div>
 </body>
