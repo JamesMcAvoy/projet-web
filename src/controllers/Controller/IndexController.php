@@ -14,7 +14,7 @@ final class IndexController extends Controller {
 	
 	    public static function inscription($req, $res) {
 
-        return self::render($res, 'inscription', ['hello' => 'ÉcOlE d\'ingénieurs']);
+        return self::render($res, 'inscription');
 
     }
 

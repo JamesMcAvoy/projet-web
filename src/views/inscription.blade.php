@@ -1,10 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title>Inscription</title>
-	<meta charset="utf-8">
-</head>
-<body>
+@extends('template')
+
+	@section('main_content')	
 		<form action="/register" method="post" id="form_contact">
 				<div>
 					<label for="nom">Nom :</label>
@@ -26,5 +22,4 @@
 					<input id="bouton_envoyer" type="submit" value="Inscription">
 				</div>
 			</form>
-</body>
-</html>
+	@stop
