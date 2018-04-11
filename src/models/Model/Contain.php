@@ -9,11 +9,11 @@ class Contain extends Model {
     protected $table = 'contains';
 
     protected $fillable = array(
-        'number_item'
+        'item_number'
     );
 
     protected $attributes = array(
-        'number_item' => '1'
+        'item_number' => '1'
     );
 
     public function item() {

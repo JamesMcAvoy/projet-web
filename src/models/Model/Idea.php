@@ -9,16 +9,8 @@ class Idea extends Model {
     protected $table = 'ideas';
 
     protected $fillable = array(
-        'title_idea',
-        'idea',
-        'number_vote_idea',
-        'state_idea'
-
-    );
-
-    protected $attributes = array(
-        'number_vote_idea' => '0',
-        'state_idea' => 'waiting'
+        'idea_title',
+        'idea'
     );
 
     public function user() {

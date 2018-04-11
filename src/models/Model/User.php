@@ -28,7 +28,7 @@ class User extends Model {
         return $this->hasMany('Models\Model\Order');
     }
     public function notification() {
-        return $this->hasMany('Models\Model\Notification');
+        return $this->hasMany('Models\Model\Notification', 'notif_id');
     }
     public function idea() {
         return $this->hasMany('Models\Model\Idea');

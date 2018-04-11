@@ -9,17 +9,9 @@ class Picture extends Model {
     protected $table = 'pictures';
 
     protected $fillable = array(
-        'title_picture',
-        'date_picture',
+        'picture_title',
         'picture',
-        'description_picture',
-        'number_like_picture',
-        'state_picture'
-    );
-
-    protected $attributes = array(
-        'number_like_picture' => '0',
-        'state_picture' => 'valid'
+        'picture_desc'
     );
 
     public function event() {

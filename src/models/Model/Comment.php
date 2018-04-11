@@ -9,13 +9,7 @@ class Comment extends Model {
     protected $table = 'comments';
 
     protected $fillable = array(
-        'comment',
-        'date_comment',
-        'state_comment'
-    );
-
-    protected $attributes = array(
-        'state_comment' => 'valid'
+        'comment'
     );
 
     public function user() {

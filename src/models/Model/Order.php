@@ -9,8 +9,7 @@ class Order extends Model {
     protected $table = 'orders';
 
     protected $fillable = array(
-        'date_order',
-        'price_order'
+        'order_price'
     );
 
     public function user() {

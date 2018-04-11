@@ -9,17 +9,17 @@ class Item extends Model {
     protected $table = 'goodies';
 
     protected $fillable = array(
-        'name_item',
-        'description_item',
-        'picture_item',
-        'price_item',
-        'number_item',
-        'nbr_orders'
+        'item_name',
+        'item_desc',
+        'item_picture',
+        'item_price',
+        'item_number',
+        'orders_nbr'
     );
 
     protected $attributes = array(
-        'number_item' => '0',
-        'nbr_orders' => '0'
+        'item_number' => '0',
+        'orders_nbr' => '0'
     );
 
     public function category() {
