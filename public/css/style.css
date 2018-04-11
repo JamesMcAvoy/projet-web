@@ -1,1 +1,45 @@
+html
+{
+	font-family: Verdana;	
+}
 
+header
+{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	font-size: 1.5em;
+	background-color: #AB091A;
+}
+
+header img
+{
+	width: 100px;
+}
+
+#vide_header
+{
+	top:0;
+	left:0;
+	width: 100%;
+	height: 80px;
+}
+
+ul
+{
+	margin: auto;
+}
+
+li
+{
+	margin-left: 20px;
+	margin-right: 20px;
+	color: black;
+}
+
+#btn_connexion
+{
+	position: relative;
+	right: 0;
+}
