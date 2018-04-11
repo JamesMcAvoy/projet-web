@@ -45,11 +45,6 @@ $router->post('/login', function(Request $request, Response $response) {
 
 });
 
-$router->get('/inscription', function(Request $request, Response $response) {
-	
-	return IndexController::inscription($request, $response);
-});
-
 $router->get('/evenements', function(Request $request, Response $response) {
 	
 	return IndexController::evenements($request, $response);
