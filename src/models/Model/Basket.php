@@ -9,11 +9,11 @@ class Basket extends Model {
     protected $table = 'basket';
 
     protected $fillable = array(
-        'price_basket'
+        'basket_price'
     );
 
     protected $attributes = array(
-        'price_basket' => '0'
+        'basket_price' => '0'
     );
 
     public function user() {

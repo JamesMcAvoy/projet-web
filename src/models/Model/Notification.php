@@ -9,14 +9,8 @@ class Notification extends Model {
     protected $table = 'notifications';
 
     protected $fillable = array(
-        'date_notif',
-        'title_notif',
-        'notif',
-        'is_read'
-    );
-
-    protected $attributes = array(
-        'is_read' => '0',
+        'notif_title',
+        'notif'
     );
 
     public function user() {

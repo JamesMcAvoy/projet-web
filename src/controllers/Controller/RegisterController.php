@@ -48,7 +48,8 @@ final class RegisterController extends Controller {
             'user' => array(
                 'name_user' => htmlentities($post['nom']),
                 'first_name' => htmlentities($post['prenom']),
-                'email' => htmlentities($post['courriel'])
+                'email' => htmlentities($post['courriel']),
+                'type' => 'student'
             )
         ]);
 

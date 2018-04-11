@@ -9,7 +9,7 @@ class HasContained extends Model {
     protected $table = 'has_contained';
 
     protected $fillable = array(
-        'number_item'
+        'item_number'
     );
 
     public function item() {

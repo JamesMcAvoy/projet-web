@@ -9,7 +9,7 @@ class Category extends Model {
     protected $table = 'categories';
 
     protected $fillable = array(
-        'name_category'
+        'category_name'
     );
 
     public function item() {

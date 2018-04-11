@@ -6,7 +6,7 @@
 
 	"CONF_DBDRIVER": "mysql",
 	"CONF_DBHOST": "localhost",
-	"CONF_DBNAME": "site_bde",
+	"CONF_DBNAME": "bde_website",
 	"CONF_DBUSER": "root",
 	"CONF_DBPASS": ""
 }
