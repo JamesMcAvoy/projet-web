@@ -30,13 +30,13 @@ final class Login extends Controller {
                 $user = User::where('email','=', $post['email'])->get();
                 if(($user['email'] == $post['email']) && (password_verify($post['mdp'], $user['password']))){
                     $session->setContents(
-                        $user['email'],
-                        $user['name_user'],
-                        $user['first_name'],
-                        $user['type'],
-                        self::token()
+                        'email' -> $user['email'],
+                        'name_user' -> $user['name_user'],
+                        'first_name' -> $user['first_name'],
+                        'type' -> $user['type'],
+                        'token' -> self::token()
                     );
-                    return $res->withStatus(304)->withHeader('Location', '/');
+                    return $res->withStatus(302)->withHeader('Location', '/');
                 }
                 else{
                     $error[] = "votre email ou votre mot de passe sont incorrecte";
