@@ -7,12 +7,9 @@ use Models\Model;
 
 final class Login extends Controller {
 
-
-
     public static function login($req,$res){
 
         $session = parent::getSession($req);
-        $session->begin();
 
         $post = $req->getParseBody();
 
@@ -45,10 +42,10 @@ final class Login extends Controller {
             else{
                 $error[] = "votre email ou votre mot de passe sont incorrecte";
             }
+            
         }
-           
-    }
 
+    }
 
 }
 
