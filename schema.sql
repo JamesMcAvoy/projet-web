@@ -338,6 +338,7 @@ CREATE TABLE `users` (
   `email` varchar(64) NOT NULL,
   `password` varchar(128) NOT NULL,
   `type` varchar(32) NOT NULL DEFAULT 'student'
+  `id_basket`  Int(11) NOT NULL ,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -466,6 +467,7 @@ ALTER TABLE `registered`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
+  ADD KEY `FK_users_id_basket` (`id_basket`);
 
 --
 -- Index pour la table `voted`
@@ -603,6 +605,12 @@ ALTER TABLE `pictures`
 ALTER TABLE `registered`
   ADD CONSTRAINT `FK_registered_id_event` FOREIGN KEY (`id_event`) REFERENCES `events` (`id_event`),
   ADD CONSTRAINT `FK_registered_id_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+
+--
+-- Contraintes pour la table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `FK_users_id_basket` FOREIGN KEY (`id_basket`) REFERENCES `basket` (`id_basket`);
 
 --
 -- Contraintes pour la table `voted`
