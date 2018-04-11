@@ -1,5 +1,9 @@
 @extends('template')
-
+	
+	@section('title')
+		BDE Exia Strasbourg
+	@stop
+	
 	@section('main_content')	
         <div class="baniere">
             <h1>BDE EXIA STRASBOURG</h1>

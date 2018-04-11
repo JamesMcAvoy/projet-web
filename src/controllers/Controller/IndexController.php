@@ -12,12 +12,19 @@ final class IndexController extends Controller {
 
     }
     
-    public static function inscription($req, $res) {
-        self::getSession($req)->begin();
-        var_dump(self::getSession($req)->getContents());
-        
-        return self::render($res, 'inscription');
+		public static function evenements($req, $res) {
+
+        return self::render($res, 'evenements');
 
     }
+		public static function boite_a_idees($req, $res) {
 
+        return self::render($res, 'boite_a_idees');
+
+    }
+		public static function proposer_idee($req, $res) {
+
+        return self::render($res, 'proposer_idee');
+
+    }
 }
