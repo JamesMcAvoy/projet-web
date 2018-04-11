@@ -11,12 +11,6 @@ $router = new Router();
 /**
  * HTTP errors
  */
-$router->setParam('403', function(Request $request, Response $response) {
-
-    return ErrorController::error403($request, $response);
-
-});
-
 $router->setParam('404', function(Request $request, Response $response) {
 
     return ErrorController::error404($request, $response);
