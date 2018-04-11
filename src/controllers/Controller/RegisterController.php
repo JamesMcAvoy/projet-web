@@ -13,7 +13,7 @@ final class RegisterController extends Controller {
         $session->begin();
 
         //Prevent register
-        if(self::sessionActive($session))
+        if(self::sessionUserActive($session))
             return $res->withStatus(302)->withHeader('Location', '/');
 
         $post = $req->getParsedBody();
@@ -36,28 +36,29 @@ final class RegisterController extends Controller {
         //If errors
         if(!empty($errors)) {
             $session->setContents([
-                'errors' => $errors
+                'msg' => $errors
             ]);
             return $res->withStatus(302)->withHeader('Location', '/');
         }
 
-        /**
-         * @todo
-         */
         $session->setContents([
             'user' => array(
-                'name_user' => htmlentities($post['nom']),
-                'first_name' => htmlentities($post['prenom']),
-                'email' => htmlentities($post['courriel']),
-                'type' => 'student'
+                'name_user'     => htmlentities($post['nom']),
+                'first_name'    => htmlentities($post['prenom']),
+                'email'         => htmlentities($post['courriel']),
+                'type'          => 'student',
+                'token'         => self::token()
+            ),
+            'msg' => array(
+                'Votre compte a été créé. Vous pouvez maintenant vous connecter.'
             )
         ]);
 
         //model
         $user = Model\User::create([
-            'name_user'     => $post['nom'],
-            'first_name'    => $post['prenom'],
-            'email'         => $post['courriel'],
+            'name_user'     => htmlentities($post['nom']),
+            'first_name'    => htmlentities($post['prenom']),
+            'email'         => htmlentities($post['courriel']),
             'password'      => password_hash($post['mdp'], PASSWORD_BCRYPT)
         ]);
 
