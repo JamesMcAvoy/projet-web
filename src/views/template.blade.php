@@ -28,7 +28,18 @@
 					<a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="/evenements">Evènements</a>
+
+					<a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    				Evènements
+  					</a>
+  					<div class="collapse" id="collapseExample">
+  						<div class="row" class="card card-body">
+   						 <a class="col-md-3 nav-link" href="/evenements">Evènements du mois</a> 
+   						 <a class="col-md-3 nav-link" href="/evenements">Historique des evènements</a>
+   						 <a class="col-md-3 nav-link" href="/evenements">Boite à idées</a>
+   						 <a class="col-md-3 nav-link" href="/evenements">Proposer vos idées</a>
+ 						 </div>
+					</div>
 				  </li>
 				  <li class="nav-item">
 					<a class="nav-link" href="/boutique">Boutique</a>
