@@ -7,74 +7,30 @@ use Models\Model;
 
 final class Events extends Controller {
 
-    public static function eventMonth($req,$res){
-
-        $session = parent::getSession($req)->getContents();
-        $params = $req->getQueryParams();
-
-    }
 
     public static function event($req, $res){
 
-        $session = parent::getSession($req)->getContents();
-        $params = $req->getQueryParams();
+        $eventUp = Event::where('event_state', '=', 'up');
+        $eventEnded = Event::where('event_state', '=', 'ended');
+        $eventBlocked = Event::were('event_state', '=', 'Blocked');
+        $event = [];
+        $event->setContent([
+            'up' => $eventUp,
+            'ended' => $eventEnded,
+            'blocked' => $eventBlocked
+        ]);
 
-        $event = Event::all();
         return self::render($res,'evenements',$event);
-        if($session->getContent()){
-
-        }
-
-
-
-        if(isset($params['token']) && ($params['token'] == $session['user']['token'])){
-            switch($session['type']){
-                case 'sutdent':
-                return $res->withStatus(302)->withHeader('Location', '/evenements');
-                break;
-                case 'BDE' :
-                return $res->withStatus(302)->withHeader('Location', '/evenements');
-                break;
-                case 'employee':
-                return $res->withStatus(302)->withHeader('Location', '/evenements');
-                break;
-            }
-        }
-        else{
-//get event passer en paramette à la vue
-//render
-//si utilisateur connecté 
-//session get content
-//user session user type
-//si pas égale tudent
-//suppr image
-        }
-
     }
 
-    public static function eventAdministration($req, $res){
-
-        $session = parent::getSession($req)->getContents();
-        $params = $req->getQueryParams();
-
+    public static function eventMonth($req, $res){
+        $date = time() - (21*24*60*60);
+        $event = Event::where('event_state', '=', 'up' && 'start_date', '>', $date->format('U = Y-m-d H:i:s'));
+        return self::render($res,'evenements',$event);
     }
-
-    public static function eventRegistration($req, $res){
-
-        $session = parent::getSession($req)->getContents();
-        $params = $req->getQueryParams();
-
-    }
-
-    public static function eventBlock(){
-     
-        $session = parent::getSession($req)->getContents();
-        $params = $req->getQueryParams();
-
-    }
-
 
 }
+
 
 /*
 évenements du moi visible pour tous
