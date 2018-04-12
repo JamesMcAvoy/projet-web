@@ -69,6 +69,13 @@
 			  <button type="submit" class="btn btn-outline-dark">Inscription</button>
 			</div>
 		  </div>
+		  <div class="row">
+				<div class="col-sm-2">
+				</div>
+				<div class="col-sm-7">
+				<a href="/login">Déjà inscrit ? Clique-ici pour te connecter !</a>
+				</div>
+			</div>
 		</form>
 		</div>
 	</div>
