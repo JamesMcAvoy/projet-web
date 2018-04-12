@@ -262,6 +262,7 @@ CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `order_price` float NOT NULL,
+  `order_state` ENUM('waiting', 'valid') NOT NULL DEFAULT 'waiting',
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
