@@ -9,11 +9,19 @@ final class Ideas extends Controller {
 
     public static function ideas($req,$res){
 
-        $session = parent::getSession($req);
+        $ideaWaiting = Event::where('idea_state', '=', 'waiting');
+        $ideaValid = Event::where('idea_state', '=', 'valid');
+        $ideaBlocked = Event::were('idea_state', '=', 'Blocked');
+        $idea = [];
+        $idea->setContent([
+            'waiting' => $ideaWaiting,
+            'valid' => $ideaValid,
+            'blocked' => $ideaBlocked
+        ]);
 
-        $post = $req->getParseBody();
-
+        return self::render($res,'evenements',$idea);
     }
+
 }
 
 /*
