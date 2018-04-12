@@ -42,7 +42,7 @@
 				<div class="col-sm-2">
 				</div>
 				<div class="col-sm-7">
-				<a href="/inscription">Pas encore inscrit ? Clique-ici pour t'inscrire !</a>
+				<a href="/register">Pas encore inscrit ? Clique-ici pour t'inscrire !</a>
 				</div>
 			</div>
 		</div>

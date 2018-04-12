@@ -34,7 +34,7 @@
 					<a class="nav-link" href="/boutique">Boutique</a>
 				  </li>
 				</ul>
-					<a id="btn_connexion" href="/connexion" class="btn btn-outline-light btn-lg " role="button" aria-pressed="true">Connexion</a>
+					<a id="btn_connexion" href="/login" class="btn btn-outline-light btn-lg " role="button" aria-pressed="true">Connexion</a>
 			  </div>
 			</nav>	
 		</header>
