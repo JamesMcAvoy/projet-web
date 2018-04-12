@@ -7,7 +7,7 @@
 	@section('main_content')	
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
-		<form>
+		<form action="/register" method="post">
 		  <div class="form-group row">
 			<div class="col-sm-2">
 			</div>
