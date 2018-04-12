@@ -69,57 +69,14 @@
 			  <button type="submit" class="btn btn-outline-dark">Inscription</button>
 			</div>
 		  </div>
+		  <div class="row">
+				<div class="col-sm-2">
+				</div>
+				<div class="col-sm-7">
+				<a href="/login">Déjà inscrit ? Clique-ici pour te connecter !</a>
+				</div>
+			</div>
 		</form>
 		</div>
 	</div>
-	
-	<script>
-		$(document).ready(function(){
-			$('[data-toggle="tooltip"]').tooltip();							
-			$( "form" ).submit(function( event ) {
-			  if ( ($( "#MotDePasseConfirmation" ).val() === $( "#MotDePasseInscription" ).val()) && ($( "#MotDePasseInscription" ).val()!== '' )&& ($( "#MotDePasseConfirmation" ).val()!== '' )&& ($( "#NomInscription" ).val()!== '' )&& ($( "#PrenomInscription" ).val()!== '' )&& ($( "#Email" ).val()!== '' )) {
-				return;
-			  }
-			  else
-			  {
-				$("#NomInscription").addClass("is-valid");
-				$("#PrenomInscription").addClass("is-valid");
-				$("#Email").addClass("is-valid");
-				$("#MotDePasseInscription").addClass("is-valid");
-				$("#MotDePasseConfirmation").addClass("is-valid");
-				
-				if($( "#MotDePasseConfirmation" ).val() !== $( "#MotDePasseInscription" ).val())
-				{
-					$("#MotDePasseConfirmation").removeClass("is-valid");
-					$("#MotDePasseConfirmation").addClass("is-invalid");
-				}
-				if($( "#NomInscription" ).val() == '')
-				{
-					$("#NomInscription").addClass("is-invalid");
-				}
-				if($( "#PrenomInscription" ).val() == '')
-				{
-					$("#PrenomInscription").addClass("is-invalid");
-				}
-				if($( "#Email" ).val() == '')
-				{
-					$("#Email").addClass("is-invalid");
-				}
-				if($( "#MotDePasseInscription" ).val() == '')
-				{
-					$("#MotDePasseInscription").addClass("is-invalid");
-					$("#feedbackMDP").text("Veuillez rentrer un mot de passe");
-				}
-				/* if(Mot de passe invalide)
-				{
-				$("#feedbackMDP").text("Le mot de passe ne respecte pas les conditions: Au moins: Une majuscule / Une minuscule / Un chiffre / 8 caractères");
-				} */
-				
-			  event.preventDefault();
-			  }
-			});
-			
-			
-		});
-	</script>
 	@stop
