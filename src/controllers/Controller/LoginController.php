@@ -37,8 +37,8 @@ final class LoginController extends Controller {
         if(User::where('email', '=', $post['courriel'])) {
             $user = User::where('email', '=', $post['courriel'])->get();
 
-            if(password_verify($post['mdp'], $user->password])) {
-                $session->setContents(
+            if(password_verify($post['mdp'], $user->password)) {
+                $session->setContents([
                     'user' => array(
                         'email'         => $user->email,
                         'name_user'     => $user->name_user,
@@ -46,7 +46,7 @@ final class LoginController extends Controller {
                         'type'          => $user->type,
                         'token'         => self::token()
                     )
-                );
+                ]);
                 return $res->withStatus(302)->withHeader('Location', '/');
             } else {
                 $errors[] = "Votre courriel ou votre mot de passe est incorrect.";
