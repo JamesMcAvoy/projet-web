@@ -5,7 +5,9 @@ use PsrRouter\PsrRouter as Router,
     React\Http\Response,
     Controllers\Controller\IndexController,
     Controllers\Controller\ErrorController,
-    Controllers\Controller\RegisterController;
+    Controllers\Controller\RegisterController,
+    Controllers\Controller\LoginController,
+    Controllers\Controller\LogoutController;
 
 $router = new Router();
 
@@ -33,48 +35,48 @@ $router->get('/', function(Request $request, Response $response) {
 
 });
 
+$router->get('/login', function(Request $request, Response $response) {
+
+    return LoginController::index($request, $response);
+
+});
+$router->post('/login', function(Request $request, Response $response) {
+
+    return LoginController::login($request, $response);
+
+});
+
+$router->get('/logout', function(Request $request, Response $response) {
+
+    return LogoutController::logout($request, $response);
+
+});
+
+$router->get('/register', function(Request $request, Response $response) {
+    
+    return RegisterController::index($request, $response);
+
+});
 $router->post('/register', function(Request $request, Response $response) {
 
     return RegisterController::register($request, $response);
 
 });
 
-$router->post('/login', function(Request $request, Response $response) {
-
-    return $response;
-
-});
-
-$router->get('/connexion', function(Request $request, Response $response) {
-	
-	return IndexController::connexion($request, $response);
-});
-
-$router->get('/inscription', function(Request $request, Response $response) {
-	
-	return IndexController::inscription($request, $response);
-});
-
+/**
+ * @todo
+ */
 $router->get('/evenements', function(Request $request, Response $response) {
-	
-	return IndexController::evenements($request, $response);
+    
+    return IndexController::evenements($request, $response);
 });
 
 $router->get('/boite_a_idees', function(Request $request, Response $response) {
-	
-	return IndexController::boite_a_idees($request, $response);
+    
+    return IndexController::boite_a_idees($request, $response);
 });
 
 $router->get('/proposer_idee', function(Request $request, Response $response) {
-	
-	return IndexController::proposer_idee($request, $response);
-});
-
-/**
- * @todo CSRF token
- */
-$router->get('/logout', function(Request $request, Response $response) {
-
-    return $response;
-
+    
+    return IndexController::proposer_idee($request, $response);
 });

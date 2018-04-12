@@ -7,6 +7,12 @@ use Controllers\Controller,
 
 final class RegisterController extends Controller {
 
+    public static function index($req, $res) {
+
+        return self::render($res, 'register');
+
+    }
+
     public static function register($req, $res) {
 
         $session = self::getSession($req);
@@ -37,7 +43,7 @@ final class RegisterController extends Controller {
             $session->setContents([
                 'msg' => $errors
             ]);
-            return $res->withStatus(302)->withHeader('Location', '/');
+            return $res->withStatus(302)->withHeader('Location', '/register');
         }
 
         $session->setContents([
@@ -63,7 +69,7 @@ final class RegisterController extends Controller {
 
         $user->basket()->create();
 
-        return $res->withStatus(302)->withHeader('Location', '/');
+        return $res->withStatus(302)->withHeader('Location', '/register');
 
     }
 

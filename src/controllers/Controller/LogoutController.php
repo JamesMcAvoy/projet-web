@@ -12,7 +12,8 @@ final class LogoutController extends Controller {
         $session = parent::getSession($req)->getContents();
         $params = $req->getQueryParams();
 
-        if(isset($params['token']) && ($params['token'] == $session['user']['token'])) {
+        if(isset($params['token']) && self::sessionUserActive($session) && ($params['token'] == $session['user']['token'])) {
+        	//destroy session
             $session->end();
         }
         return $res->withStatus(302)->withHeader('Location', '/');

@@ -7,6 +7,12 @@ use Controllers\Controller,
 
 final class LoginController extends Controller {
 
+    public static function index($req, $res) {
+
+        return self::render($res, 'login');
+
+    }
+
     public static function login($req, $res){
 
         $session = parent::getSession($req);
@@ -31,7 +37,7 @@ final class LoginController extends Controller {
             $session->setContents([
                 'msg' => $errors
             ]);
-            return $res->withStatus(302)->withHeader('Location', '/');
+            return $res->withStatus(302)->withHeader('Location', '/login');
         }
 
         if(User::where('email', '=', $post['courriel'])) {
@@ -47,7 +53,7 @@ final class LoginController extends Controller {
                         'token'         => self::token()
                     )
                 ]);
-                return $res->withStatus(302)->withHeader('Location', '/');
+                return $res->withStatus(302)->withHeader('Location', '/login');
             } else {
                 $errors[] = "Votre courriel ou votre mot de passe est incorrect.";
             }  
@@ -59,7 +65,7 @@ final class LoginController extends Controller {
         $session->setContents([
             'msg' => $errors
         ]);
-        return $res->withStatus(302)->withHeader('Location', '/');
+        return $res->withStatus(302)->withHeader('Location', '/login');
 
     }
 
