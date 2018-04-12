@@ -282,12 +282,12 @@ CREATE TABLE `orders` (
 DROP TABLE IF EXISTS `pictures`;
 CREATE TABLE `pictures` (
   `picture_id` int(11) NOT NULL,
-  `picture_title` varchar(64) NOT NULL,
+  `picture_title` varchar(64) NOT NULL DEFAULT '',
   `picture_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `picture` longblob NOT NULL,
   `picture_desc` text NOT NULL DEFAULT '',
   `picture_number_like` int(11) NOT NULL DEFAULT '0',
-  `pciture_state` varchar(25) NOT NULL DEFAULT 'valid',
+  `picture_state` ENUM('valid', 'blocked') NOT NULL DEFAULT 'valid',
   `event_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
