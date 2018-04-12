@@ -120,8 +120,8 @@ CREATE TABLE `events` (
   `event_price` float NOT NULL,
   `event_picture` longblob NOT NULL,
   `start_date` timestamp NOT NULL,
-  `time` time NOT NULL,
-  `time_between_each` time NOT NULL DEFAULT '00:00:00',
+  `time` int(64) NOT NULL,
+  `time_between_each` int(64) NOT NULL DEFAULT '0',
   `event_number` int(11) NOT NULL DEFAULT '1',
   `event_state` ENUM('up', 'ended', 'blocked') NOT NULL DEFAULT 'up'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
