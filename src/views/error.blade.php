@@ -2,7 +2,7 @@
 @extends('template')
     
     @section('title')
-        BDE Exia Strasbourg
+        ERROR
     @stop
     
     @section('main_content')    

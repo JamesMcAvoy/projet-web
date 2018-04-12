@@ -40,8 +40,8 @@ final class LoginController extends Controller {
             return $res->withStatus(302)->withHeader('Location', '/login');
         }
 
-        if(User::where('email', '=', $post['courriel'])) {
-            $user = User::where('email', '=', $post['courriel'])->get();
+        if(Model\User::where('email', '=', $post['courriel'])) {
+            $user = Model\User::where('email', '=', $post['courriel'])->get();
 
             if(password_verify($post['mdp'], $user->password)) {
                 $session->setContents([

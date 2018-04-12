@@ -44,3 +44,27 @@ li
 	position: relative;
 	right: 0;
 }
+
+.card.card-body
+{
+	background-color: #AB091A;
+	border: none;
+}
+
+a.nav-link
+{
+	text-align: center;
+}
+
+a.col-md-3.nav-link
+{
+	
+	font-size: 0.7em;
+}
+
+
+
+
+
+
+
