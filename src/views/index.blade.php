@@ -46,6 +46,8 @@
             <p>évènements du mois</p>
         </div>
 
+        <div>
+
         <div class="card-group">
           <div class="card">
             <img class="card-img-top" src="/img/nuitInfo.jpg" alt="Card image cap">
@@ -78,7 +80,8 @@
             </div>
           </div>
         </div>
-
+        
+        </div>
 
 
 
