@@ -29,6 +29,7 @@ final class Events extends Controller {
         return self::render($res,'evenements',$event);
     }
 
+
 }
 
 
