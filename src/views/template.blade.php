@@ -53,7 +53,7 @@
 				<h6 class="col-md-4 col-sm-12">&copy; Copyright 2018</h6>
 				<h6 class="col-md-4 col-sm-12">Projet WEB 2018 Exia Strasbourg</h6>
 				<div class="col-md-4 col-sm-12">
-					<a href="https://www.facebook.com/BdeExiaStrasbourg/"  target="_blank" ><img src="/img/facebook.png" class="col-md-3 col-sm-6" alt="facebook"></a>
+					<a class="col-md-3" href="https://www.facebook.com/BdeExiaStrasbourg/"  target="_blank" ><img src="/img/facebook.png"  alt="facebook" height="50" width="50"></a>
 				</div>
 			</div>
 		</div>
