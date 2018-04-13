@@ -9,16 +9,16 @@ final class Shop extends Controller {
 
     public static function shop($req,$res){
 
-        $session = parent::getSession($req);
+        $goodies = Model\Item::all();
 
-        $post = $req->getParseBody();
+        return self::render($res,'evenements',$goodies);
 
     }
 }
 
 /*
 Visiteur : peux voir les produits proposés
-- 3 articles les plus commendés
+- 3 articles les plus commandés
 - filtre...
 Connecté : 
 - peux faire un panier avec les différents éléments à commander. 
