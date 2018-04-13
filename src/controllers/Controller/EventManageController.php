@@ -7,29 +7,35 @@ use Models\Model;
 
 final class EventManageController extends Controller {
 
+    public static function index($req, $res) {
+
+        $post = $req->getParsedBody(); 
+
+        $event = Model\Event::where('item_id', '=', $post['item_id'])->get()->first();
+        return self::render($res,'ManageEvent',$event);
+
+    }
+
     public static function eventManage($req, $res){
 
-        $session = parent::getSession($req)->getContents();
-        $params = $req->getQueryParams();
-        
-        
-
         $post = $req->getParsedBody();       
+        
+        $date_time = htmlentities($post['date'])." ".htmlentities($post['hour']);    
 
-        $user = Model\Event::create([
+        $user = Model\Event::update([
             'event_title'       => htmlentities($post['event_title']),
             'event'             => htmlentities($post['event']),
             'event_price'       => htmlentities($post['event_price']),
-            'start_date'        => htmlentities($post['start_date']),
+            'event_picture'     => htmlentities($post['event_picture']),
+            'start_date'        => $date_time,
             'time'              => htmlentities($post['time']),
             'time_between_each' => htmlentities($post['time_between_each']),
             'event_number'      => htmlentities($post['event_number']),
             'event_state'       => htmlentities($post['event_state'])
-        ]);
-        return $res->withStatus(302)->withHeader('Location', '/evenements');
-    }
+        ])->first();
 
-    
+        return $res->withStatus(302)->withHeader('Location', '/evenements');
+    }   
     
 }
 
