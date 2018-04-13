@@ -55,9 +55,19 @@
 			<div class="form-group row">
 			<div class="col-sm-2">
 		  </div>
-			<label for="datetime" class="col-sm-2 col-form-label">date </label>
+			<label for="date" class="col-sm-2 col-form-label">date </label>
 			<div class="col-sm-6">
-			  <input type="datetime" class="form-control" id="datetime" placeholder="Date"  title ="year, month, day, hour, minute, second, and fraction of a second" name="start_date" >
+			  <input type="date" class="form-control" id="date" placeholder="Date" name="date" >
+				<div id="feedbackMDP" class="invalid-feedback">
+				</div>
+			</div>
+		  </div>
+			<div class="form-group row">
+			<div class="col-sm-2">
+		  </div>
+			<label for="hour" class="col-sm-2 col-form-label">Heure </label>
+			<div class="col-sm-6">
+			  <input type="time" class="form-control" id="hour" placeholder="Heure" name="hour" >
 				<div id="feedbackMDP" class="invalid-feedback">
 				</div>
 			</div>
@@ -76,7 +86,7 @@
           <div class="form-group row">
 			<div class="col-sm-2">
 			</div>
-			<label for="between" class="col-sm-2 col-form-label">temps entre deux évenement l'évenement</label>
+			<label for="between" class="col-sm-2 col-form-label">temps entre deux évenement</label>
 			<div class="col-sm-6">
             <input type="number" class="form-control" id="between" placeholder="between" name="time_between_each">
 			  <div class="invalid-feedback">
@@ -99,12 +109,12 @@
 			<div class="col-sm-2">
 			</div>
 			<label for="state" class="col-sm-2 col-form-label">Etat de l'évenement</label>
-			<div class="col-sm-6">
-            <select form="form-control" id="state" placeholder="state" name="event_number">
-                <option value="up">actif</option>
-                <option value="ended">terminé</option>
-                <option value="blocked">bloqué</option>
-            </select>
+			<div class="col-sm-6">			
+				<select id="state" placeholder="state" name="event_state">
+          <option value="up">up</option>
+          <option value="ended">ended</option>
+          <option value="blocked">blocked</option>
+          </select>
 			</div>
 		  </div>
 		  <div class="form-group row">

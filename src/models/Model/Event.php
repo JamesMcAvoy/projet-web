@@ -21,7 +21,7 @@ class Event extends Model {
     );
 
     protected $attributes = array(
-        /*'time_between_each' => '00:00:00',*/
+        //'time_between_each' => '00:00:00',
         'event_number' => '1'
     );
 
