@@ -11,17 +11,17 @@ class Event extends Model {
     protected $fillable = array(
         'event_title',
         'event',
+        'event_price',
         'event_picture',
         'start_date',
-        'state_event',
         'time',
         'time_between_each',
         'event_number',
-        'event_price'
+        'event_state'
     );
 
     protected $attributes = array(
-        'time_between_each' => '00:00:00',
+        /*'time_between_each' => '00:00:00',*/
         'event_number' => '1'
     );
 

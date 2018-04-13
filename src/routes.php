@@ -7,7 +7,8 @@ use PsrRouter\PsrRouter as Router,
     Controllers\Controller\ErrorController,
     Controllers\Controller\RegisterController,
     Controllers\Controller\LoginController,
-    Controllers\Controller\LogoutController;
+    Controllers\Controller\LogoutController,
+    Controllers\Controller\EventCreateController;
 
 $router = new Router();
 
@@ -63,6 +64,18 @@ $router->post('/register', function(Request $request, Response $response) {
 
 });
 
+$router->get('/CreateEvent', function(Request $request, Response $response) {
+    
+    return EventCreateController::index($request, $response);
+
+});
+$router->post('/CreateEvent', function(Request $request, Response $response) {
+
+    return EventCreateController::eventCreate($request, $response);
+
+});
+
+
 /**
  * @todo
  */
@@ -80,3 +93,4 @@ $router->get('/proposer_idee', function(Request $request, Response $response) {
     
     return IndexController::proposer_idee($request, $response);
 });
+
