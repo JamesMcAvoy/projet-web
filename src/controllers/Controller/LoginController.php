@@ -41,7 +41,7 @@ final class LoginController extends Controller {
         }
 
         if(Model\User::where('email', '=', $post['courriel'])) {
-            $user = Model\User::where('email', '=', $post['courriel'])->get();
+            $user = Model\User::where('email', '=', $post['courriel'])->get()->first();
 
             if(password_verify($post['mdp'], $user->password)) {
                 $session->setContents([

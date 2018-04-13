@@ -68,7 +68,7 @@ footer
 	background-color: rgb(245,245,245);
 	width: 100%
 	bottom: 0;
-	text-align: center;
+	text-align: justify-all;
 	font-size: 0.6em;
 }
 
@@ -76,5 +76,48 @@ footer
 {
 	width: 100%;
 }
+
+.copyright
+{
+	height: 1em;
+}
+
+/*{
+	max-height: 200px;
+	min-height: 200px;
+
+}
+
+div.carousel-item.active
+{
+	max-height: 300px;
+	min-height: 300px;
+}
+*/
+.aligner
+{
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
