@@ -30,10 +30,9 @@
   					</a>
   					<div class="collapse" id="collapseExample">
   						<div class="row" class="card card-body">
-   						 <a class="col-md-3 nav-link" href="/evenements">Evènements du mois</a> 
-   						 <a class="col-md-3 nav-link" href="/evenements">Historique des evènements</a>
-   						 <a class="col-md-3 nav-link" href="/evenements">Boite à idées</a>
-   						 <a class="col-md-3 nav-link" href="/evenements">Proposer vos idées</a>
+   						 <a class="col-md-4 nav-link" href="/evenements">Les evènements</a>
+   						 <a class="col-md-4 nav-link" href="/evenements">Boite à idées</a>
+   						 <a class="col-md-4 nav-link" href="/evenements">Proposer vos idées</a>
  						 </div>
 					</div>
 				  </li>

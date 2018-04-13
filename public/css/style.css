@@ -63,7 +63,13 @@ a.col-md-3.nav-link
 }
 
 
-
+footer
+{
+	position: relative;
+	background-color: rgb(250,250,250);
+	width: 100%
+	bottom: 0;
+}
 
 
 
