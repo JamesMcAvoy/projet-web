@@ -14,7 +14,7 @@
 	<div class="container">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark">
-			  <a class="navbar-brand" href="#"><img id="logo_exia" src="/img/exialogo.png" alt="Logo Exia"/></a>
+			  <a class="navbar-brand" href=""><img id="logo_exia" src="/img/exialogo.png" alt="Logo Exia"/></a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
@@ -48,9 +48,15 @@
 		@yield('main_content')
 	</div>
 		<footer>
-
-		<p>copyright<br>MathouDreamTeam</p>
-		
+		<div class="container">
+			<div class="row aligner">	
+				<h6 class="col-md-4 col-sm-12">&copy; Copyright 2018</h6>
+				<h6 class="col-md-4 col-sm-12">Projet WEB 2018 Exia Strasbourg</h6>
+				<div class="col-md-4 col-sm-12">
+					<a href="https://www.facebook.com/BdeExiaStrasbourg/"  target="_blank" ><img src="/img/facebook.png" class="col-md-3 col-sm-6" alt="facebook"></a>
+				</div>
+			</div>
+		</div>
 		</footer>
 	
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
