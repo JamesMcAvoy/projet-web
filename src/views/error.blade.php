@@ -22,7 +22,8 @@
             <h4 class="alert-heading">AH!</h4>
             <p class="A">{{ $code }} error  </p>
             <hr>
-            <p class="A">Oups désolé la page {{ $message }} n'existe pas <img class="smiley" src="/img/{{$smiley}}" alt="smiley"> </p>
+            <p class="A">Oups désolé  {{ $message }} 
+            <img class="smiley" src="/img/{{$smiley}}" alt="smiley"> </p>
         </div>
 
         <div class="oui"><img class="logo" src="/img/{{$background}}" alt="logo bde"></div>
