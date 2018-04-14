@@ -14,7 +14,10 @@
 	<div class="container">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark">
-			  <a class="navbar-brand" href="/"><img id="logo_exia" src="/img/exialogo.png" alt="Logo Exia"/></a>
+			  <a class="navbar-brand" href="/">
+			  	<img id="logo_exia" src="/img/exialogo.png" alt="Logo Exia"/>
+			  	<img class="logo-bde-header" src="/img/logo-home.png" alt="Logo BDE"/>
+			  </a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>

@@ -29,6 +29,11 @@ header img
 	width: 100px;
 }
 
+.logo-bde-header {
+	margin-left: 7px;
+	width: 45px;
+}
+
 #vide_header
 {
 	top:0;
