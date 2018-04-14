@@ -9,6 +9,10 @@ final class RegisterController extends Controller {
 
     public static function index($req, $res) {
 
+        //Prevent register
+        if(self::sessionUserActive($req))
+            return $res->withStatus(302)->withHeader('Location', '/');
+
         return self::render($res, 'register');
 
     }
@@ -18,7 +22,7 @@ final class RegisterController extends Controller {
         $session = self::getSession($req);
 
         //Prevent register
-        if(self::sessionUserActive($session))
+        if(self::sessionUserActive($req))
             return $res->withStatus(302)->withHeader('Location', '/');
 
         $post = $req->getParsedBody();

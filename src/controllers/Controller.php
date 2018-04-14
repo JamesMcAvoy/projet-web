@@ -87,12 +87,12 @@ abstract class Controller {
 
     /**
      * Return if user session isset (active)
-     * @param WyriHaximus\React\Http\Middleware\Session
+     * @param React\Http\Io\ServerRequest $request
      * @return bool
      */
-    public static function sessionUserActive(SessionMiddleware\Session $session) : bool {
+    public static function sessionUserActive(Request $request) : bool {
 
-        return isset($session->getContents()['user']);
+        return isset(self::getSession($request)->getContents()['user']);
 
     }
 

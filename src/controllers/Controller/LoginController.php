@@ -9,6 +9,10 @@ final class LoginController extends Controller {
 
     public static function index($req, $res) {
 
+        //Prevent login
+        if(self::sessionUserActive($req))
+            return $res->withStatus(302)->withHeader('Location', '/');
+
         return self::render($res, 'login');
 
     }
@@ -17,8 +21,8 @@ final class LoginController extends Controller {
 
         $session = parent::getSession($req);
 
-        //Prevent register
-        if(self::sessionUserActive($session))
+        //Prevent login
+        if(self::sessionUserActive($req))
             return $res->withStatus(302)->withHeader('Location', '/');
 
         $post = $req->getParsedBody();

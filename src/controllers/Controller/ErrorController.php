@@ -20,7 +20,7 @@ final class ErrorController extends Controller {
 
     public static function error405($req, $res) {
 
-        return self::abort($res, 405, ['message' =>'la méthode '.$req->getMethod()." n'est pas authorisé", 'background' => 'BG.png', 'smiley' => 'AH.png']);
+        return self::abort($res, 405, ['message' =>'la méthode '.$req->getMethod()." n'est pas autorisée", 'background' => 'BG.png', 'smiley' => 'AH.png']);
 
     }
 
