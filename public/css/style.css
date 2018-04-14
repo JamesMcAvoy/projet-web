@@ -3,6 +3,16 @@ html
 	font-family: Verdana;	
 }
 
+body {
+	background-color: #F2F2F2;
+}
+
+.main-content {
+	padding: 20px;
+	background-color: #FFF;
+	min-height: 600px;
+}
+
 header
 {
 	position: fixed;
@@ -65,11 +75,12 @@ a.col-md-3.nav-link
 
 footer
 {
-	background-color: rgb(245,245,245);
-	width: 100%
+	background-color: #FFF;
+	width: 100%;
 	bottom: 0;
 	text-align: justify-all;
 	font-size: 0.6em;
+	padding: 10px;
 	margin-top: 40px;
 }
 
