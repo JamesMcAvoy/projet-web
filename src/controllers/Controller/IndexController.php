@@ -8,12 +8,13 @@ final class IndexController extends Controller {
 
     public static function index($req, $res) {
 
-        return self::render($res, 'index');
+        return self::render($res, 'index', ['user' => self::getSessionUser($req)]);
 
     } 
-/**
- * @todo
- */
+
+    /**
+     * @todo
+     */
     public static function evenements($req, $res) {
 
         return self::render($res, 'evenements');

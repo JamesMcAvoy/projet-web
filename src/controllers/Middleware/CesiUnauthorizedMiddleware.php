@@ -50,7 +50,7 @@ final class CesiUnauthorizedMiddleware {
         //Always being a session
         $session = Controller::getSession($request);
         $session->begin();
-
+        /*
         $session = $session->getContents();
 
         $pathUri = $request->getUri()->getPath();
@@ -71,7 +71,7 @@ final class CesiUnauthorizedMiddleware {
             }
 
         }
-
+        */
         return $next($request);
 
     }

@@ -26,7 +26,7 @@
 				  <li class="nav-item">
 
 					<a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    				Evènements
+    				Événements
   					</a>
   					<div class="collapse" id="collapseExample">
   						<div class="row card-body">
@@ -40,7 +40,11 @@
 					<a class="nav-link" href="/boutique">Boutique</a>
 				  </li>
 				</ul>
+				@if(isset($user))
+					<a id="btn_connexion" href="/logout?token={{ $user['token'] }}" class="btn btn-outline-light btn-lg " role="button" aria-pressed="true">Déconnexion</a>
+				@else
 					<a id="btn_connexion" href="/login" class="btn btn-outline-light btn-lg " role="button" aria-pressed="true">Connexion</a>
+			  	@endif
 			  </div>
 			</nav>	
 		</header>

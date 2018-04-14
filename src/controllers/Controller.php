@@ -70,6 +70,22 @@ abstract class Controller {
     }
 
     /**
+     * Return an array with user session
+     * @param React\Http\Io\ServerRequest $request
+     * @return Array|null
+     */
+    public static function getSessionUser(Request $request) {
+
+        return isset(
+            $request->getAttribute(SessionMiddleware\SessionMiddleware::ATTRIBUTE_NAME)
+                    ->getContents()['user']
+        ) ? $request->getAttribute(SessionMiddleware\SessionMiddleware::ATTRIBUTE_NAME)
+                    ->getContents()['user']
+        : null;
+
+    }
+
+    /**
      * Return if user session isset (active)
      * @param WyriHaximus\React\Http\Middleware\Session
      * @return bool

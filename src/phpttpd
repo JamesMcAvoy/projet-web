@@ -8,6 +8,7 @@ use React\EventLoop\Factory,
     React\Cache\ArrayCache,
     WyriHaximus\React\Http\Middleware\SessionMiddleware,
     WyriHaximus\React\Http\Middleware\WebrootPreloadMiddleware,
+    Controllers\Middleware\CesiUnauthorizedMiddleware as CesiAuth,
     Controllers\Middleware\HttpLogsMiddleware as Http,
     Controllers\Controller\ErrorController as Error;
 
@@ -40,9 +41,8 @@ $server = new Server([
         dirname(__DIR__).'/public'
     ),
 
-    /**
-     * @todo Cesi user middleware role unauthorized pages (403)
-     */
+    new CesiAuth([
+    ]),
 
     function($request) use(&$router) {
 

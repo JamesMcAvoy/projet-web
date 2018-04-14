@@ -53,7 +53,7 @@ final class LoginController extends Controller {
                         'token'         => self::token()
                     )
                 ]);
-                return $res->withStatus(302)->withHeader('Location', '/login');
+                return $res->withStatus(302)->withHeader('Location', '/');
             } else {
                 $errors[] = "Votre courriel ou votre mot de passe est incorrect.";
             }  
