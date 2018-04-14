@@ -29,7 +29,7 @@
     				Evènements
   					</a>
   					<div class="collapse" id="collapseExample">
-  						<div class="row" class="card card-body">
+  						<div class="row card card-body">
    						 <a class="col-md-4 nav-link" href="/evenements">Les evènements</a>
    						 <a class="col-md-4 nav-link" href="/evenements">Boite à idées</a>
    						 <a class="col-md-4 nav-link" href="/evenements">Proposer vos idées</a>
