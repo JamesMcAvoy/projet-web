@@ -23,10 +23,10 @@
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
-				  <li class="nav-item active">
-					<a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
+				  <li class="nav-item{{ (isset($route) && $route == 'accueil') ? ' active' : '' }}">
+					<a class="nav-link" href="/">Accueil</a>
 				  </li>
-				  <li class="nav-item">
+				  <li class="nav-item{{ (isset($route) && $route == 'events') ? ' active' : '' }}">
 
 					<a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     				Événements
@@ -39,7 +39,7 @@
  						 </div>
 					</div>
 				  </li>
-				  <li class="nav-item">
+				  <li class="nav-item{{ (isset($route) && $route == 'shop') ? ' active' : '' }}">
 					<a class="nav-link" href="/boutique">Boutique</a>
 				  </li>
 				</ul>
