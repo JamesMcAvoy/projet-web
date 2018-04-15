@@ -6,6 +6,6 @@
 	
 	@section('main_content')
 
-	<h1 id="events">Boutique</h1>
+	<h1>Boutique</h1>
 
 	@stop

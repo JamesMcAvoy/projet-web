@@ -68,6 +68,15 @@ $router->post('/register', function(Request $request, Response $response) {
 });
 
 /**
+ * Profil
+ */
+$router->get('/profil', function(Request $request, Response $response) {
+    
+    return Control\ProfilController::index($request, $response);
+
+});
+
+/**
  * Events/ideas
  */
 $router->get('/events', function(Request $request, Response $response) {
