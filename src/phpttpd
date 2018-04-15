@@ -38,7 +38,7 @@ $server = new Server([
     ),
 
     new WebrootPreloadMiddleware(
-        dirname(__DIR__).'/public'
+        dirname(__DIR__).CONF_PUBLIC_FOLDER
     ),
 
     new CesiAuth([

@@ -3,7 +3,7 @@
 use PsrRouter\PsrRouter as Router,
     React\Http\Io\ServerRequest as Request,
     React\Http\Response,
-    Controllers\Controller as Ctrl;
+    Controllers\Controller as Control;
 
 $router = new Router();
 
@@ -12,13 +12,13 @@ $router = new Router();
  */
 $router->setParam('404', function(Request $request, Response $response) {
 
-    return Ctrl\ErrorController::error404($request, $response);
+    return Control\ErrorController::error404($request, $response);
 
 });
 
 $router->setParam('405', function(Request $request, Response $response) {
 
-    return Ctrl\ErrorController::error405($request, $response);
+    return Control\ErrorController::error405($request, $response);
 
 });
 
@@ -27,28 +27,28 @@ $router->setParam('405', function(Request $request, Response $response) {
  */
 $router->get('/', function(Request $request, Response $response) {
 
-    return Ctrl\IndexController::index($request, $response);
+    return Control\IndexController::index($request, $response);
 
 });
 
 /**
- * Login
+ * Login/logout
  */
 $router->get('/login', function(Request $request, Response $response) {
 
-    return Ctrl\LoginController::index($request, $response);
+    return Control\LoginController::index($request, $response);
 
 });
 
 $router->post('/login', function(Request $request, Response $response) {
 
-    return Ctrl\LoginController::login($request, $response);
+    return Control\LoginController::login($request, $response);
 
 });
 
 $router->get('/logout', function(Request $request, Response $response) {
 
-    return Ctrl\LogoutController::logout($request, $response);
+    return Control\LogoutController::logout($request, $response);
 
 });
 
@@ -57,22 +57,22 @@ $router->get('/logout', function(Request $request, Response $response) {
  */
 $router->get('/register', function(Request $request, Response $response) {
     
-    return Ctrl\RegisterController::index($request, $response);
+    return Control\RegisterController::index($request, $response);
 
 });
 
 $router->post('/register', function(Request $request, Response $response) {
 
-    return Ctrl\RegisterController::register($request, $response);
+    return Control\RegisterController::register($request, $response);
 
 });
 
 /**
- * Events
+ * Events/ideas
  */
 $router->get('/events', function(Request $request, Response $response) {
     
-    return Ctrl\EventController::index($request, $response);
+    return Control\EventController::index($request, $response);
 
 });
 
@@ -81,7 +81,7 @@ $router->get('/events', function(Request $request, Response $response) {
  */
 $router->get('/shop', function(Request $request, Response $response) {
     
-    return Ctrl\ShopController::index($request, $response);
+    return Control\ShopController::index($request, $response);
 
 });
 
@@ -91,11 +91,11 @@ $router->get('/shop', function(Request $request, Response $response) {
  */
 $router->get('/CreateEvent', function(Request $request, Response $response) {
     
-    return Ctrl\EventCreateController::index($request, $response);
+    return Control\EventCreateController::index($request, $response);
 
 });
 $router->post('/CreateEvent', function(Request $request, Response $response) {
 
-    return Ctrl\EventCreateController::eventCreate($request, $response);
+    return Control\EventCreateController::eventCreate($request, $response);
 
 });

@@ -3,6 +3,7 @@
 	"CONF_COOKIE_NAME": "PHPSESSID",
 	"CONF_VIEWS_FOLDER": "/src/views",
 	"CONF_CACHE_FOLDER": "/src/views/cache",
+	"CONF_PUBLIC_FOLDER": "/public",
 
 	"CONF_DBDRIVER": "mysql",
 	"CONF_DBHOST": "localhost",
