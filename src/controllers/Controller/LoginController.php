@@ -13,6 +13,16 @@ final class LoginController extends Controller {
         if(self::sessionUserActive($req))
             return $res->withStatus(302)->withHeader('Location', '/');
 
+        $session = parent::getSession($req);
+        $sessionContents = $session->getContents();
+
+        if(isset($sessionContents['msg'])) {
+            $msg = $sessionContents['msg'];
+            unset($sessionContents['msg']);
+            $session->setContents($sessionContents);
+            return self::render($res, 'login', ['msg' => $msg]);
+        }
+
         return self::render($res, 'login');
 
     }
@@ -44,7 +54,7 @@ final class LoginController extends Controller {
             return $res->withStatus(302)->withHeader('Location', '/login');
         }
 
-        if(Model\User::where('email', '=', $post['courriel'])) {
+        if(Model\User::where('email', '=', $post['courriel'])->get()) {
             $user = Model\User::where('email', '=', $post['courriel'])->get()->first();
 
             if(password_verify($post['mdp'], $user->password)) {

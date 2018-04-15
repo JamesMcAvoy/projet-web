@@ -7,6 +7,16 @@
 	@section('main_content')	
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
+		@if(isset($msg))
+			<div class="page-header">
+				<h2>Erreur</h2>
+			</div>
+			<div class="alert alert-danger">
+				@foreach($msg as $line)
+					{{ $line }}<br />
+				@endforeach
+			</div>
+		@endif
 		<form method="post" action="/register">
 		  <div class="form-group row">
 			<div class="col-sm-2">

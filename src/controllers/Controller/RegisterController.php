@@ -13,6 +13,16 @@ final class RegisterController extends Controller {
         if(self::sessionUserActive($req))
             return $res->withStatus(302)->withHeader('Location', '/');
 
+        $session = parent::getSession($req);
+        $sessionContents = $session->getContents();
+
+        if(isset($sessionContents['msg'])) {
+            $msg = $sessionContents['msg'];
+            unset($sessionContents['msg']);
+            $session->setContents($sessionContents);
+            return self::render($res, 'register', ['msg' => $msg]);
+        }
+
         return self::render($res, 'register');
 
     }
@@ -46,6 +56,14 @@ final class RegisterController extends Controller {
         if(!empty($errors)) {
             $session->setContents([
                 'msg' => $errors
+            ]);
+            return $res->withStatus(302)->withHeader('Location', '/register');
+        }
+
+        //If email exists
+        if(Model\User::where('email', '=', $post['courriel'])->get()->first()) {
+            $session->setContents([
+                'msg' => ['L\'email existe déjà.']
             ]);
             return $res->withStatus(302)->withHeader('Location', '/register');
         }

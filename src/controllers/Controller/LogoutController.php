@@ -13,7 +13,7 @@ final class LogoutController extends Controller {
         $params = $req->getQueryParams();
 
         if(isset($params['token']) &&
-           self::sessionUserActive($session) &&
+           self::sessionUserActive($req) &&
            ($params['token'] == $session->getContents()['user']['token'])
         ) {
         	//destroy session
