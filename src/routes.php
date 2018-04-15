@@ -3,12 +3,7 @@
 use PsrRouter\PsrRouter as Router,
     React\Http\Io\ServerRequest as Request,
     React\Http\Response,
-    Controllers\Controller\IndexController,
-    Controllers\Controller\ErrorController,
-    Controllers\Controller\RegisterController,
-    Controllers\Controller\LoginController,
-    Controllers\Controller\LogoutController,
-    Controllers\Controller\EventCreateController;
+    Controllers\Controller as Ctrl;
 
 $router = new Router();
 
@@ -17,61 +12,76 @@ $router = new Router();
  */
 $router->setParam('404', function(Request $request, Response $response) {
 
-    return ErrorController::error404($request, $response);
+    return Ctrl\ErrorController::error404($request, $response);
 
 });
 
 $router->setParam('405', function(Request $request, Response $response) {
 
-    return ErrorController::error405($request, $response);
+    return Ctrl\ErrorController::error405($request, $response);
 
 });
 
 /**
- * Pages
+ * Index
  */
 $router->get('/', function(Request $request, Response $response) {
 
-    return IndexController::index($request, $response);
+    return Ctrl\IndexController::index($request, $response);
 
 });
 
+/**
+ * Login
+ */
 $router->get('/login', function(Request $request, Response $response) {
 
-    return LoginController::index($request, $response);
+    return Ctrl\LoginController::index($request, $response);
 
 });
+
 $router->post('/login', function(Request $request, Response $response) {
 
-    return LoginController::login($request, $response);
+    return Ctrl\LoginController::login($request, $response);
 
 });
 
 $router->get('/logout', function(Request $request, Response $response) {
 
-    return LogoutController::logout($request, $response);
+    return Ctrl\LogoutController::logout($request, $response);
 
 });
 
+/**
+ * Register
+ */
 $router->get('/register', function(Request $request, Response $response) {
     
-    return RegisterController::index($request, $response);
+    return Ctrl\RegisterController::index($request, $response);
 
 });
+
 $router->post('/register', function(Request $request, Response $response) {
 
-    return RegisterController::register($request, $response);
+    return Ctrl\RegisterController::register($request, $response);
 
 });
 
-$router->get('/CreateEvent', function(Request $request, Response $response) {
+/**
+ * Events
+ */
+$router->get('/events', function(Request $request, Response $response) {
     
-    return EventCreateController::index($request, $response);
+    return Ctrl\EventController::index($request, $response);
 
 });
-$router->post('/CreateEvent', function(Request $request, Response $response) {
 
-    return EventCreateController::eventCreate($request, $response);
+/**
+ * Shop
+ */
+$router->get('/shop', function(Request $request, Response $response) {
+    
+    return Ctrl\ShopController::index($request, $response);
 
 });
 
@@ -79,18 +89,13 @@ $router->post('/CreateEvent', function(Request $request, Response $response) {
 /**
  * @todo
  */
-$router->get('/evenements', function(Request $request, Response $response) {
+$router->get('/CreateEvent', function(Request $request, Response $response) {
     
-    return IndexController::evenements($request, $response);
-});
+    return Ctrl\EventCreateController::index($request, $response);
 
-$router->get('/boite_a_idees', function(Request $request, Response $response) {
-    
-    return IndexController::boite_a_idees($request, $response);
 });
+$router->post('/CreateEvent', function(Request $request, Response $response) {
 
-$router->get('/proposer_idee', function(Request $request, Response $response) {
-    
-    return IndexController::proposer_idee($request, $response);
+    return Ctrl\EventCreateController::eventCreate($request, $response);
+
 });
-

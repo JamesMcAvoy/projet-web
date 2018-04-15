@@ -33,21 +33,21 @@
   					</a>
   					<div class="collapse" id="collapseExample">
   						<div class="row card-body">
-   						 <a class="col-md-4 nav-link" href="/evenements">Les evènements</a>
-   						 <a class="col-md-4 nav-link" href="/evenements">Boite à idées</a>
-   						 <a class="col-md-4 nav-link" href="/evenements">Proposer vos idées</a>
+   						 <a class="col-md-4 nav-link" href="/events#events">Les evènements</a>
+   						 <a class="col-md-4 nav-link" href="/events#ideas">Boite à idées</a>
+   						 <a class="col-md-4 nav-link" href="/events#form">Proposer vos idées</a>
  						 </div>
 					</div>
 				  </li>
 				  <li class="nav-item{{ (isset($route) && $route == 'shop') ? ' active' : '' }}">
-					<a class="nav-link" href="/boutique">Boutique</a>
+					<a class="nav-link" href="/shop">Boutique</a>
 				  </li>
 				</ul>
 				@if(isset($user))
 					<a id="btn_connexion" href="/logout?token={{ $user['token'] }}" class="btn btn-outline-light btn-lg " role="button" aria-pressed="true">Déconnexion</a>
 				@else
 					<a id="btn_connexion" href="/login" class="btn btn-outline-light btn-lg " role="button" aria-pressed="true">Connexion</a>
-			  	@endif
+				@endif
 			  </div>
 			</nav>	
 		</header>

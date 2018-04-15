@@ -5,15 +5,22 @@ namespace Controllers\Controller;
 use Controllers\Controller;
 use Models\Model;
 
-final class Shop extends Controller {
+final class ShopController extends Controller {
 
+    public static function index($req, $res) {
+
+        return self::render($res, 'shop', ['route' => 'shop', 'user' => self::getSessionUser($req)]);
+
+    }
+
+/*
     public static function shop($req,$res){
 
         $goodies = Model\Item::all();
 
         return self::render($res,'evenements',$goodies);
 
-    }
+    }*/
 }
 
 /*
@@ -30,5 +37,3 @@ BDE :
 Autre:
 - préparer terrain : paypal.
 */
-
-?>
