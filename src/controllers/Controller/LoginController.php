@@ -64,6 +64,7 @@ final class LoginController extends Controller {
                         'name_user'     => $user->name_user,
                         'first_name'    => $user->first_name,
                         'type'          => $user->type,
+                        'id'            => $user->user_id,
                         'token'         => self::token()
                     )
                 ]);
