@@ -16,14 +16,9 @@ final class NewIdeaController extends Controller {
     public static function newIdea($req, $res){
 
         $sessionUser = self::getSessionUser($req);
-        echo $sessionUser['email'];
-        
-        //echo Model\User::whereHas('user_id', function($user){ $user->where('email', '=', $sessionUser['email']);})->get();
-        //$user->where('email', '=', $sessionUser['email']);
 
         $user = Model\User::where('email', '=', $sessionUser['email'])->first();
 
-        $params = $req->getQueryParams();
         $post = $req->getParsedBody();
  
         $idea = new Model\Idea;

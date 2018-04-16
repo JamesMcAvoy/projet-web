@@ -23,13 +23,13 @@ final class EventController extends Controller {
             'blocked' => $eventBlocked
         ];
 
-        return self::render($res,'evenements',$event);
+        return self::render($res,'events',$event);
     }
 
     public static function eventMonth($req, $res){
         $date = time() - (21*24*60*60);
         $event = Event::where('event_state', '=', 'up' && 'start_date', '>', $date->format('U = Y-m-d H:i:s'));
-        return self::render($res,'evenements',$event);
+        return self::render($res,'events',$event);
     }
 
 /*
