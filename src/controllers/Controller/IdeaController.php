@@ -5,19 +5,18 @@ namespace Controllers\Controller;
 use Controllers\Controller;
 use Models\Model;
 
-final class Ideas extends Controller {
+final class IdeasController extends Controller {
 
     public static function ideas($req,$res){
 
-        $ideaWaiting = Event::where('idea_state', '=', 'waiting');
-        $ideaValid = Event::where('idea_state', '=', 'valid');
-        $ideaBlocked = Event::were('idea_state', '=', 'Blocked');
-        $idea = [];
-        $idea->setContent([
+        $ideaWaiting = Idea::where('idea_state', '=', 'waiting');
+        $ideaValid = Idea::where('idea_state', '=', 'valid');
+        $ideaBlocked = Idea::were('idea_state', '=', 'Blocked');
+        $idea = [
             'waiting' => $ideaWaiting,
             'valid' => $ideaValid,
             'blocked' => $ideaBlocked
-        ]);
+        ];
 
         return self::render($res,'evenements',$idea);
     }
