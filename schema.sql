@@ -192,6 +192,7 @@ CREATE TABLE `ideas` (
   `idea_id` int(11) NOT NULL,
   `idea_title` varchar(128) NOT NULL,
   `idea` text NOT NULL,
+  `post_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `idea_number_vote` int(11) NOT NULL DEFAULT '0',
   `idea_state` ENUM('waiting', 'valid', 'blocked') NOT NULL DEFAULT 'waiting',
   `user_id` int(11) NOT NULL

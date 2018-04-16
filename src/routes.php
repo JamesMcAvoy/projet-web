@@ -108,3 +108,14 @@ $router->post('/CreateEvent', function(Request $request, Response $response) {
     return Control\EventCreateController::eventCreate($request, $response);
 
 });
+
+$router->get('/CreateIdea', function(Request $request, Response $response) {
+    
+    return Control\NewIdeaController::index($request, $response);
+
+});
+$router->post('/CreateIdea', function(Request $request, Response $response) {
+
+    return Control\NewIdeaController::newIdea($request, $response);
+
+});

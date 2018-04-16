@@ -19,7 +19,7 @@ class User extends Model {
     protected $attributes = array(
         'type' => 'student'
     );
-
+    
     
     public function basket() {
         return $this->hasOne('Models\Model\Basket');

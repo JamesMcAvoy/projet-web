@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<link rel="icon" href="favicon.ico" />
+	<link rel="icon" href="favicon.png" />
 	<meta charset="utf-8" />
     <meta name="description" content="bde" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
