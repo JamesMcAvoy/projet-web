@@ -21,10 +21,15 @@ final class EventRegistrationController extends Controller {
         $event = Model\Event::where('event_id', '=', $params['event_id'])->first(); 
         $user = Model\User::where('email', '=', $sessionUser['email'])->first();
 
-        $registered = new Model\Registered;
-        $registered->event_id=$event->event_id;
-        $registered->user_id=$user->user_id;
-        $registered->save();
+        if( self::sessionUserActive($req) &&
+            Model\Registered::where('event_id', '=', $event->event_id) &&
+            Model\Registered::where('user_id', '=', $user->user_id)
+            ) {
+                $registered = new Model\Registered;
+                $registered->event_id=$event->event_id;
+                $registered->user_id=$user->user_id;
+                $registered->save();
+        }
 
         return $res->withStatus(302)->withHeader('Location', '/events');
     }
