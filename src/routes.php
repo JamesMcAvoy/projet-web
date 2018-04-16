@@ -87,7 +87,7 @@ $router->get('/events', function(Request $request, Response $response) {
 
 $router->post('/events/idea', function(Request $request, Response $response) {
     
-    return Control\EventController::addIdea($request, $response);
+    return Control\IdeaController::create($request, $response);
 
 });
 

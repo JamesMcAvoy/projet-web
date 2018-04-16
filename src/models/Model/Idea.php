@@ -13,8 +13,10 @@ class Idea extends Model {
         'idea'
     );
 
+    protected $primaryKey = 'idea_id';
+
     public function user() {
-        return $this->belongsTo('Models\Model\User');
+        return $this->belongsTo('Models\Model\User', 'user_id');
     }
 
     public function voted() {

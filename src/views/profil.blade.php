@@ -43,6 +43,8 @@
 		 */
 	</pre>
 
+	<h2>Inscriptions</h2>
+
 	<h2>Idées proposées</h2>
 
 	<pre>

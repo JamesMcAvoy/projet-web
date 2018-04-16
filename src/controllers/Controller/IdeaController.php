@@ -5,33 +5,70 @@ namespace Controllers\Controller;
 use Controllers\Controller;
 use Models\Model;
 
-final class IdeasController extends Controller {
+final class IdeaController extends Controller {
 
-    public static function ideas($req,$res){
+    /**
+     * Return the ideas
+     */
+    public static function get() {
 
-        $ideaWaiting = Idea::where('idea_state', '=', 'waiting');
-        $ideaValid = Idea::where('idea_state', '=', 'valid');
-        $ideaBlocked = Idea::were('idea_state', '=', 'Blocked');
-        $idea = [
-            'waiting' => $ideaWaiting,
-            'valid' => $ideaValid,
-            'blocked' => $ideaBlocked
-        ];
+        return Model\Idea::where('idea_state', '=', 'valid')
+                         ->with('user')
+                         ->orderBy('idea_number_vote', 'desc')
+                         ->orderBy('post_at', 'desc')
+                         ->get();
 
-        return self::render($res,'evenements',$idea);
+    }
+
+    /**
+     * Create a new idea
+     */
+    public static function create($req, $res) {
+
+        //logged !
+        if(!self::getSessionUser($req))
+            return $res->withStatus(302)->withHeader('Location', '/events'); 
+
+        $session = parent::getSession($req);
+        $sessionUser = self::getSessionUser($req);
+
+        $post = $req->getParsedBody();
+
+        $errors = [];
+
+        if(empty($post['idea_title']) || strlen($post['idea_title']) < 3) {
+            $errors[] = "Le titre est trop court.";
+        }
+        if(empty($post['idea']) || strlen($post['idea']) < 5) {
+            $errors[] = "La description est trop courte.";
+        }
+
+        //If errors
+        if(!empty($errors)) {
+            $session->setContents([
+                'user' => $sessionUser,
+                'msg' => [
+                    'error' => $errors
+                ]
+            ]);
+            return $res->withStatus(302)->withHeader('Location', '/events');
+        }
+ 
+        $idea = new Model\Idea;
+        $idea->idea_title = htmlentities($post['idea_title']);
+        $idea->idea = htmlentities($post['idea']);
+        $idea->user_id = $sessionUser['id'];
+        $idea->save();
+
+        $session->setContents([
+            'user' => $sessionUser,
+            'msg' => [
+                'valid' => 'Vous avez posté bien une idée d\'événement. Elle est désormais visible à tous et en attente de votes.'
+            ]
+        ]);
+
+        return $res->withStatus(302)->withHeader('Location', '/events');
+
     }
 
 }
-
-/*
-Visiteur : voir les idées proposées (voir le nombre de votes)
-Connecté : 
-- soumettre une idée avec : titre, description (elle sera en attente)
-- voter pour une idée
-BDE : 
-- valider idée (mettre dans evenements), avec date, image, description (notification du soumetteur de l'idée)
-- administration idées : bloquée, an att, acceptée
-Employé : bloquer une idée (notification BDE) (invisible pour tous à part BDE et employé)
-*/
-
-?>
