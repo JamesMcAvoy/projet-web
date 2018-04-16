@@ -85,6 +85,12 @@ $router->get('/events', function(Request $request, Response $response) {
 
 });
 
+$router->post('/events/idea', function(Request $request, Response $response) {
+    
+    return Control\EventController::addIdea($request, $response);
+
+});
+
 /**
  * Shop
  */
@@ -106,16 +112,5 @@ $router->get('/CreateEvent', function(Request $request, Response $response) {
 $router->post('/CreateEvent', function(Request $request, Response $response) {
 
     return Control\EventCreateController::eventCreate($request, $response);
-
-});
-
-$router->get('/CreateIdea', function(Request $request, Response $response) {
-    
-    return Control\NewIdeaController::index($request, $response);
-
-});
-$router->post('/CreateIdea', function(Request $request, Response $response) {
-
-    return Control\NewIdeaController::newIdea($request, $response);
 
 });
