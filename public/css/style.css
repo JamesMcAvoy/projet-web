@@ -69,7 +69,35 @@ li
 a.nav-link
 {
 	text-align: center;
+	
+
 }
+
+
+li.nav-item
+{
+	max-height: 70px;
+}
+
+#events
+{
+	max-height: none;
+
+}
+
+
+a.col-md-4.nav-link
+{
+	font-size: 0.7em;
+}
+
+/*div.row.card-body
+{
+	margin: none;
+	padding: none;
+	width: 100%;
+}*/
+
 
 a.col-md-3.nav-link
 {

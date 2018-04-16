@@ -26,7 +26,7 @@
 				  <li class="nav-item{{ ($route == 'accueil') ? ' active' : '' }}">
 					<a class="nav-link" href="/">Accueil</a>
 				  </li>
-				  <li class="nav-item{{ ($route == 'events') ? ' active' : '' }}">
+				  <li id="events" class="nav-item{{ ($route == 'events') ? ' active' : '' }}">
 
 					<a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     				Événements
