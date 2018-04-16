@@ -194,7 +194,7 @@ CREATE TABLE `ideas` (
   `idea` text NOT NULL,
   `post_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `idea_number_vote` int(11) NOT NULL DEFAULT '0',
-  `idea_state` ENUM('waiting', 'valid', 'blocked') NOT NULL DEFAULT 'waiting',
+  `idea_state` ENUM('valid', 'blocked') NOT NULL DEFAULT 'valid',
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
