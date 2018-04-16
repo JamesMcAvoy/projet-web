@@ -33,9 +33,9 @@
   					</a>
   					<div class="collapse" id="collapseExample">
   						<div class="row card-body">
-   						 <a class="col-md-4 nav-link" href="/events#events">Les evènements</a>
-   						 <a class="col-md-4 nav-link" href="/events#ideas">Boite à idées</a>
-   						 <a class="col-md-4 nav-link" href="/events#form">Proposer vos idées</a>
+   						 <a class="col-md-4 nav-link bouton_event" href="/events#events">Les evènements</a>
+   						 <a class="col-md-4 nav-link bouton_event" href="/events#ideas">Boite à idées</a>
+   						 <a class="col-md-4 nav-link bouton_event" href="/events#form">Proposer vos idées</a>
  						 </div>
 					</div>
 				  </li>
@@ -56,7 +56,7 @@
 			  </div>
 			</nav>	
 		</header>
-		<div id="vide_header"> </div>
+			<div id="vide_header"> </div>
 		<div class="main-content">
 			@yield('main_content')
 		</div>

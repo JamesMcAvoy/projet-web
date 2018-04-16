@@ -202,6 +202,7 @@ height: 400px;
 	content: ">";
 }
 
+<<<<<<< HEAD
 
 :root {
   --jumbotron-padding-y: 3rem;
@@ -250,3 +251,10 @@ button
 
 
 
+=======
+#marge_inutile
+{
+	width: 100%;
+	height: 60px;
+}
+>>>>>>> dd790e6e07fb7197f64a705b116fdb5854e98878
