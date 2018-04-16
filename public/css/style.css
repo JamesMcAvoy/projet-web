@@ -201,3 +201,9 @@ height: 400px;
 .carousel-control-next-icon::after {
 	content: ">";
 }
+
+#marge_inutile
+{
+	width: 100%;
+	height: 60px;
+}

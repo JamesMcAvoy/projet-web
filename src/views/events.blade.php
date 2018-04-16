@@ -5,7 +5,10 @@
 	@stop
 	
 	@section('main_content')
-
+	
+	<div id="marge_inutile">
+		
+	</div>
 	<div>
 		<h1 id="events">Événements BDE Exia</h1>
 	
@@ -41,6 +44,7 @@
 		@endforeach
 	</div>
 	<h1 id="ideas">Boîte à idées</h1>
+	<p>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br></p>
 	<h1 id="form">Proposer une idée</h1>
 	@if(isset($user))
 
@@ -49,5 +53,11 @@
 			Vous devez être connecté pour proposer une idée !
 		</div>
 	@endif
-
+	
+	<script>
+	$('.bouton_event').click(function() {
+			scrollTo($(this).attr('href').substring(1));
+		});
+	</script>
+	
 	@stop
