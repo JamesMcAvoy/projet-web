@@ -202,8 +202,6 @@ height: 400px;
 	content: ">";
 }
 
-<<<<<<< HEAD
-
 :root {
   --jumbotron-padding-y: 3rem;
 }
@@ -214,6 +212,7 @@ height: 400px;
   margin-bottom: 0;
   background-color: #fff;
 }
+
 @media (min-width: 768px) {
   .jumbotron {
     padding-top: calc(var(--jumbotron-padding-y) * 2);
@@ -229,11 +228,6 @@ height: 400px;
   font-weight: 300;
 }
 
-.jumbotron .container {
-  max-width: 40rem;
-}
-
-
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
 button
@@ -241,20 +235,8 @@ button
 	font-size: 0.3em;
 }
 
-
-
-
-
-
-
-
-
-
-
-=======
 #marge_inutile
 {
 	width: 100%;
 	height: 60px;
 }
->>>>>>> dd790e6e07fb7197f64a705b116fdb5854e98878

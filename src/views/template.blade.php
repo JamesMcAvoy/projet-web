@@ -23,27 +23,27 @@
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
-				  <li class="nav-item{{ ($route == 'accueil') ? ' active' : '' }}">
+				  <li class="nav-item{{ (isset($route) && $route == 'accueil') ? ' active' : '' }}">
 					<a class="nav-link" href="/">Accueil</a>
 				  </li>
-				  <li id="events" class="nav-item{{ ($route == 'events') ? ' active' : '' }}">
+				  <li id="events" class="nav-item{{ (isset($route) && $route == 'events') ? ' active' : '' }}">
 
 					<a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     				Événements
   					</a>
   					<div class="collapse" id="collapseExample">
   						<div class="row card-body">
-   						 <a class="col-md-4 nav-link bouton_event" href="/events#events">Les evènements</a>
+   						 <a class="col-md-4 nav-link bouton_event" href="/events#events">Événements</a>
    						 <a class="col-md-4 nav-link bouton_event" href="/events#ideas">Boite à idées</a>
    						 <a class="col-md-4 nav-link bouton_event" href="/events#form">Proposer vos idées</a>
  						 </div>
 					</div>
 				  </li>
-				  <li class="nav-item{{ ($route == 'shop') ? ' active' : '' }}">
+				  <li class="nav-item{{ (isset($route) && $route == 'shop') ? ' active' : '' }}">
 					<a class="nav-link" href="/shop">Boutique</a>
 				  </li>
 				  @if(isset($user))
-				  <li class="nav-item{{ ($route == 'profil') ? ' active' : '' }}">
+				  <li class="nav-item{{ (isset($route) && $route == 'profil') ? ' active' : '' }}">
 					<a class="nav-link" href="/profil">Profil</a>
 				  </li>
 				  @endif

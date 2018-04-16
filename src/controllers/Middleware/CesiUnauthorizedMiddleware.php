@@ -3,7 +3,7 @@
 namespace Controllers\Middleware;
 
 use Psr\Http\Message\ServerRequestInterface,
-    RingCentral\Psr7\Response,
+    React\Http\Response,
     Controllers\Controller;
 
 final class CesiUnauthorizedMiddleware {
@@ -50,8 +50,8 @@ final class CesiUnauthorizedMiddleware {
         //Always being a session
         $session = Controller::getSession($request);
         $session->begin();
-        /*
-        $session = $session->getContents();
+        
+        $session = Controller::getSessionUser($request);
 
         $pathUri = $request->getUri()->getPath();
 
@@ -59,19 +59,21 @@ final class CesiUnauthorizedMiddleware {
 
             foreach($arrayPaths as $path) {
 
-                if($path == $pathUri) {
-                    if(isset($session['user']['type']) && $perm != $session['user']['type']) {
-                        return Controller\ErrorController::error403(
-                            $request,
-                            new Response(403)
-                        );
-                    }
+                //If path requested and user not logged of his role isn't important enough
+                if($path == $pathUri && (
+                    !isset($session) ||
+                    self::$roles[$session['type']] < self::$roles[$perm]
+                )) {
+                    return Controller\ErrorController::error403(
+                        $request,
+                        new Response(403)
+                    );
                 }
 
             }
 
         }
-        */
+
         return $next($request);
 
     }

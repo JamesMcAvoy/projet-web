@@ -75,9 +75,6 @@ final class RegisterController extends Controller {
                 'email'         => htmlentities($post['courriel']),
                 'type'          => 'student',
                 'token'         => self::token()
-            ),
-            'msg' => array(
-                'Votre compte a été créé. Vous pouvez maintenant vous connecter.'
             )
         ]);
 
@@ -91,7 +88,7 @@ final class RegisterController extends Controller {
 
         $user->basket()->create();
 
-        return $res->withStatus(302)->withHeader('Location', '/register');
+        return $res->withStatus(302)->withHeader('Location', '/');
 
     }
 
