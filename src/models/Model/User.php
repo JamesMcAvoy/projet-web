@@ -20,7 +20,7 @@ class User extends Model {
         'type' => 'student'
     );
     
-    //protected $primaryKey = 'user_id';
+    protected $primaryKey = 'user_id';
     
     public function basket() {
         return $this->hasOne('Models\Model\Basket');

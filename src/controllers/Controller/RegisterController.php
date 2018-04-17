@@ -86,7 +86,10 @@ final class RegisterController extends Controller {
             'password'      => password_hash($post['mdp'], PASSWORD_BCRYPT)
         ]);
 
-        $user->basket()->create();
+        $basket = new Model\Basket;
+        $basket->user_id = $user->user_id;
+        $basket->save();
+        //$user->basket()->create();
 
         return $res->withStatus(302)->withHeader('Location', '/');
 
