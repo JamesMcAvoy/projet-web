@@ -24,15 +24,33 @@ final class EventController extends Controller {
             'route' => 'events',
             'user' => self::getSessionUser($req),
             'msg' => $msg,
-            'ideas' => Idea::get()
+            'ideas' => Idea::get(),
+            'events' => self::get()
         ]);
+
+    }
+
+    /**
+     * Return the picture from an event
+     */
+    public static function image($req, $res, $id) {
+
+        $image = Model\Event::select('event_picture')->where('event_id', '=', $id)->get()->first();
+
+        if(!isset($image->event_picture))
+            return Controller\ErrorController::error404($req, $res);
+        else {
+            $stream = $res->getBody();
+            $stream->write($image->event_picture);
+            return $res->withBody($stream)->withHeader('Content-Type', 'image');
+        }
 
     }
 
     /**
      * Return all events
      */
-    public static function event($req, $res){
+    public static function get(){
 
         return Model\Event::all();
 

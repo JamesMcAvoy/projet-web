@@ -63,23 +63,39 @@ $(() => {
 	  event.preventDefault();
 	  }
 	});
-		
-		if($(location).attr('href')=='http://localhost:8080/events#events' || $(location).attr('href')=='http://localhost:8080/events#form' || $(location).attr('href')=='http://localhost:8080/events#ideas')
-		{
-			console.log('bonne page');
-			$('#bouton_events').click(function() {
-				console.log('cliqué');
-				$('html').animate({ scrollTop: $('#events').offset().top }, 'slow');
-			});
-			$('#bouton_ideas').click(function() {
-				console.log('cliqué');
-				$('html').animate({ scrollTop: $('#ideas').offset().top }, 'slow');
-			});
-			$('#bouton_form').click(function() {
-				console.log('cliqué');
-				$('html').animate({ scrollTop: $('#form').offset().top }, 'slow');
-			});
+
+	$('#events-list').DataTable({
+	  "paging"      : true,
+	  "lengthChange": false,
+	  "pageLength"  : 10,
+	  "searching"   : true,
+	  "ordering"    : false,
+	  "info"        : true,
+	  "autoWidth"   : false,
+	  "language": {
+		"sProcessing":     "Traitement en cours...",
+		"sSearch":         "Rechercher&nbsp;:",
+		"sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+		"sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+		"sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+		"sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+		"sInfoPostFix":    "",
+		"sLoadingRecords": "Chargement en cours...",
+		"sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+		"sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+		"oPaginate": {
+			"sFirst":      "Premier",
+			"sPrevious":   "Pr&eacute;c&eacute;dent",
+			"sNext":       "Suivant",
+			"sLast":       "Dernier"
+		},
+		"oAria": {
+			"sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+			"sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
 		}
+	  }
+	});
+
 		
 	function getXMLHttpRequest() {
 	var xhr = null;
@@ -104,8 +120,9 @@ $(() => {
 	$('.like').click(function() {
 		var xhr = getXMLHttpRequest();
 		console.log('like');
-		xhr.open("POST", "/ideas/like/"+$('.like').attr('id'), true);
+		xhr.open("POST", "/ideas/like/"+$(this).attr('id'), true);
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhr.send("");
 	});
+
 })
