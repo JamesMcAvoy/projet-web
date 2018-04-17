@@ -64,4 +64,13 @@ $(() => {
 	  }
 	});
 
+		if($(location).attr('href')=='http://localhost:8080/events#events' || $(location).attr('href')=='http://localhost:8080/events#form' || $(location).attr('href')=='http://localhost:8080/events#ideas')
+		{
+			console.log('bonne page');
+			$('.bouton_event').click(function() {
+				console.log('cliqué');
+				scrollTo($(this).attr('href').substring(1));
+				
+			});
+		}
 })

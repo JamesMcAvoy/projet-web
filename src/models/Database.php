@@ -13,6 +13,7 @@ class Database {
         $capsule->addConnection([
             'driver'    => CONF_DBDRIVER,
             'host'      => CONF_DBHOST,
+            'port'      => CONF_DBPORT,
             'database'  => CONF_DBNAME,
             'username'  => CONF_DBUSER,
             'password'  => CONF_DBPASS,

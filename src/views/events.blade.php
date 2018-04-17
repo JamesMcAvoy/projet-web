@@ -127,10 +127,5 @@
 		</div>
 	@endif
 	
-	<script>
-	$('.bouton_event').click(function() {
-			scrollTo($(this).attr('href').substring(1));
-		});
-	</script>
 	
 	@stop
