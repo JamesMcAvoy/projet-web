@@ -1,23 +1,24 @@
 @extends('template')
 
 	@section('title')
-		Événements BDE Exia
+		{{ $event->event_title }}
 	@stop
 	
 	@section('main_content')
 	
 	<div class="container">
 		<div class="row">
-			<img class="col-md-3 col-sm-12" id="image_event" src="{{$event_picture}}" alt="image évènement">
+			<img class="col-md-3 col-sm-12" id="image event" src="/events/img/{{ $event->event_id }}" alt="image évènement">
 			<div class="row col-md-9 col-sm-12">
-				<h2 class="col-md-8">{{$event_title}}</h2>
-				<h3 class="col-md-4">{{$event_price}}</h3>
-				<h3 class="col-md-6">{{$start_date}}</h3>
-				@if
-				<h3 class="col-md-6">Tous les {{$time_between_each}}</h3>
+				<h2 class="col-md-8">{{ $event->event_title }}</h2>
+				<h3 class="col-md-4">{{ $event->event_price }} €</h3>
+				<h3 class="col-md-6">{{ date('j/m à H:i:s', strtotime($event->start_date)) }}</h3>
+				@if($event->event_number > 1)
+				<h3 class="col-md-6">Tous les {{ $event->time_between_each }} jours</h3>
 				@endif
+				<h3 class="col-md-6">Durée : {{ floor($event->time/60) }} heures</h3>
 			</div>
-			<p class="col-md-12">{{$event}}</p>
+			<p class="col-md-12">{{$event->event}}</p>
 			<h2 class="col-md-12">Photos</h2>
 			
 			<div class="col-md-12">

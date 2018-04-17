@@ -30,11 +30,19 @@ final class EventController extends Controller {
 
     }
 
+    /**
+     * Return a view of an event
+     */
     public static function indexEvent($req, $res, $id) {
 
-        
+        if(empty(Model\Event::where('event_id', '=', $id)->get()->first()))
+            return Controller\ErrorController::error404($req, $res);
 
-        return $res;
+        return self::render($res, 'event', [
+            'route' => 'events',
+            'user' => self::getSessionUser($req),
+            'event' => self::get($id)
+        ]);
 
     }
 
