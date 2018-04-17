@@ -97,32 +97,22 @@ $(() => {
 	});
 
 		
-	function getXMLHttpRequest() {
-		var xhr = null;
-		
-		if (window.XMLHttpRequest || window.ActiveXObject) {
-			if (window.ActiveXObject) {
-				try {
-					xhr = new ActiveXObject("Msxml2.XMLHTTP");
-				} catch(e) {
-					xhr = new ActiveXObject("Microsoft.XMLHTTP");
-				}
-			} else {
-				xhr = new XMLHttpRequest(); 
-			}
-		} else {
-			alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
-			return null;
-		}
-		return xhr;
-	}
-		
-	$('.like').click(function() {
-		var xhr = getXMLHttpRequest();
-		console.log('like');
-		xhr.open("POST", "/ideas/like/"+$(this).attr('id'), true);
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhr.send("");
+	$(document).on('click', '.like', function() {
+
+		var $this = $(this);
+
+		$.post('/ideas/like/'+$this.attr('id'), function() {
+			$this.css({
+				'color': 'blue',
+				'font-size': '20px',
+				'transition': '.5s'
+			});
+			//Change vote value
+			var selector = $('#' + $this.attr('id') + ' ~ small.text-muted');
+			var value = parseInt(selector.text(), 10) + 1;
+			selector.text(value);
+		});
+
 	});
 
 

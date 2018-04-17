@@ -77,27 +77,27 @@ final class IdeaController extends Controller {
      */
     public static function like($req, $res, $id) {
 
-        $sessionUser = self::getSessionUser($req);
+        $userId = self::getSessionUser($req)['id'];
 
         $idea = Model\Idea::where('idea_id', '=', $id)->get()->first();
 
-        if($idea->isEmpty() && !self::sessionUserActive($req))
+        if(empty($idea) && !self::sessionUserActive($req))
             return $res->withStatus(400);
 
-        $userId = self::sessionUserActive($req)['id'];
-
-        $liked = Model\Liked::where([
+        $liked = Model\Voted::where([
             ['idea_id', '=', $id],
             ['user_id', '=', $userId]
         ])->get()->first();
 
-        if(!$liked->isEmpty())
+        if(!empty($liked))
             return $res->withStatus(400);
 
-        $liked = new Model\Liked;
+        $liked = new Model\Voted;
         $liked->idea_id=$id;
         $liked->user_id=$userId;
         $liked->save();
+
+        Model\Idea::where('idea_id', '=', $id)->increment('idea_number_vote');
 
         return $res->withStatus(200);
 
