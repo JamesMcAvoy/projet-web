@@ -12,7 +12,7 @@
     <section>
 
         
-            
+        <h2>Articles les plus vendus :</h2>
 
         <div>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -42,9 +42,7 @@
             </div>
         </div>
 
-        <div>
-            <p>évènements du mois</p>
-        </div>
+        <h2>Ne ratez pas les événements de ce mois-ci :</h2>
 
         <div>
 

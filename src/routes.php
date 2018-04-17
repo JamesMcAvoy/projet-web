@@ -133,6 +133,12 @@ $router->get('/shop', function(Request $request, Response $response) {
 
 });
 
+$router->get('/shop/img/{id}', function(Request $request, Response $response, $slug) {
+    
+    return Control\ShopController::image($request, $response, $slug['id']);
+
+});
+
 
 /**
  * @todo

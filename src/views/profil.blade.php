@@ -64,9 +64,9 @@
 
 	
 
-	<h2 class="profil">Achat</h2 >
+	<h2 class="profil">Achats</h2>
 
-	<h3 class="profil">Panier</h3>
+	<h3 id="panier" class="profil">Panier</h3>
 
 
 

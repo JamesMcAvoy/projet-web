@@ -253,20 +253,23 @@ h3.profil
 	font-size: 1.5em;
 }
 
-.image_event
+.image_event,
+.image_item
 {
 	width: 60px; 
 	height: 60px; 
 	object-fit: cover;
 }
 
-.ligne_event td
+.ligne_event td,
+.ligne_item td
 {
 	border: 1px solid rgba(194, 200, 205, 0.4);
 	border-color: ;
 }
 
-#events-list h3
+#events-list h3,
+#goodies-list h3,
 {
 	font-weight: bold;
 }
@@ -274,7 +277,8 @@ h3.profil
 @media screen and (max-width: 450px)
 {
 
-#events-list h3
+#events-list h3,
+#goodies-list h3
 {
 	font-size: 20px;
 }
