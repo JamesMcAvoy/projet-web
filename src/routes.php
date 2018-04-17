@@ -85,6 +85,12 @@ $router->get('/events', function(Request $request, Response $response) {
 
 });
 
+$router->get('/events/img/{id}', function(Request $request, Response $response, $slug) {
+    
+    return Control\EventController::image($request, $response, $slug['id']);
+
+});
+
 $router->post('/events/idea', function(Request $request, Response $response) {
     
     return Control\IdeaController::create($request, $response);
