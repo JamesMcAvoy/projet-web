@@ -7,6 +7,7 @@
 	@section('main_content')
 
 	<h1>Profil</h1>
+	<h2 class="profil" >information du compte</h2 >
 
 	<div class="container">
 		<dl class="row">
@@ -32,7 +33,7 @@
 		 */
 	</pre>
 
-	<h2>Notifications</h2>
+	<h3 class="profil">Notifications</h3>
 
 	<pre>
 		/**
@@ -43,17 +44,9 @@
 		 */
 	</pre>
 
-	<h2>Inscriptions</h2>
+	<h3 class="profil">Inscriptions</h3>
 
-	<h2>Idées proposées</h2>
-
-	<pre>
-		/**
-		 * @todo
-		 */
-	</pre>
-
-	<h2>Commentaires</h2>
+	<h3 class="profil">Idées proposées</h3>
 
 	<pre>
 		/**
@@ -61,7 +54,23 @@
 		 */
 	</pre>
 
-	<h2>Commandes</h2>
+	<h3 class="profil">Commentaires</h3>
+
+	<pre>
+		/**
+		 * @todo
+		 */
+	</pre>
+
+	
+
+	<h2 class="profil">Achat</h2 >
+
+	<h3 class="profil">Panier</h3>
+
+
+
+	<h3 class="profil">Commandes</h3>
 
 	<pre>
 		/**
