@@ -125,4 +125,12 @@ $(() => {
 		xhr.send("");
 	});
 
+
+	$(".btn_buy").click(function() {
+		$.post("/shop/buy/"+$(this).attr('id'))
+	})
+
+
+
+
 })
