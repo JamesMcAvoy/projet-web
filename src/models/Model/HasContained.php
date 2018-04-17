@@ -13,11 +13,11 @@ class HasContained extends Model {
     );
 
     public function item() {
-        return $this->belongsTo('Models\Model\Item');
+        return $this->belongsTo('Models\Model\Item', 'item_id');
     }
 
     public function order() {
-        return $this->belongsTo('Models\Model\Order');
+        return $this->belongsTo('Models\Model\Order', 'order_id');
     }
 
     public $timestamps = false;

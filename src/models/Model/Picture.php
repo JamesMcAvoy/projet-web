@@ -1,6 +1,6 @@
 <?php
 
-namespace ModelsModel\;
+namespace Models\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,11 +15,11 @@ class Picture extends Model {
     );
 
     public function event() {
-        return $this->belongsTo('Models\Model\Event');
+        return $this->belongsTo('Models\Model\Event', 'event_id');
     }
 
     public function user() {
-        return $this->belongsTo('Models\Model\User');
+        return $this->belongsTo('Models\Model\User', 'user_id');
     }
 
     public function comment() {

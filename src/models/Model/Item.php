@@ -23,7 +23,7 @@ class Item extends Model {
     );
 
     public function category() {
-        return $this->belongsTo('Models\Model\Category');
+        return $this->belongsTo('Models\Model\Category', 'category_id');
     }
 
     public function contain() {

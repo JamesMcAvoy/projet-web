@@ -17,11 +17,11 @@ class Contain extends Model {
     );
 
     public function item() {
-        return $this->belongsTo('Models\Model\Item');
+        return $this->belongsTo('Models\Model\Item', 'item_id');
     }
 
     public function basket() {
-        return $this->belongsTo('Models\Model\Basket');
+        return $this->belongsTo('Models\Model\Basket', 'basket_id');
     }
 
     public $timestamps = false;

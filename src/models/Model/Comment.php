@@ -13,11 +13,11 @@ class Comment extends Model {
     );
 
     public function user() {
-        return $this->belongsTo('Models\Model\User');
+        return $this->belongsTo('Models\Model\User', 'user_id');
     }
 
     public function picture() {
-        return $this->belongsTo('Models\Model\Picture');
+        return $this->belongsTo('Models\Model\Picture', 'picture_id');
     }
 
     public $timestamps = false;

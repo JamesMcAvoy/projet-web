@@ -9,11 +9,11 @@ class Voted extends Model {
     protected $table = 'voted';
 
     public function user() {
-        return $this->belongsTo('Models\Model\User');
+        return $this->belongsTo('Models\Model\User', 'user_id');
     }
 
     public function idea() {
-        return $this->belongsTo('Models\Model\Idea');
+        return $this->belongsTo('Models\Model\Idea', 'idea_id');
     }
 
     public $timestamps = false;
