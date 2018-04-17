@@ -145,11 +145,11 @@ final class EventController extends Controller {
     }  
 
 /*
-évenements du moi visible pour tous
-visiteurs : Evenements visible pour tout visiteur
-+ BDE : édite évenement avec : description, image, date, prix, récurence; accéder liste inscrit : PDF, CSV.
-+ Ceux connectés : inscription à un evenement
-+ employés : Bloquer evenement (notification BDE)
+Events of month appareant for all
+visitors : events appearant for all visitors
++ BDE : edit events with : description, picture, dated, price, recurrence; access list registered : PDF, CSV.
++ for connected : registration of un event
++ employees : block event (notif BDE)
 */
 
 }

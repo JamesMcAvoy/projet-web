@@ -95,4 +95,30 @@ final class IdeaController extends Controller {
         return $res->withStatus(302)->withHeader('Location', '/ideas');
     }
 
+    public static function blockIdea($res, $req){
+
+        $sessionUser = self::getSessionUser($req);
+        $session = self::getSession($req);
+        $params = $req->getQueryParams();
+
+        $idea = Model\Idea::where('idea_id', '=', $params['idea_id'])->get()->first(); 
+        $user = $sessionUser['type'];
+
+        if( self::sessionUserActive($req) &&
+            ($user = 'employee' || $user = 'BDE') &&
+            $idea->idea_state != 'blocked'
+            ) {
+                $idea->update(['idea_state' => 'blocked']);
+        }
+        else{
+            $session->setContents([
+                'msg' => ['error']
+            ]);
+            return $res->withStatus(302)->withHeader('Location', '/events');
+        }
+
+        return $res->withStatus(302)->withHeader('Location', '/events');
+
+    }
+
 }
