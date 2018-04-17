@@ -5,7 +5,7 @@ namespace Controllers\Controller;
 use Controllers\Controller;
 use Models\Model;
 
-final class ShopController extends Controller {
+final class ProductController extends Controller {
 
     public static function index($req, $res) {
 
@@ -13,18 +13,17 @@ final class ShopController extends Controller {
 
     }
 
-/*
-    public static function shop($req,$res){
+    public static function product($req,$res){
 
         $goodies = Model\Item::all();
 
-        return self::render($res,'evenements',$goodies);
+        return self::render($res,'shop',$goodies);
 
-    }*/
+    }
 }
 
 /*
-Visiteur : peux voir les produits proposés
+visitors : can see products proposed
 - 3 articles les plus commandés
 - filtre...
 Connecté : 
