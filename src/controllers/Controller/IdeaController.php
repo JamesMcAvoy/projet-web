@@ -95,6 +95,9 @@ final class IdeaController extends Controller {
         return $res->withStatus(302)->withHeader('Location', '/ideas');
     }
 
+    /**
+     * block idea
+     */
     public static function blockIdea($res, $req){
 
         $sessionUser = self::getSessionUser($req);
