@@ -288,7 +288,7 @@ CREATE TABLE `pictures` (
   `picture` longblob NOT NULL,
   `picture_desc` text NOT NULL DEFAULT '',
   `picture_number_like` int(11) NOT NULL DEFAULT '0',
-  `pciture_state` varchar(25) NOT NULL DEFAULT 'valid',
+  `picture_state` varchar(25) NOT NULL DEFAULT 'valid',
   `event_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
