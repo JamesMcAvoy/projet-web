@@ -8,17 +8,23 @@
 	
 	<div class="container">
 		<div class="row">
-			<img class="col-md-3 col-sm-12" id="image event" src="/events/img/{{ $event->event_id }}" alt="image évènement">
+			<a type="button" href="/events" class="btn btn-secondary btn-lg btn-block col-md-12 retour_accueil">Retour à l'accueil</a>
+			<img class="col-md-3 col-sm-12" id="image_event" src="/events/img/{{ $event->event_id }}" alt="image évènement">
 			<div class="row col-md-9 col-sm-12">
 				<h2 class="col-md-8">{{ $event->event_title }}</h2>
 				<h3 class="col-md-4">{{ $event->event_price }} €</h3>
 				<h3 class="col-md-6">{{ date('j/m à H:i:s', strtotime($event->start_date)) }}</h3>
-				@if($event->event_number > 1)
-				<h3 class="col-md-6">Tous les {{ $event->time_between_each }} jours</h3>
-				@endif
 				<h3 class="col-md-6">Durée : {{ floor($event->time/60) }} heures</h3>
+				@if($event->event_number > 1)
+					<h3 class="col-md-6">Tous les {{ $event->time_between_each }} jours</h3>
+					<a type="button" href="<!--lien vers inscription-->" class="btn btn-success col-md-6">S'inscrire</a>
+				@endif
+				<div class="col-md-12">
+					<a type="button" href="<!--lien vers inscription-->" class="btn btn-success"><h3>S'inscrire</h3></a>
+				</div>
 			</div>
-			<p class="col-md-12">{{$event->event}}</p>
+			<h2 class="col-md-12">Description</h2>
+			<p class="col-md-12 event_desc">{{$event->event}}</p>
 			<h2 class="col-md-12">Photos</h2>
 			
 			<div class="col-md-12">
@@ -61,7 +67,41 @@
 				
 				@endforeach
 			</div>
+			<h2 class="col-md-12">Ajouter une photo</h2>
+				<form method="post" action="<!--lien ajout photo-->" id="form_add_picture">
+				  <div class="form-group col-md-12">
+					  <div class="custom-file">
+						<input type="file" class="custom-file-input" id="customFile">
+						<label class="custom-file-label" for="customFile">Choisissez une image</label>
+					  </div>
+				  </div>
+				  <div class="form-group col-md-12">
+					<label for="idea_title" class="col-form-label">Titre</label>
+					
+					  <input type="text" class="form-control" id="idea_title" placeholder="Titre de l'image" name="idea_title">
+					  <div class="invalid-feedback">
+						Veuillez rentrer le titre de l'image
+					  </div>
+					
+				  </div>
+				  <div class="form-group col-md-12">
+
+					<label for="idea" class="col-form-label">Description</label>
+					
+					  <textarea class="form-control" id="idea" name="idea" placeholder="Description de l'image"></textarea>
+					  <div class="invalid-feedback">
+						Veuillez rentrer la description de l'image
+					  </div>
+					
+				  </div>
+				  <div class="form-group">
+
+					<div class="col-md-12">
+					  <button type="submit" class="btn btn-outline-dark">Ajouter l'image</button>
+					</div>
+				  </div>
+				</form>
+			</div>
 		</div>
-	</div>
 	
 	@stop
