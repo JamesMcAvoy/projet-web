@@ -120,7 +120,7 @@ $(() => {
 	$('.like').click(function() {
 		var xhr = getXMLHttpRequest();
 		console.log('like');
-		xhr.open("POST", "/ideas/like/"+$('.like').attr('id'), true);
+		xhr.open("POST", "/ideas/like/"+$(this).attr('id'), true);
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhr.send("");
 	});
