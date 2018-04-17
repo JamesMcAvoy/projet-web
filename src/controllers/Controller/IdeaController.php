@@ -55,8 +55,8 @@ final class IdeaController extends Controller {
         }
  
         $idea = new Model\Idea;
-        $idea->idea_title = htmlentities($post['idea_title']);
-        $idea->idea = htmlentities($post['idea']);
+        $idea->idea_title = $post['idea_title'];
+        $idea->idea = $post['idea'];
         $idea->user_id = $sessionUser['id'];
         $idea->save();
 
