@@ -23,16 +23,16 @@ class User extends Model {
     protected $primaryKey = 'user_id';
     
     public function basket() {
-        return $this->hasOne('Models\Model\Basket');
+        return $this->hasOne('Models\Model\Basket', 'basket_id');
     }
     public function order() {
-        return $this->hasMany('Models\Model\Order');
+        return $this->hasMany('Models\Model\Order', 'order_id');
     }
     public function notification() {
         return $this->hasMany('Models\Model\Notification', 'notif_id');
     }
     public function idea() {
-        return $this->hasMany('Models\Model\Idea');
+        return $this->hasMany('Models\Model\Idea', 'idea_id');
     }
     public function voted() {
         return $this->hasMany('Models\Model\Voted');
@@ -41,13 +41,13 @@ class User extends Model {
         return $this->hasMany('Models\Model\Registered');
     }
     public function picture() {
-        return $this->hasMany('Models\Model\Picture');
+        return $this->hasMany('Models\Model\Picture', 'picture_id');
     }
     public function liked() {
         return $this->hasMany('Models\Model\Liked');
     }
     public function comment() {
-        return $this->hasMany('Models\Model\Comment');
+        return $this->hasMany('Models\Model\Comment', 'comment_id');
     }
     
     public $timestamps = false;

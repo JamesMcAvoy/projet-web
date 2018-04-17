@@ -25,8 +25,10 @@ class Event extends Model {
         'event_number' => '1'
     );
 
+    protected $primaryKey = 'event_id';
+
     public function picture() {
-        return $this->hasMany('Models\Model\Picture');
+        return $this->hasMany('Models\Model\Picture', 'picture_id');
     }
 
     public function register() {

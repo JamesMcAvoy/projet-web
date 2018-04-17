@@ -13,6 +13,8 @@ class Notification extends Model {
         'notif'
     );
 
+    protected $primaryKey = 'notif_id';
+
     public function user() {
         return $this->belongsTo('Models\Model\User', 'user_id');
     }

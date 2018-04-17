@@ -16,6 +16,8 @@ class Basket extends Model {
         'basket_price' => '0'
     );
 
+    protected $primaryKey = 'basket_id';
+
     public function user() {
         return $this->belongsTo('Models\Model\User', 'user_id');
     }

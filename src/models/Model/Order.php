@@ -12,6 +12,8 @@ class Order extends Model {
         'order_price'
     );
 
+    protected $primaryKey = 'order_id';
+
     public function user() {
         return $this->belongsTo('Models\Model\User', 'user_id');
     }

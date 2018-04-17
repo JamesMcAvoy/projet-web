@@ -14,6 +14,8 @@ class Picture extends Model {
         'picture_desc'
     );
 
+    protected $primaryKey = 'picture_id';
+
     public function event() {
         return $this->belongsTo('Models\Model\Event', 'event_id');
     }
@@ -23,7 +25,7 @@ class Picture extends Model {
     }
 
     public function comment() {
-        return $this->hasMany('Models\Model\Comment');
+        return $this->hasMany('Models\Model\Comment', 'comment_id');
     }
 
     public function liked() {

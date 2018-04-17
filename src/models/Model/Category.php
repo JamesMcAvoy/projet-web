@@ -12,8 +12,10 @@ class Category extends Model {
         'category_name'
     );
 
+    protected $primaryKey = 'category_id';
+
     public function item() {
-        return $this->hasMany('Models\Model\Item');
+        return $this->hasMany('Models\Model\Item', 'item_id');
     }
 
     public $timestamps = false;

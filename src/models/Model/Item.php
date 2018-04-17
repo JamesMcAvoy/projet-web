@@ -22,6 +22,8 @@ class Item extends Model {
         'orders_nbr' => '0'
     );
 
+    protected $primaryKey = 'item_id';
+
     public function category() {
         return $this->belongsTo('Models\Model\Category', 'category_id');
     }
