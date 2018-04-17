@@ -87,29 +87,37 @@ final class PictureController extends Controller {
 
     }
 
-     /**
-    * like Pictures
-    ********/
-    public static function likePicture($req, $res){
+    /**
+     * like Pictures
+     * Ajax
+     */
+    public static function like($req, $res, $id) {
 
-        $sessionUser = self::getSessionUser($req);
-        $params = $req->getQueryParams();
 
-        $picture = Model\Picture::where('picture_id', '=', $params['picture_id'])->first(); 
-        $user = $sessionUser['id'];
+        $pic = Model\Picture::where('picture_id', '=', $id)->get()->first();
 
-        if( self::sessionUserActive($req) &&
-            empty(Model\Liked::where(function ($query) { 
-                        $query->where('picture_id', $picture->picture_id)
-                            ->where('user_id', $user);}))
-            ) {
-                $liked = new Model\Registered;
-                $liked->picture_id=$picture->picture_id;
-                $liked->user_id=$user;
-                $liked->save();
-        }
+        if(empty($pic) || !self::sessionUserActive($req))
+            return $res->withStatus(400);
 
-        return $res->withStatus(302)->withHeader('Location', '/events');
+        $userId = self::getSessionUser($req)['id'];
+
+        $liked = Model\Liked::where([
+            ['picture_id', '=', $id],
+            ['user_id', '=', $userId]
+        ])->get()->first();
+
+        if(!empty($liked))
+            return $res->withStatus(400);
+
+        $liked = new Model\Liked;
+        $liked->picture_id=$id;
+        $liked->user_id=$userId;
+        $liked->save();
+
+        Model\Picture::where('picture_id', '=', $id)->increment('picture_number_like');
+
+        return $res->withStatus(200);
+
     }
 
 

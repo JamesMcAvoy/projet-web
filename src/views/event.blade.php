@@ -37,17 +37,23 @@
 						  <p>
 							{{ $picture->picture_desc }}
 						  </p>
-						  <!-- espace commentaire -->
+						@if(!isset($user))
+							<div class="alert alert-danger">
+								Vous devez être connecté pour poster une image ou un commentaire !
+							</div>
+						@else
+						<!-- POST -->
+						@endif
 						</div>
 						<div class="modal-footer">
 							<div class="row">
 								<div class="col-md-4">
-									<span class="like" id="{{ $picture->picture_id }}">
+									<span class="like-picture" id="{{ $picture->picture_id }}">
 										<i class="fas fa-thumbs-up"></i>
 									</span>
 								</div>
 								<div class="col-md-4">
-									<small class="text-muted">{{ $picture->picture_number_like }}</small>
+									<small class="text-muted" id="number-{{ $picture->picture_id }}">{{ $picture->picture_number_like }}</small>
 								</div>
 								<div class="col-md-4">
 									<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
