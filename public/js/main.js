@@ -65,6 +65,7 @@ $(() => {
 	});
 
 	$('#events-list').DataTable({
+	  "responsive"	: true,
 	  "paging"      : true,
 	  "lengthChange": false,
 	  "pageLength"  : 10,
