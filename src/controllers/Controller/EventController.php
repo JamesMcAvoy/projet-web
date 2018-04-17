@@ -28,22 +28,14 @@ final class EventController extends Controller {
         ]);
 
     }
-    
+
     /**
-     * @todo
-     ********/
+     * Return all events
+     */
     public static function event($req, $res){
 
-        $eventUp = Event::where('event_state', '=', 'up');
-        $eventEnded = Event::where('event_state', '=', 'ended');
-        $eventBlocked = Event::where('event_state', '=', 'Blocked');
-        $event = [
-            'up' => $eventUp,
-            'ended' => $eventEnded,
-            'blocked' => $eventBlocked
-        ];
+        return Model\Event::all();
 
-        return self::render($res,'events',$event);
     }
 
     public static function eventMonth($req, $res){

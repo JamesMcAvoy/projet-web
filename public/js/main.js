@@ -63,14 +63,49 @@ $(() => {
 	  event.preventDefault();
 	  }
 	});
-
+		
 		if($(location).attr('href')=='http://localhost:8080/events#events' || $(location).attr('href')=='http://localhost:8080/events#form' || $(location).attr('href')=='http://localhost:8080/events#ideas')
 		{
 			console.log('bonne page');
-			$('.bouton_event').click(function() {
+			$('#bouton_events').click(function() {
 				console.log('cliqué');
-				scrollTo($(this).attr('href').substring(1));
-				
+				$('html').animate({ scrollTop: $('#events').offset().top }, 'slow');
+			});
+			$('#bouton_ideas').click(function() {
+				console.log('cliqué');
+				$('html').animate({ scrollTop: $('#ideas').offset().top }, 'slow');
+			});
+			$('#bouton_form').click(function() {
+				console.log('cliqué');
+				$('html').animate({ scrollTop: $('#form').offset().top }, 'slow');
 			});
 		}
+		
+	function getXMLHttpRequest() {
+	var xhr = null;
+	
+	if (window.XMLHttpRequest || window.ActiveXObject) {
+		if (window.ActiveXObject) {
+			try {
+				xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch(e) {
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		} else {
+			xhr = new XMLHttpRequest(); 
+		}
+	} else {
+		alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+		return null;
+	}
+	return xhr;
+}
+		
+	$('.like').click(function() {
+		var xhr = getXMLHttpRequest();
+		console.log('like');
+		xhr.open("POST", "/ideas/like/"+$('.like').attr('id'), true);
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhr.send("");
+	});
 })

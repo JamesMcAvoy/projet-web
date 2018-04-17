@@ -56,7 +56,7 @@
 	<h1 id="ideas">Boîte à idées</h1>
 
 	<div class="row">
-		@if(empty($ideas))
+		@if($ideas->isEmpty())
 			Il n'y a aucune idée proposée actuellement
 		@else
 			@foreach($ideas as $idea)
