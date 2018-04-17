@@ -68,15 +68,7 @@ final class RegisterController extends Controller {
             return $res->withStatus(302)->withHeader('Location', '/register');
         }
 
-        $session->setContents([
-            'user' => array(
-                'name_user'     => htmlentities($post['nom']),
-                'first_name'    => htmlentities($post['prenom']),
-                'email'         => htmlentities($post['courriel']),
-                'type'          => 'student',
-                'token'         => self::token()
-            )
-        ]);
+
 
         //model
         $user = Model\User::create([
@@ -86,8 +78,22 @@ final class RegisterController extends Controller {
             'password'      => password_hash($post['mdp'], PASSWORD_BCRYPT)
         ]);
 
-        $user->basket()->create();
-
+        $basket = new Model\Basket;
+        $basket->user_id = $user->user_id;
+        $basket->save();
+        //$user->basket()->create();
+        
+        $session->setContents([
+            'user' => array(
+                'id'            => $user->user_id,
+                'name_user'     => htmlentities($post['nom']),
+                'first_name'    => htmlentities($post['prenom']),
+                'email'         => htmlentities($post['courriel']),
+                'type'          => 'student',
+                'token'         => self::token()
+            )
+        ]);
+        
         return $res->withStatus(302)->withHeader('Location', '/');
 
     }
