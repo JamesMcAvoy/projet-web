@@ -116,6 +116,24 @@ $(() => {
 
 	});
 
+	$(document).on('click', '.like-picture', function() {
+
+		var $this = $(this);
+
+		$.post('/picture/like/'+$this.attr('id'), function() {
+			$this.css({
+				'color': 'blue',
+				'font-size': '20px',
+				'transition': '.5s'
+			});
+			//Change vote value
+			var selector = $('#number-' + $this.attr('id'));
+			var value = parseInt(selector.text(), 10) + 1;
+			selector.text(value);
+		});
+
+	});
+
 
 	$(".btn_buy").click(function() {
 		$.post("/shop/buy/"+$(this).attr('id'))

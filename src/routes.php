@@ -118,6 +118,12 @@ $router->get('/picture/{id}', function(Request $request, Response $response, $sl
 
 });
 
+$router->post('/picture/like/{id}', function(Request $request, Response $response, $slug) {
+
+    return Control\PictureController::like($request, $response, $slug['id']);
+
+});
+
 /**
  * Shop
  */

@@ -81,7 +81,7 @@ final class IdeaController extends Controller {
 
         $idea = Model\Idea::where('idea_id', '=', $id)->get()->first();
 
-        if(empty($idea) && !self::sessionUserActive($req))
+        if(empty($idea) || !self::sessionUserActive($req))
             return $res->withStatus(400);
 
         $liked = Model\Voted::where([
