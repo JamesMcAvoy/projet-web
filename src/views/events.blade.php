@@ -29,28 +29,32 @@
 		<table id="events-list">
 			<thead>
 				<tr>
-					<th>Nom</th>
-					<th>Prix</th>
-					<th>Date</th>
+					<th></th>
+					<th><h3>Nom</h3></th>
+					<th><h3>Prix</h3></th>
+					<th><h3>Date</h3></th>
 				</tr>
 			</thead>
 			<tbody>
 		@foreach($events as $event)
-				<tr class="event-{{ $event->event_state }}">
+				<tr class="event-{{ $event->event_state }} ligne_event">
 					<td>
-						<img src="/events/img/{{ $event->event_id }}" alt="Image événement">
-						<a href="/events/{{ $event->event_id }}">{{ $event->event_title }}</a>
+						<img src="/events/img/{{ $event->event_id }}" class="image_event" alt="Image événement">
 					</td>
-					<td>{{ $event->event_price }} €</td>
-					<td>{{ date('j/m à H:i:s', strtotime($event->start_date)) }}</td>
+					<td>
+						<a href="/events/{{ $event->event_id }}"><h4>{{ $event->event_title }}</h4></a>
+					</td>
+					<td><h4>{{ $event->event_price }} €</h4></td>
+					<td><h4>{{ date('j/m à H:i:s', strtotime($event->start_date)) }}</h4></td>
 				</tr>
 		@endforeach
 			</tbody>
 			<tfoot>
 				<tr>
-					<th>Nom</th>
-					<th>Prix</th>
-					<th>Date</th>
+					<th></th>
+					<th><h3>Nom</h3></th>
+					<th><h3>Prix</h3></th>
+					<th><h3>Date</h3></th>
 				</tr>
 			</tfoot>
 		</table>
