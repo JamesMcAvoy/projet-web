@@ -114,7 +114,7 @@
 				<div class="col-sm-6">
 				  <textarea class="form-control" id="idea" name="idea" placeholder="Votre proposition"></textarea>
 				  <div class="invalid-feedback">
-					Veuillez rentrer la description de l'evenment
+					Veuillez rentrer la description de l'évènement
 				  </div>
 				</div>
 			  </div>
