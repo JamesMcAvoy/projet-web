@@ -1,7 +1,7 @@
 @extends('template')
 
 	@section('title')
-		Événements BDE Exia
+		Boutique 
 	@stop
 	
 	@section('main_content')
@@ -15,8 +15,8 @@
           <h1 class="jumbotron-heading">BOUTIQUE</h1>
           <p class="lead text-muted">Bienvenue sur la boutique officiel du BDE de l'exia Strasbourg. Nous vous souhaiton un bon shoping!</p>
           <p>
-            <a href="#" class="btn btn-primary my-2">se connecter</a>
-            <a href="#" class="btn btn-secondary my-2">Panier</a>
+          
+            <a href="/profil" class="btn btn-secondary my-2">Panier</a>
           </p>
         </div>
       </section>
