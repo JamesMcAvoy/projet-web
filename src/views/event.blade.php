@@ -22,30 +22,32 @@
 			<h2 class="col-md-12">Photos</h2>
 			
 			<div class="col-md-12">
-				@foreach($pictures as $thisPicture)
-				<img data-toggle="modal" data-target="#{{$thisPicture->$picture_title}}" src="{{$thisPicture->$picture}}" alt="{{$thisPicture->$picture_title}}" class="col-lg-3 col-md-4 col-sm-6">
+				@foreach($event->picture->sortByDesc('picture_number_like') as $picture)
+				<img data-toggle="modal" data-target="#pic-{{ $picture->picture_id }}" src="/picture/{{ $picture->picture_id }}" alt="{{ $picture->picture_title }}" class="col-lg-3 col-md-4 col-sm-6">
 
-				  <div class="modal fade" id="{{$thisPicture->$picture_title}}" role="dialog">
+				  <div class="modal fade" id="pic-{{ $picture->picture_id }}" role="dialog">
 					<div class="modal-dialog modal-lg">
 					  <div class="modal-content">
 						<div class="modal-header">
 						  <button type="button" class="close" data-dismiss="modal">&times;</button>
-						  <h4 class="modal-title">{{$thisPicture->$picture_title}} {{$thisPicture->$picture_date}}</</h4>
+						  <h4 class="modal-title">{{ $picture->picture_title }}, posté le {{ date('j/m à H:i:s', strtotime($picture->picture_date)) }} par {{ $picture->user->name_user }} {{ $picture->user->first_name }}</h4>
 						</div>
 						<div class="modal-body">
-						  <img src="{{$thisPicture->$picture}}" alt="{{$thisPicture->$picture_title}}">
-						  <p>{{$thisPicture->picture_desc}}</p>
+						  <img src="/picture/{{ $picture->picture_id }}" alt="{{ $picture->$picture_title }}">
+						  <p>
+							{{ $picture->picture_desc }}
+						  </p>
 						  <!-- espace commentaire -->
 						</div>
 						<div class="modal-footer">
 							<div class="row">
 								<div class="col-md-4">
-									<span class="like" id="{{ $idea->idea_id }}">
+									<span class="like" id="{{ $picture->picture_id }}">
 										<i class="fas fa-thumbs-up"></i>
 									</span>
 								</div>
 								<div class="col-md-4">
-									<small class="text-muted">{{ $thisPicture->picture_number_like }}</small>
+									<small class="text-muted">{{ $picture->picture_number_like }}</small>
 								</div>
 								<div class="col-md-4">
 									<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>

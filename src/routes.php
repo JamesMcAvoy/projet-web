@@ -110,6 +110,15 @@ $router->post('/ideas/like/{id}', function(Request $request, Response $response,
 });
 
 /**
+ * Add/get pictures
+ */
+$router->get('/picture/{id}', function(Request $request, Response $response, $slug) {
+
+    return Control\PictureController::image($request, $response, $slug['id']);
+
+});
+
+/**
  * Shop
  */
 $router->get('/shop', function(Request $request, Response $response) {

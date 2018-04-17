@@ -10,9 +10,17 @@ final class PictureController extends Controller {
     /**
      * Return the picture
      */
-    public static function get() {
+    public static function image($req, $res, $id) {
 
-        
+        $image = Model\Picture::select('picture')->where('picture_id', '=', $id)->get()->first();
+
+        if(!isset($image->picture))
+            return Controller\ErrorController::error404($req, $res);
+        else {
+            $stream = $res->getBody();
+            $stream->write($image->picture);
+            return $res->withBody($stream)->withHeader('Content-Type', 'image');
+        }
 
     }
 

@@ -4,6 +4,7 @@ namespace Controllers\Controller;
 
 use Controllers\Controller;
 use Controllers\Controller\IdeaController as Idea;
+use Controllers\Controller\PictureController as Pic;
 use Models\Model;
 
 final class EventController extends Controller {
@@ -64,7 +65,7 @@ final class EventController extends Controller {
     }
 
     /**
-     * Return all events, when ID is called, return
+     * Return all events, when ID is called, return the event related
      */
     public static function get($id = null) {
 
