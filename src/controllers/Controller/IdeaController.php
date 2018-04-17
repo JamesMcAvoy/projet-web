@@ -73,26 +73,34 @@ final class IdeaController extends Controller {
 
     /**
      * Vote
+     * Ajax
      */
-    public static function ideaVote($req, $res){
+    public static function like($req, $res, $id) {
 
         $sessionUser = self::getSessionUser($req);
-        $params = $req->getQueryParams();
 
-        $idea = Model\Idea::where('idea_id', '=', $params['idea_id'])->first(); 
-        $user = $sessionUser['id'];
+        $idea = Model\Idea::where('idea_id', '=', $id)->get()->first();
 
-        if( self::sessionUserActive($req) &&
-            empty(Model\Voted::where('idea_id', '=', $idea->idea_id)) &&
-            empty(Model\Voted::where('user_id', '=', $user))
-            ) {
-                $Voted = new Model\Registered;
-                $Voted->idea_id=$idea->idea_id;
-                $Voted->user_id=$user;
-                $Voted->save();
-        }
-        // la vue ideas n'existe pas encore
-        return $res->withStatus(302)->withHeader('Location', '/ideas');
+        if($idea->isEmpty() && !self::sessionUserActive($req))
+            return $res->withStatus(400);
+
+        $userId = self::sessionUserActive($req)['id'];
+
+        $liked = Model\Liked::where([
+            ['idea_id', '=', $id],
+            ['user_id', '=', $userId]
+        ])->get()->first();
+
+        if(!$liked->isEmpty())
+            return $res->withStatus(400);
+
+        $liked = new Model\Liked;
+        $liked->idea_id=$id;
+        $liked->user_id=$userId;
+        $liked->save();
+
+        return $res->withStatus(200);
+
     }
 
     /**

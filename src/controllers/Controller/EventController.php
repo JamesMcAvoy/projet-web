@@ -30,6 +30,14 @@ final class EventController extends Controller {
 
     }
 
+    public static function indexEvent($req, $res, $id) {
+
+        
+
+        return $res;
+
+    }
+
     /**
      * Return the picture from an event
      */
@@ -48,11 +56,14 @@ final class EventController extends Controller {
     }
 
     /**
-     * Return all events
+     * Return all events, when ID is called, return
      */
-    public static function get(){
+    public static function get($id = null) {
 
-        return Model\Event::all();
+        if(!isset($id))
+            return Model\Event::all();
+        else
+            return Model\Event::where('event_id', '=', $id)->get()->first();
 
     }
 

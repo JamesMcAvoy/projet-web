@@ -85,6 +85,12 @@ $router->get('/events', function(Request $request, Response $response) {
 
 });
 
+$router->get('/events/{id}', function(Request $request, Response $response, $slug) {
+    
+    return Control\EventController::indexEvent($request, $response, $slug['id']);
+
+});
+
 $router->get('/events/img/{id}', function(Request $request, Response $response, $slug) {
     
     return Control\EventController::image($request, $response, $slug['id']);
@@ -94,6 +100,12 @@ $router->get('/events/img/{id}', function(Request $request, Response $response, 
 $router->post('/events/idea', function(Request $request, Response $response) {
     
     return Control\IdeaController::create($request, $response);
+
+});
+
+$router->post('/ideas/like/{id}', function(Request $request, Response $response, $slug) {
+
+    return Control\IdeaController::like($request, $response, $slug['id']);
 
 });
 
