@@ -253,9 +253,36 @@ h3.profil
 	font-size: 1.5em;
 }
 
+.image_event
+{
+	width: 60px; 
+	height: 60px; 
+	object-fit: cover;
+}
 
+.ligne_event td
+{
+	border: 1px solid rgba(194, 200, 205, 0.4);
+	border-color: ;
+}
 
+#events-list h3
+{
+	font-weight: bold;
+}
 
+@media screen and (max-width: 450px)
+{
 
+#events-list h3
+{
+	font-size: 20px;
+}
 
+#events-list h4
+{
+	font-size: 15px;
+}
+
+}
 
