@@ -103,8 +103,9 @@ final class EventController extends Controller {
         $user = $sessionUser['id'];
 
         if( self::sessionUserActive($req) &&
-            empty(Model\Registered::where('event_id', '=', $event->event_id)) &&
-            empty(Model\Registered::where('user_id', '=', $user))
+        empty(Model\Registered::where(function ($query) { 
+            $query->where('event_id', '=', $event->event_id)
+                ->where('user_id', $user);}))
             ) {
                 $registered = new Model\Registered;
                 $registered->event_id=$event->event_id;

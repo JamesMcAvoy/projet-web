@@ -27,8 +27,9 @@ final class commentsController extends Controller {
         $post = $req->getParsedBody();
 
         if(self::sessionUserActive($req) &&
-            empty(Model\Picture::where('picture_id', '=', $id)) &&
-            empty(Model\User::where('user_id', '=', $sessionUser['id']))
+            empty(Model\Picture::where(function ($query) { 
+                $query->where('picture_id', $id)
+                    ->where('user_id', $sessionUser['id']);}))
             ){
                 $comment = new Model\Comment;
                 $comment->comment = $post['comment'];
