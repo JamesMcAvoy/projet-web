@@ -8,7 +8,7 @@
 	
 	<div class="container">
 		<div class="row">
-			<a type="button" href="/events" class="btn btn-secondary btn-lg btn-block col-md-12 retour_accueil">Retour à l'accueil</a>
+			<a type="button" href="/events" class="btn btn-secondary btn-lg btn-block col-md-12 retour_accueil">Retour à l'index des événements</a>
 			<img class="col-md-3 col-sm-12" id="image_event" src="/events/img/{{ $event->event_id }}" alt="image évènement">
 			<div class="row col-md-9 col-sm-12">
 				<h2 class="col-md-8">{{ $event->event_title }}</h2>
@@ -46,7 +46,7 @@
 							  </p>
 							@if(!isset($user))
 								<div class="alert alert-danger">
-									Vous devez être connecté pour poster une image ou un commentaire !
+									Vous devez être connecté pour poster un commentaire !
 								</div>
 							@else
 							<!-- POST -->
@@ -54,11 +54,13 @@
 							</div>
 							<div class="modal-footer">
 								<div class="row">
+									@if(isset($user))
 									<div class="col-md-4">
 										<span class="like-picture" id="{{ $picture->picture_id }}">
 											<i class="fas fa-thumbs-up"></i>
 										</span>
 									</div>
+									@endif
 									<div class="col-md-4">
 										<small class="text-muted" id="number-{{ $picture->picture_id }}">{{ $picture->picture_number_like }}</small>
 									</div>
@@ -74,39 +76,45 @@
 				@endforeach
 			</div>
 			<h2 class="col-md-12">Ajouter une photo</h2>
-				<form method="post" action="<!--lien ajout photo-->" id="form_add_picture">
-				  <div class="form-group col-md-12">
-					  <div class="custom-file">
-						<input type="file" class="custom-file-input" id="customFile">
-						<label class="custom-file-label" for="customFile">Choisissez une image</label>
-					  </div>
-				  </div>
-				  <div class="form-group col-md-12">
-					<label for="idea_title" class="col-form-label">Titre</label>
-					
-					  <input type="text" class="form-control" id="idea_title" placeholder="Titre de l'image" name="idea_title">
-					  <div class="invalid-feedback">
-						Veuillez rentrer le titre de l'image
-					  </div>
-					
-				  </div>
-				  <div class="form-group col-md-12">
-
-					<label for="idea" class="col-form-label">Description</label>
-					
-					  <textarea class="form-control" id="idea" name="idea" placeholder="Description de l'image"></textarea>
-					  <div class="invalid-feedback">
-						Veuillez rentrer la description de l'image
-					  </div>
-					
-				  </div>
-				  <div class="form-group">
-
-					<div class="col-md-12">
-					  <button type="submit" class="btn btn-outline-dark">Ajouter l'image</button>
+				@if(!isset($user))
+					<div class="alert alert-danger">
+						Vous devez être connecté pour poster une image !
 					</div>
-				  </div>
-				</form>
+				@else
+					<form method="post" action="<!--lien ajout photo-->" id="form_add_picture">
+					  <div class="form-group col-md-12">
+						  <div class="custom-file">
+							<input type="file" class="custom-file-input" id="customFile">
+							<label class="custom-file-label" for="customFile">Choisissez une image</label>
+						  </div>
+					  </div>
+					  <div class="form-group col-md-12">
+						<label for="idea_title" class="col-form-label">Titre</label>
+						
+						  <input type="text" class="form-control" id="idea_title" placeholder="Titre de l'image" name="idea_title">
+						  <div class="invalid-feedback">
+							Veuillez rentrer le titre de l'image
+						  </div>
+						
+					  </div>
+					  <div class="form-group col-md-12">
+
+						<label for="idea" class="col-form-label">Description</label>
+						
+						  <textarea class="form-control" id="idea" name="idea" placeholder="Description de l'image"></textarea>
+						  <div class="invalid-feedback">
+							Veuillez rentrer la description de l'image
+						  </div>
+						
+					  </div>
+					  <div class="form-group">
+
+						<div class="col-md-12">
+						  <button type="submit" class="btn btn-outline-dark">Ajouter l'image</button>
+						</div>
+					  </div>
+					</form>
+				@endif
 			</div>
 		</div>
 	
