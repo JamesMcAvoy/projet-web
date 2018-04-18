@@ -151,11 +151,11 @@ $router->get('/profil/admin', function(Request $request, Response $response) {
 
 $router->get('/CreateEvent', function(Request $request, Response $response) {
     
-    return Control\EventCreateController::index($request, $response);
+    return Control\AdminController::index($request, $response);
 
 });
 $router->post('/CreateEvent', function(Request $request, Response $response) {
 
-    return Control\EventCreateController::eventCreate($request, $response);
+    return Control\AdminController::eventCreate($request, $response);
 
 });
