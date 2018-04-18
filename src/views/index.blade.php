@@ -80,7 +80,57 @@
         </div>
         
         </div>
-
+		<div id="membres" class="row">
+		<h2 class="col-md-12">Membres du BDE</h2>
+			<div class="col-md-3 col-sm-12">
+				<div class="personne col-md-12 col-sm-6">
+					<h5>Président</h5>
+					<h5>Pierre Froidevaux</h5>
+					<img src="/img/membre/pierre.jpg" class="img_membre" alt="">
+				</div>
+				<div class="personne col-md-12 col-sm-6">
+					<h5>Vice-président</h5>
+					<h5>Romain Muller</h5>
+					<img src="/img/membre/muller.jpg" class="img_membre" alt="">
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-12">
+				<div class="personne col-md-12 col-sm-6">
+					<h5>Trésorier</h5>
+					<h5>Romain Kauffman</h5>
+					<img src="/img/membre/kauffman.jpg" class="img_membre" alt="">
+				</div>
+				<div class="personne col-md-12 col-sm-6">
+					<h5>Vice-trésorier</h5>
+					<h5>Gulay Kozludere</h5>
+					<img src="/img/membre/gulay.jpg" class="img_membre" alt="">
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-12">
+				<div class="personne col-md-12 col-sm-6">
+					<h5>Secrétaire</h5>
+					<h5>Riadjy Bhiki</h5>
+					<img src="/img/membre/riadjy.jpg" class="img_membre" alt="">
+				</div>
+				<div class="personne col-md-12 col-sm-6">
+					<h5>Vice-secrétaire</h5>
+					<h5>Stephen Wintzenreith</h5>
+					<img src="/img/membre/stephen.jpg" class="img_membre" alt="">
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-12">
+				<div class="personne col-md-12 col-sm-6">
+					<h5>Community manager</h5>
+					<h5>Vincent Pansera</h5>
+					<img src="/img/membre/pansera.jpg" class="img_membre" alt="">
+				</div>
+				<div class="personne col-md-12 col-sm-6">
+					<h5>Vice community manager</h5>
+					<h5>François Schaefer</h5>
+					<img src="/img/membre/schaefer.jpg" class="img_membre" alt="">
+				</div>
+			</div>
+		</div>
 
 
 
