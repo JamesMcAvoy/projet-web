@@ -390,11 +390,16 @@ div.profilHeader
 
 .personne
 {
-	background-color: rgba();
-	border-radius: 20px;
+	background-color: #EEF0F0;
+	border-radius: 10px;
 	padding: 5px;
 	margin: 10px;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
+}
+
+#membres h2
+{
+	margin: 10px;
 }

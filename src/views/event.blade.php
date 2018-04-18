@@ -57,7 +57,11 @@
 									  @else
 									  <ul>
 									  @foreach($picture->comment as $comment)
-										<li>le {{ date('j/m à H:i', strtotime($comments->comment_date))}} | {{$comments->user->name_user}}: {{$comments->comment}}</li>
+										<li>le {{ date('j/m à H:i', strtotime($comments->comment_date))}} | {{$comments->user->name_user}}: {{$comments->comment}} 
+										@if($user['type'] == 'BDE' || $user['type'] == 'employee')
+											<a type="button" href="<!-- lien Bloquer commentaire-->" class="btn btn-danger">Bloquer</a>
+										@endif
+										</li>
 									  @endforeach
 									  </ul>
 									  @endif
@@ -85,6 +89,9 @@
 										</form>
 									@endif
 								</div>
+								@if($user['type'] == 'BDE' || $user['type'] == 'employee')
+									<a type="button" href="<!-- lien Bloquer image-->" class="btn btn-danger">Bloquer l'image</a>
+								@endif
 								</div>
 								<div class="modal-footer row">
 									
@@ -150,6 +157,9 @@
 						</form>
 					@endif
 			</div>
+			@if($user['type'] == 'BDE' || $user['type'] == 'employee')
+				<a type="button" href="<!-- lien Bloquer event-->" class="btn btn-danger">Bloquer l'évènement</a>
+			@endif
 			</div>
 		</div>
 	

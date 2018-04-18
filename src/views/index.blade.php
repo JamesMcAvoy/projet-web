@@ -82,7 +82,7 @@
         </div>
 		<div id="membres" class="row">
 		<h2 class="col-md-12">Membres du BDE</h2>
-			<div class="col-md-3 col-sm-12">
+			<div class="col-md-3 col-sm-12 ">
 				<div class="personne col-md-12 col-sm-6">
 					<h5>Président</h5>
 					<h5>Pierre Froidevaux</h5>
@@ -94,7 +94,7 @@
 					<img src="/img/membre/muller.jpg" class="img_membre" alt="">
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-12">
+			<div class="col-md-3 col-sm-12 ">
 				<div class="personne col-md-12 col-sm-6">
 					<h5>Trésorier</h5>
 					<h5>Romain Kauffman</h5>
@@ -106,7 +106,7 @@
 					<img src="/img/membre/gulay.jpg" class="img_membre" alt="">
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-12">
+			<div class="col-md-3 col-sm-12 ">
 				<div class="personne col-md-12 col-sm-6">
 					<h5>Secrétaire</h5>
 					<h5>Riadjy Bhiki</h5>
@@ -118,7 +118,7 @@
 					<img src="/img/membre/stephen.jpg" class="img_membre" alt="">
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-12">
+			<div class="col-md-3 col-sm-12 ">
 				<div class="personne col-md-12 col-sm-6">
 					<h5>Community manager</h5>
 					<h5>Vincent Pansera</h5>
