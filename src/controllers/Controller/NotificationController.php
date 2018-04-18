@@ -48,6 +48,19 @@ final class NotificationController extends Controller {
         return $res->withStatus(302)->withHeader('Location', '/Notifications');
     }
 
+    public static function mail($id_notification, $receiver){
+
+        $notif = Model\Notifications::where('notif_id', $id_notification)->get()->first(); 
+        $user = Model\User::where('user_id', $notif->user_id)->get()->first(); 
+        
+        if($receiver == 'person'){
+            mail($user->email, $notif->title_notif, $notif->notif);
+        }elseif($receiver == 'BDE'){
+            mail('mail.bde@viacesi.fr', $notif->title_notif, $notif->notif);
+        }
+        
+        
+    }
 
 
 
