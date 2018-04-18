@@ -31,11 +31,11 @@
         <thead>
           <tr>
             <th></th>
-            <th><h3>Catégorie</h3></th>
-            <th><h3>Nom</h3></th>
-            <th><h3>Description</h3></th>
-            <th><h3>Prix</h3></th>
-            <th><h3>Quantité</h3></th>
+            <th><h4>Catégorie</h4></th>
+            <th><h4>Nom</h4></th>
+            <th><h4>Description</h4></th>
+            <th><h4>Prix</h4></th>
+            <th><h4>Quantité</h4></th>
             @if(isset($user))
             <th></th>
             @endif
@@ -65,11 +65,11 @@
         <tfoot>
           <tr>
             <th></th>
-            <th><h3>Catégorie</h3></th>
-            <th><h3>Nom</h3></th>
-            <th><h3>Description</h3></th>
-            <th><h3>Prix</h3></th>
-            <th><h3>Quantité</h3></th>
+            <th><h4>Catégorie</h4></th>
+            <th><h4>Nom</h4></th>
+            <th><h4>Description</h4></th>
+            <th><h4>Prix</h4></th>
+            <th><h4>Quantité</h4></th>
             @if(isset($user))
             <th></th>
             @endif

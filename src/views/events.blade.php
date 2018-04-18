@@ -30,9 +30,9 @@
 			<thead>
 				<tr>
 					<th></th>
-					<th><h3>Nom</h3></th>
-					<th><h3>Prix</h3></th>
-					<th><h3>Date</h3></th>
+					<th><h4>Nom</h4></th>
+					<th><h4>Prix</h4></th>
+					<th><h4>Date</h4></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -42,19 +42,19 @@
 						<img src="/events/img/{{ $event->event_id }}" class="image_event" alt="Image événement">
 					</td>
 					<td>
-						<a href="/events/{{ $event->event_id }}"><h4>{{ $event->event_title }}</h4></a>
+						<a href="/events/{{ $event->event_id }}"><h5>{{ $event->event_title }}</h5></a>
 					</td>
-					<td><h4>{{ $event->event_price }} €</h4></td>
-					<td><h4>{{ date('j/m à H:i:s', strtotime($event->start_date)) }}</h4></td>
+					<td><h5>{{ $event->event_price }} €</h5></td>
+					<td><h5>{{ date('j/m à H:i:s', strtotime($event->start_date)) }}</h5></td>
 				</tr>
 		@endforeach
 			</tbody>
 			<tfoot>
 				<tr>
 					<th></th>
-					<th><h3>Nom</h3></th>
-					<th><h3>Prix</h3></th>
-					<th><h3>Date</h3></th>
+					<th><h4>Nom</h4></th>
+					<th><h4>Prix</h4></th>
+					<th><h4>Date</h4></th>
 				</tr>
 			</tfoot>
 		</table>
