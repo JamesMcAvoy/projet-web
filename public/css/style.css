@@ -328,7 +328,10 @@ div.profilHeader
 	text-align: center;
 }
 
-
+.h2Admin
+{
+	text-decoration: underline;
+}
 
 
 

@@ -7,9 +7,9 @@
 	@section('main_content')
 <h1 class="h1Admin" >Binvenue sur la page d'administration du site</h1>
 
-<h2>gestion des evenement</h2>
+<h2 class="h2Admin">gestion des evenement</h2>
 
-<h3>créé un evenement</h3>
+<h3>-créé un evenement</h3>
 <div class="jumbotron jumbotron-fluid">
 		<div class="container">
 		<form method="post" action="/createEvent">
@@ -138,11 +138,21 @@
 		</form>
 		</div>
 	</div>
-<h3>idées proposées</h3>
+<h3>-idées proposées</h3>
 
 <h3></h3>
 
-<h2>gestion des utilisateurs</h2>
+<h2 class="h2Admin">gestion des utilisateurs</h2>
+
+<h3>-membres du BDE</h3>
+
+<h4>	       -créé</h4>
+
+<h4>	-editer</h4>
+
+<h4>	-suprimer</h4>
+
+<h3>-autres utilisateurs</h3>
 
 <h2></h2>
 
