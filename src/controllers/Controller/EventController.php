@@ -83,6 +83,7 @@ final class EventController extends Controller {
 
         return Model\Event::whereMonth('start_date', '=', date('n'))
                           ->orderBy('start_date', 'desc')
+						   ->take(3)
                           ->get();
 
     }

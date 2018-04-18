@@ -46,19 +46,21 @@
 
         <div class="card-group">
           @if(!$events->isEmpty())
+			<div class="row">
           @foreach($events as $event)
-            <div class="card">
+            <div class="card col-md-4">
               <img class="card-img-top" src="/events/img/{{ $event->event_id }}" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">{{ $event->event_title }}</h5>
                 <p class="card-text">{{ $event->event }}</p>
-                <a href="/events/{{ $event->event_id }}" class="btn btn-primary">Accéder à l'événement</a>
+                <a href="/events/{{ $event->event_id }}" class="btn btn-primary">Accéder à l'évènement</a>
               </div>
               <div class="card-footer">
                 <small class="text-muted">Le {{ date('j/m à H:i:s', strtotime($event->start_date)) }}</small>
               </div>
             </div>
           @endforeach
+			</div>
           @else
             Il n'y a aucun événement ce mois-ci actuellement
           @endif
