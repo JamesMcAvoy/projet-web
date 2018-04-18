@@ -7,6 +7,18 @@
 	@section('main_content')
 	
 	<div class="container">
+	  @if(isset($msg['error']))
+	    <div class="page-header">
+	      <h2>Erreur</h2>
+	    </div>
+	    <div class="alert alert-danger">
+	      {{ $msg['error'] }}
+	    </div>
+	  @elseif(isset($msg['valid']))
+	    <div class="alert alert-success">
+	      {{ $msg['valid'] }}
+	    </div>
+	  @endif
 		<div class="row">
 			<a type="button" href="/events" class="btn btn-secondary btn-lg btn-block col-md-12 retour_accueil">Retour à l'index des événements</a>
 			<div class="col-md-3 col-sm-12">
@@ -19,11 +31,12 @@
 				<h3 class="col-md-6">Durée : {{ floor($event->time/60) }} heures</h3>
 				@if($event->event_number > 1)
 					<h3 class="col-md-6">Tous les {{ $event->time_between_each }} jours</h3>
-					<a type="button" href="<!--lien vers inscription-->" class="btn btn-success col-md-6">S'inscrire</a>
 				@endif
+				@if(isset($user) && !$registered)
 				<div class="col-md-12">
-					<a type="button" href="<!--lien vers inscription-->" class="btn btn-success"><h3>S'inscrire</h3></a>
+					<a type="button" href="/events/register/{{ $event->event_id }}" class="btn btn-success"><h3>S'inscrire</h3></a>
 				</div>
+				@endif
 			</div>
 			<h2 class="col-md-12">Description</h2>
 			<p class="col-md-12 event_desc">{{$event->event}}</p>
@@ -127,6 +140,10 @@
 						<div class="alert alert-danger">
 							Vous devez être connecté pour poster une image !
 						</div>
+					@elseif(!$registered)
+						<div class="alert alert-danger">
+							Vous devez être inscrit à l'événement pour poster une image !
+						</div>
 					@else
 						<form method="post" action="<!--lien ajout photo-->" id="form_add_picture">
 						  <div class="form-group col-md-12">
@@ -170,5 +187,5 @@
 			@endif
 			</div>
 		</div>
-	
+
 	@stop

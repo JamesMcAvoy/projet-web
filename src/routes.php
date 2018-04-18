@@ -91,6 +91,12 @@ $router->get('/events/{id}', function(Request $request, Response $response, $slu
 
 });
 
+$router->get('/events/register/{id}', function(Request $request, Response $response, $slug) {
+    
+    return Control\EventController::register($request, $response, $slug['id']);
+
+});
+
 $router->get('/events/img/{id}', function(Request $request, Response $response, $slug) {
     
     return Control\EventController::image($request, $response, $slug['id']);

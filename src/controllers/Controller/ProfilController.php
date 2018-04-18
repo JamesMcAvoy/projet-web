@@ -16,7 +16,8 @@ final class ProfilController extends Controller {
         return self::render($res, 'profil', [
         	'route' => 'profil',
         	'user' => self::getSessionUser($req),
-        	'basket' => self::basket(self::getSessionUser($req)['id'])
+        	'basket' => self::basket(self::getSessionUser($req)['id']),
+            'register' => self::registered(self::getSessionUser($req)['id'])
         ]);
 
     }
@@ -24,9 +25,18 @@ final class ProfilController extends Controller {
     /**
      * Return the basket of the user
      */
-    public static function basket($id) {
+    private static function basket($id) {
 
     	return Model\Basket::where('user_id', '=', $id)->get()->first();
+
+    }
+
+    /**
+     * Return the events where the user is registered
+     */
+    private static function registered($id) {
+
+        return Model\Registered::where('user_id', '=', $id)->get();
 
     }
 

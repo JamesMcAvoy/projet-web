@@ -39,6 +39,9 @@
 	<h3 class="profil">Notifications</h3>
 
 	<h3 class="profil">Inscriptions</h3>
+	@foreach($register as $registered)
+		{{ $registered->event->event_title }}<br />
+	@endforeach
 
 	<h2 class="profil">Achats</h2 >
 

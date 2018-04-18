@@ -36,13 +36,25 @@ final class EventController extends Controller {
      */
     public static function indexEvent($req, $res, $id) {
 
+        $session = parent::getSession($req);
+        $sessionContents = $session->getContents();
+
+        if(isset($sessionContents['msg'])) {
+            $msg = $sessionContents['msg'];
+            unset($sessionContents['msg']);
+
+            $session->setContents($sessionContents);
+        } else $msg = null;
+
         if(empty(Model\Event::where('event_id', '=', $id)->get()->first()))
             return Controller\ErrorController::error404($req, $res);
 
         return self::render($res, 'event', [
             'route' => 'events',
             'user' => self::getSessionUser($req),
-            'event' => self::get($id)
+            'event' => self::get($id),
+            'msg' => $msg,
+            'registered' => self::isRegistered(self::getSessionUser($req)['id'], $id)
         ]);
 
     }
@@ -83,92 +95,70 @@ final class EventController extends Controller {
 
         return Model\Event::whereMonth('start_date', '=', date('n'))
                           ->orderBy('start_date', 'desc')
-						   ->take(3)
+						  ->take(3)
                           ->get();
 
     }
 
-
     /**
-    * Create a new event
-    ********/   
-    public static function eventCreate($req, $res){
+     * Registration for an event
+     */
+    public static function register($req, $res, $id) {
 
-        $session = parent::getSession($req)->getContents();
-        $params = $req->getQueryParams();
-    
-        $post = $req->getParsedBody();       
-        
-        $file = $req->getUploadedFiles();
-        $filePicture = $file['event_picture'];
-        $stream = $filePicture->getStream();
-    
-        $date_time = htmlentities($post['date'])." ".htmlentities($post['hour']);
-    
-        $event = new Model\Event;
-        $event->event_title = $post['event_title'];
-        $event->event = $post['event'];
-        $event->event_price = $post['event_price'];
-        $event->event_picture = $stream;
-        $event->start_date = $date_time;
-        $event->time = $post['time'];
-        $event->time_between_each = $post['time_between_each'];
-        $event->event_number = $post['event_number'];
-        $event->event_state = $post['event_state'];
-        $event->save();
-           
-            return $res->withStatus(302)->withHeader('Location', '/CreateEvent');
-        }
-
-
-    /**
-    * Registration for an event
-    ********/
-    public static function eventRegistration($req, $res){
-
+        $session = self::getSession($req);
         $sessionUser = self::getSessionUser($req);
         $params = $req->getQueryParams();
 
-        $event = Model\Event::where('event_id', '=', $params['event_id'])->first(); 
+        $event = Model\Event::where('event_id', '=', $id)->get()->first(); 
         $user = $sessionUser['id'];
 
-        if( self::sessionUserActive($req) &&
-        empty(Model\Registered::where(function ($query) { 
-            $query->where('event_id', '=', $event->event_id)
-                ->where('user_id', $user);}))
-            ) {
-                $registered = new Model\Registered;
-                $registered->event_id=$event->event_id;
-                $registered->user_id=$user;
-                $registered->save();
+        if(!self::sessionUserActive($req)) {
+            $session->setContents([
+                'msg' => [
+                    'error' => 'Vous devez être connecté'
+                ]
+            ]);
+            return $res->withStatus(302)->withHeader('Location', "/events/$id");
         }
 
-        return $res->withStatus(302)->withHeader('Location', '/events');
+        if(!empty(Model\Registered::where([
+            ['event_id', '=', $event->event_id],
+            ['user_id', '=', $user]
+        ])->get()->first())) {
+            $session->setContents([
+                'user' => self::getSessionUser($req),
+                'msg' => [
+                    'error' => 'Vous êtes déjà inscrit'
+                ]
+            ]);
+            return $res->withStatus(302)->withHeader('Location', "/events/$id");
+        }
+
+        $registered = new Model\Registered;
+        $registered->event_id=$event->event_id;
+        $registered->user_id=$user;
+        $registered->save();
+
+        $session->setContents([
+            'user' => self::getSessionUser($req),
+            'msg' => [
+                'valid' => 'Vous vous êtes bien inscrit'
+            ]
+        ]);
+        return $res->withStatus(302)->withHeader('Location', "/events/$id");
+
     }
 
     /**
-     * modify event 
+     * Return if an user is registered for an event
      */
-    public static function eventManage($req, $res){
+    private static function isRegistered($userId, $eventId) {
 
-        $post = $req->getParsedBody();       
-        
-        $date_time = htmlentities($post['date'])." ".htmlentities($post['hour']);    
+        return !empty(Model\Registered::where([
+            ['event_id', '=', $eventId],
+            ['user_id', '=', $userId]
+        ])->get()->first());
 
-        $user = Model\Event::update([
-            'event_title'       => htmlentities($post['event_title']),
-            'event'             => htmlentities($post['event']),
-            'event_price'       => htmlentities($post['event_price']),
-            'event_picture'     => htmlentities($post['event_picture']),
-            'start_date'        => $date_time,
-            'time'              => htmlentities($post['time']),
-            'time_between_each' => htmlentities($post['time_between_each']),
-            'event_number'      => htmlentities($post['event_number']),
-            'event_state'       => htmlentities($post['event_state'])
-        ])->first();
-
-        return $res->withStatus(302)->withHeader('Location', '/evenements');
-    }  
-
+    }
 
 }
