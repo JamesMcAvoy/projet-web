@@ -60,6 +60,7 @@
 										<li>le {{ date('j/m à H:i', strtotime($comments->comment_date))}} | {{$comments->user->name_user}}: {{$comments->comment}} 
 										@if($user['type'] == 'employee')
 											<a type="button" href="<!-- lien Bloquer comment-->" class="btn btn-danger">Bloquer</a>
+										@endif
 										@if($user['type'] == 'BDE')
 											<a type="button" href="<!-- lien supprimer comment-->" class="btn btn-danger">Supprimer</a>
 										@endif
@@ -92,9 +93,10 @@
 									@endif
 								</div>
 								@if($user['type'] == 'employee')
-									<a type="button" href="<!-- lien Bloquer image-->" class="btn btn-danger">Bloquer l'image</a>
+									<a type="button" href="<!-- lien Bloquer image-->" class="btn btn-danger btn-lg col-md-12">Bloquer l'image</a>
+								@endif
 								@if($user['type'] == 'BDE')
-									<a type="button" href="<!-- lien supprimer image-->" class="btn btn-danger">Supprimer l'image</a>
+									<a type="button" href="<!-- lien supprimer image-->" class="btn btn-danger btn-lg col-md-12">Supprimer l'image</a>
 								@endif
 								</div>
 								<div class="modal-footer row">
@@ -162,9 +164,10 @@
 					@endif
 			</div>
 			@if($user['type'] == 'employee')
-				<a type="button" href="<!-- lien Bloquer event-->" class="btn btn-danger">Bloquer l'évènement</a>
+				<a type="button" href="<!-- lien Bloquer event-->" class="btn btn-danger btn-lg col-md-12">Bloquer l'évènement</a>
+			@endif
 			@if($user['type'] == 'BDE')
-				<a type="button" href="<!-- lien supprimer event-->" class="btn btn-danger">Supprimer l'évènement</a>
+				<a type="button" href="<!-- lien supprimer event-->" class="btn btn-danger btn-lg col-md-12">Supprimer l'évènement</a>
 			@endif
 			</div>
 		</div>
