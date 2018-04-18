@@ -20,6 +20,11 @@
                   @foreach($goodies as $key => $item)
                   <div class="carousel-item{{ ($key == 0) ? ' active' : '' }}">
                        <img src="/shop/img/{{ $item->item_id }}" alt="Slide item boutique" />
+			            @if(isset($user))
+			              <div class="carousel-caption">
+			                <a href="/shop/{{ $item->item_id }}" class="btn btn-primary">Ajouter au panier</a>
+			              </div>
+			            @endif
                   </div>
                   @endforeach
 
