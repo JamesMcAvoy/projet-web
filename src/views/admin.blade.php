@@ -12,7 +12,7 @@
 <h3>créé un evenement</h3>
 <div class="jumbotron jumbotron-fluid">
 		<div class="container">
-		<form method="post" action="/createEvent">
+		<form method="post" action="/createEvent" enctype="multipart/form-data">
 		  <div class="form-group row">
 			<div class="col-sm-2">
 			</div>
