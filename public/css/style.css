@@ -277,13 +277,13 @@ h3.profil
 @media screen and (max-width: 450px)
 {
 
-#events-list h3,
-#goodies-list h3
+#events-list h4,
+#goodies-list h4
 {
 	font-size: 20px;
 }
 
-#events-list h4
+#events-list h5
 {
 	font-size: 15px;
 }
@@ -308,4 +308,10 @@ h3.profil
 .like,
 .like-picture {
 	cursor: pointer;
+}
+
+#image_event
+{
+	height: auto;
+	max-width: 250px;
 }

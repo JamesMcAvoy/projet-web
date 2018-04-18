@@ -27,6 +27,9 @@ final class RegisterController extends Controller {
 
     }
 
+    /**
+     * create a new student (with a basket) for registation
+     */
     public static function register($req, $res) {
 
         $session = self::getSession($req);

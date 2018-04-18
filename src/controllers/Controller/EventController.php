@@ -84,7 +84,7 @@ final class EventController extends Controller {
 
 
     /**
-    * Creation
+    * Create a new event
     ********/   
     public static function eventCreate($req, $res){
 
@@ -112,7 +112,7 @@ final class EventController extends Controller {
 
 
     /**
-    * Registration
+    * Registration for an event
     ********/
     public static function eventRegistration($req, $res){
 
@@ -137,7 +137,7 @@ final class EventController extends Controller {
     }
 
     /**
-    * Manage
+    * Manage events 
     ********/
     /* faudrait auto compléter le forms avec les infos de la BDD sur l'évenement
     $post = $req->getParsedBody(); 
@@ -165,12 +165,5 @@ final class EventController extends Controller {
         return $res->withStatus(302)->withHeader('Location', '/evenements');
     }  
 
-/*
-Events of month appareant for all
-visitors : events appearant for all visitors
-+ BDE : edit events with : description, picture, dated, price, recurrence; access list registered : PDF, CSV.
-+ for connected : registration of un event
-+ employees : block event (notif BDE)
-*/
 
 }
