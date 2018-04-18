@@ -314,6 +314,7 @@ h3.profil
 {
 	height: auto;
 	max-width: 250px;
+<<<<<<< HEAD
 }
 
 div.profilHeader
@@ -326,3 +327,46 @@ div.profilHeader
 
 
 
+=======
+	box-shadow: 8px 8px 12px #aaa;
+}
+
+.img_event
+{
+	max-width: 200px;
+	height: auto;
+}
+
+.img_event:hover
+{
+	box-shadow: 8px 8px 12px #aaa;
+}
+
+.afficher_image
+{
+	max-width: 100%;
+	box-shadow: 8px 8px 12px #aaa;
+}
+
+.modal-body h5
+{
+	margin: 10px;
+}
+
+#espace_commentaire
+{
+	background-color: #EEF0F0;
+	border-radius: 10px;
+	padding: 10px;
+	width: 100%;
+}
+
+#espace_photo
+{
+	background-color: #EEF0F0;
+	border-radius: 10px;
+	padding: 10px;
+	width: 100%;
+	height: 100%;
+}
+>>>>>>> 79ac3116d6d5f7dd8f747bd80d264c84812b3f2c
