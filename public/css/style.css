@@ -314,7 +314,7 @@ h3.profil
 {
 	height: auto;
 	max-width: 250px;
-<<<<<<< HEAD
+
 }
 
 div.profilHeader
@@ -323,11 +323,15 @@ div.profilHeader
     text-align: center;
 }
 
+.h1Admin
+{
+	text-align: center;
+}
 
 
 
 
-=======
+
 	box-shadow: 8px 8px 12px #aaa;
 }
 
@@ -369,4 +373,5 @@ div.profilHeader
 	width: 100%;
 	height: 100%;
 }
->>>>>>> 79ac3116d6d5f7dd8f747bd80d264c84812b3f2c
+
+
