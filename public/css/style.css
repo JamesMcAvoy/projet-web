@@ -374,7 +374,7 @@ div.profilHeader
 	height: 100%;
 }
 
-<<<<<<< HEAD
+
 .img_membre{
 	overflow:hidden;
 	-webkit-border-radius:50px;
@@ -395,7 +395,7 @@ div.profilHeader
 	border-radius: 20px;
 	padding: 5px;
 	margin: 10px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
 }
-=======
-
->>>>>>> bc69b8e3a43e7afc9730d0c9f779a6c160099952
