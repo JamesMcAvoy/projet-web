@@ -71,7 +71,7 @@ final class RegisterController extends Controller {
             return $res->withStatus(302)->withHeader('Location', '/register');
         }
 
-        //model
+        //creation user
         $user = Model\User::create([
             'name_user'     => $post['nom'],
             'first_name'    => $post['prenom'],
@@ -79,11 +79,12 @@ final class RegisterController extends Controller {
             'password'      => password_hash($post['mdp'], PASSWORD_BCRYPT)
         ]);
 
+        //creation basket associated with the user 
         $basket = new Model\Basket;
         $basket->user_id = $user->user_id;
         $basket->save();
-        //$user->basket()->create();
         
+        //creation of the session with informations of the user
         $session->setContents([
             'user' => array(
                 'id'            => $user->user_id,

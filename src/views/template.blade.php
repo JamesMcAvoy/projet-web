@@ -67,13 +67,51 @@
 			<div class="row aligner">
 				<h6 class="col-md-3 col-sm-12">&copy; Copyright 2018</h6>
 				<h6 class="col-md-4 col-sm-12">Projet WEB 2018 Exia Strasbourg</h6>
-				<a class="col-md-4 col-sm-12" href=""><h6>Concepteur du site</h6></a>
+				<a class="col-md-4 col-sm-12 " href="" data-toggle="modal" data-target="#equipe"><h6>Concepteur du site</h6></a>
 				<div class="col-md-1 col-sm-12">
 					<a class="col-md-3" href="https://www.facebook.com/BdeExiaStrasbourg/"  target="_blank" ><img src="/img/facebook.png"  alt="facebook" height="50" width="50"></a>
 				</div>
 			</div>
 		</div>
 		</footer>
+		
+		  <div class="modal fade" id="equipe" role="dialog">
+			<div class="modal-dialog modal-lg">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title">Concepteurs du site</h4>
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="membre_equipe col-md-3 col-sm-6">
+							<img src="/img/equipe/brisset.jpg" class="img_membre" alt="">
+							<h5>Mathieu BRISSET</h5>
+							<h6>Back-end (intégration)</h6>
+						</div>
+						<div class="membre_equipe col-md-3 col-sm-6">
+							<img src="/img/equipe/vernet.jpg" class="img_membre" alt="">
+							<h5>Louis VERNET</h5>
+							<h6>Back-end (bases de donnée)</h6>
+						</div>
+						<div class="membre_equipe col-md-3 col-sm-6">
+							<img src="/img/equipe/buet.jpg" class="img_membre" alt="">
+							<h5>Thomas BUET</h5>
+							<h6>Front-end</h6>
+						</div>
+						<div class="membre_equipe col-md-3 col-sm-6">
+							<img src="/img/equipe/pansera.jpg" class="img_membre" alt="">
+							<h5>Vincent PANSERA</h5>
+							<h6>Chef de projet et Front-end</h6>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
 	
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
