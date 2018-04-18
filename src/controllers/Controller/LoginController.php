@@ -54,10 +54,12 @@ final class LoginController extends Controller {
             return $res->withStatus(302)->withHeader('Location', '/login');
         }
 
+        //If user exist
         if(Model\User::where('email', '=', $post['courriel'])->get()) {
             $user = Model\User::where('email', '=', $post['courriel'])->get()->first();
-
+            //If good password
             if(password_verify($post['mdp'], $user->password)) {
+                //create a session with informations of person
                 $session->setContents([
                     'user' => array(
                         'email'         => $user->email,

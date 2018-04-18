@@ -26,6 +26,8 @@ final class commentsController extends Controller {
 
         $post = $req->getParsedBody();
 
+        //If active session
+        //and registry not exist
         if(self::sessionUserActive($req) &&
             empty(Model\Picture::where(function ($query) { 
                 $query->where('picture_id', $id)
@@ -61,6 +63,9 @@ final class commentsController extends Controller {
         $comment = Model\Comment::where('comment_id', '=', $params['comment_id'])->get()->first(); 
         $user = $sessionUser['type'];
 
+        //If active session
+        //and user is employee or BDE member
+        //and comment not blocked
         if( self::sessionUserActive($req) &&
             ($user = 'employee' || $user = 'BDE') &&
             $comment->comment_state != 'blocked'

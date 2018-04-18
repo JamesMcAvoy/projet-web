@@ -72,7 +72,7 @@ final class IdeaController extends Controller {
     }
 
     /**
-     * Vote
+     * Vote for an idea
      * Ajax
      */
     public static function like($req, $res, $id) {
@@ -104,7 +104,7 @@ final class IdeaController extends Controller {
     }
 
     /**
-     * block idea
+     * block idea only BDE and amployee
      */
     public static function blockIdea($res, $req){
 
