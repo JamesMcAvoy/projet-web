@@ -31,6 +31,18 @@ final class ShopController extends Controller {
     }
 
     /**
+     * Return items for the carousel
+     */
+    public static function getCarousel() {
+
+        return Model\Item::where('item_number', '>', '0')
+                         ->orderBy('orders_nbr', 'desc')
+                         ->take(3)
+                         ->get();
+
+    }
+
+    /**
      * Return an image from an item
      */
     public static function image($req, $res, $id) {

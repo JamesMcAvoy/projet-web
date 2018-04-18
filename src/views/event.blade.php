@@ -55,11 +55,17 @@
 									  @if($picture->comment->isEmpty())
 										 <p>Il n'y a pas de commentaire pour l'instant</p>
 									  @else
-									  <ul>
-									  @foreach($picture->comment as $comment)
-										<li>le {{ date('j/m à H:i', strtotime($comments->comment_date))}} | {{$comments->user->name_user}}: {{$comments->comment}}</li>
-									  @endforeach
-									  </ul>
+										  <ul>
+										  @foreach($picture->comment as $comment)
+											<li>le {{ date('j/m à H:i', strtotime($comments->comment_date))}} | {{$comments->user->name_user}}: {{$comments->comment}} 
+											@if($user['type'] == 'employee')
+												<a type="button" href="<!-- lien Bloquer comment-->" class="btn btn-danger">Bloquer</a>
+											@elseif($user['type'] == 'BDE')
+												<a type="button" href="<!-- lien supprimer comment-->" class="btn btn-danger">Supprimer</a>
+											@endif
+											</li>
+										  @endforeach
+										  </ul>
 									  @endif
 									  <h5>Ajouter un commentaire</h5>
 									@if(!isset($user))
@@ -85,6 +91,11 @@
 										</form>
 									@endif
 								</div>
+								@if($user['type'] == 'employee')
+									<a type="button" href="<!-- lien Bloquer image-->" class="btn btn-danger">Bloquer l'image</a>
+								@elseif($user['type'] == 'BDE')
+									<a type="button" href="<!-- lien supprimer image-->" class="btn btn-danger">Supprimer l'image</a>
+								@endif
 								</div>
 								<div class="modal-footer row">
 									
@@ -150,6 +161,11 @@
 						</form>
 					@endif
 			</div>
+			@if($user['type'] == 'employee')
+				<a type="button" href="<!-- lien Bloquer event-->" class="btn btn-danger">Bloquer l'évènement</a>
+			@elseif($user['type'] == 'BDE')
+				<a type="button" href="<!-- lien supprimer event-->" class="btn btn-danger">Supprimer l'évènement</a>
+			@endif
 			</div>
 		</div>
 	

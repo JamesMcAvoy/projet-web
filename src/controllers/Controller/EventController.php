@@ -76,10 +76,16 @@ final class EventController extends Controller {
 
     }
 
-    public static function eventMonth($req, $res){
-        $date = time() - (21*24*60*60);
-        $event = Event::where('event_state', '=', 'up' && 'start_date', '>', $date->format('U = Y-m-d H:i:s'));
-        return self::render($res,'events',$event);
+    /**
+     * Get events from current month
+     */
+    public static function getMonth() {
+
+        return Model\Event::whereMonth('start_date', '=', date('n'))
+                          ->orderBy('start_date', 'desc')
+						   ->take(3)
+                          ->get();
+
     }
 
 
