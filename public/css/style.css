@@ -314,6 +314,24 @@ h3.profil
 {
 	height: auto;
 	max-width: 250px;
+
+}
+
+div.profilHeader
+{
+	
+    text-align: center;
+}
+
+.h1Admin
+{
+	text-align: center;
+}
+
+
+
+
+
 	box-shadow: 8px 8px 12px #aaa;
 }
 
@@ -356,6 +374,7 @@ h3.profil
 	height: 100%;
 }
 
+<<<<<<< HEAD
 .img_membre{
 	overflow:hidden;
 	-webkit-border-radius:50px;
@@ -377,3 +396,6 @@ h3.profil
 	padding: 5px;
 	margin: 10px;
 }
+=======
+
+>>>>>>> bc69b8e3a43e7afc9730d0c9f779a6c160099952
