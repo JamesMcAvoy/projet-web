@@ -12,7 +12,8 @@ final class AdminController extends Controller {
 
               return self::render($res, 'admin', [
             'route' => 'admin',
-            'user' => self::getSessionUser($req)
+            'user' => self::getSessionUser($req),
+            'ideas' => Controller\IdeaController::get()
         ]);
 
         }
@@ -44,6 +45,8 @@ public static function eventCreate($req, $res){
        
         return $res->withStatus(302)->withHeader('Location', '/CreateEvent');
     }
+
+
 
 
 }
