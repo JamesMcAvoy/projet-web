@@ -23,7 +23,7 @@ class Basket extends Model {
     }
 
     public function contain() {
-        return $this->hasMany('Models\Model\Contain');
+        return $this->hasMany('Models\Model\Contain', 'basket_id');
     }
 
     public $timestamps = false;

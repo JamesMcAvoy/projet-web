@@ -14,10 +14,6 @@
 
 	<a class="button admin"  href="profil/admin">administration</a>
 
-	@else
-
-	
-
 	@endif
 </div>
 	
@@ -40,58 +36,20 @@
 		</dl>
 	</div>
 
-	<pre>
-		/**
-		 * @todo
-		 * changer le profil ?
-		 */
-	</pre>
-
 	<h3 class="profil">Notifications</h3>
-
-	<pre>
-		/**
-		 * @todo
-		 * Datatables.js
-		 * lien vers notification URL (ID)
-		 * vérifier si ID <=> user
-		 */
-	</pre>
 
 	<h3 class="profil">Inscriptions</h3>
 
-	<h3 class="profil">Idées proposées</h3>
+	<h2 class="profil">Achats</h2 >
 
-	<pre>
-		/**
-		 * @todo
-		 */
-	</pre>
-
-	<h3 class="profil">Commentaires</h3>
-
-	<pre>
-		/**
-		 * @todo
-		 */
-	</pre>
-
-	
-
-	<h2 class="profil">Achat</h2 >
-
-	<h3 class="profil">Panier</h3>
-		<div>
-			
-		</div>
-
+	<h3 class="profil" id="panier">Panier</h3>
+		<p>Total : {{ $basket->basket_price }} € :</p>
+		<p>
+		@foreach($basket->contain as $contained)
+			{{ $contained->item_number }} fois {{ $contained->item->item_name }}<br />
+		@endforeach
+		</p>
 
 	<h3 class="profil">Commandes</h3>
-
-	<pre>
-		/**
-		 * @todo
-		 */
-	</pre>
 
 	@stop

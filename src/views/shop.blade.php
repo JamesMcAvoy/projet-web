@@ -10,6 +10,19 @@
 
 	<main role="main">
 
+  @if(isset($msg['error']))
+    <div class="page-header">
+      <h2>Erreur</h2>
+    </div>
+    <div class="alert alert-danger">
+      {{ $msg['error'] }}
+    </div>
+  @elseif(isset($msg['valid']))
+    <div class="alert alert-success">
+      {{ $msg['valid'] }}
+    </div>
+  @endif
+
       <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">BOUTIQUE</h1>

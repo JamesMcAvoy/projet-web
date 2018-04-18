@@ -139,6 +139,12 @@ $router->get('/shop/img/{id}', function(Request $request, Response $response, $s
 
 });
 
+$router->get('/shop/{id}', function(Request $request, Response $response, $slug) {
+    
+    return Control\ShopController::add($request, $response, $slug['id']);
+
+});
+
 
 /**
  * @todo
