@@ -7,7 +7,7 @@
 	@section('main_content')	
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
-		<form method="post" action="/createEvent">
+		<form method="post" action="/createEvent" enctype="multipart/form-data">
 		  <div class="form-group row">
 			<div class="col-sm-2">
 			</div>
@@ -121,7 +121,7 @@
 			<div class="col-sm-5">
 			</div>
 			<div class="col-sm-4">
-			  <button type="submit" class="btn btn-outline-dark">Créer</button>
+			  <button type="submit" class="btn btn-outline-dark" value="event_picture">Créer</button>
 			</div>
 		  </div>
 		  <div class="row">
