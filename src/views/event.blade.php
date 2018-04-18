@@ -58,8 +58,10 @@
 									  <ul>
 									  @foreach($picture->comment as $comment)
 										<li>le {{ date('j/m à H:i', strtotime($comments->comment_date))}} | {{$comments->user->name_user}}: {{$comments->comment}} 
-										@if($user['type'] == 'BDE' || $user['type'] == 'employee')
-											<a type="button" href="<!-- lien Bloquer commentaire-->" class="btn btn-danger">Bloquer</a>
+										@if($user['type'] == 'employee')
+											<a type="button" href="<!-- lien Bloquer comment-->" class="btn btn-danger">Bloquer</a>
+										@if($user['type'] == 'BDE')
+											<a type="button" href="<!-- lien supprimer comment-->" class="btn btn-danger">Supprimer</a>
 										@endif
 										</li>
 									  @endforeach
@@ -89,8 +91,10 @@
 										</form>
 									@endif
 								</div>
-								@if($user['type'] == 'BDE' || $user['type'] == 'employee')
+								@if($user['type'] == 'employee')
 									<a type="button" href="<!-- lien Bloquer image-->" class="btn btn-danger">Bloquer l'image</a>
+								@if($user['type'] == 'BDE')
+									<a type="button" href="<!-- lien supprimer image-->" class="btn btn-danger">Supprimer l'image</a>
 								@endif
 								</div>
 								<div class="modal-footer row">
@@ -157,8 +161,10 @@
 						</form>
 					@endif
 			</div>
-			@if($user['type'] == 'BDE' || $user['type'] == 'employee')
+			@if($user['type'] == 'employee')
 				<a type="button" href="<!-- lien Bloquer event-->" class="btn btn-danger">Bloquer l'évènement</a>
+			@if($user['type'] == 'BDE')
+				<a type="button" href="<!-- lien supprimer event-->" class="btn btn-danger">Supprimer l'évènement</a>
 			@endif
 			</div>
 		</div>
