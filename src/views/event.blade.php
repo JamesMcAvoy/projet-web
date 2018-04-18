@@ -32,44 +32,73 @@
 			<div class="col-md-12">
 				@foreach($event->picture->sortByDesc('picture_number_like') as $picture)
 					@if($picture->picture_state == 'valid')
-					<img data-toggle="modal" data-target="#pic-{{ $picture->picture_id }}" src="/picture/{{ $picture->picture_id }}" alt="{{ $picture->picture_title }}" class="col-lg-3 col-md-4 col-sm-6">
-
+					<div class="col-lg-3 col-md-4 col-sm-6 ">
+						<img data-toggle="modal" data-target="#pic-{{ $picture->picture_id }}" src="/picture/{{ $picture->picture_id }}" alt="{{ $picture->picture_title }}" class="img_event">
+					</div>
 					  <div class="modal fade" id="pic-{{ $picture->picture_id }}" role="dialog">
 						<div class="modal-dialog modal-lg">
 						  <div class="modal-content">
 							<div class="modal-header">
-							  <h4 class="modal-title">{{ $picture->picture_title }}, posté le {{ date('j/m à H:i:s', strtotime($picture->picture_date)) }} par {{ $picture->user->name_user }} {{ $picture->user->first_name }}</h4>
+							  <h4 class="modal-title">{{ $picture->picture_title }}</h4>
 							  <button type="button" class="close" data-dismiss="modal">&times;</button>
 							</div>
 							<div class="modal-body">
-							  <img src="/picture/{{ $picture->picture_id }}" alt="{{ $picture->$picture_title }}">
+							  <img src="/picture/{{ $picture->picture_id }}" alt="{{ $picture->picture_title }}" class="afficher_image">
+							  <h5>posté le {{ date('j/m à H:i', strtotime($picture->picture_date)) }} par {{ $picture->user->name_user }} {{ $picture->user->first_name }}</h5>
+							  <h4>Description</h4>
 							  <p>
 								{{ $picture->picture_desc }}
 							  </p>
+							  <h4>Commentaires</h4>
+							  @if($picture->comment->isEmpty())
+								 <p>Il n'y a pas de commentaire pour l'instant</p>
+							  @else
+							  <ul>
+							  @foreach($picture->comment as $comment)
+								<li>le {{ date('j/m à H:i', strtotime($comments->comment_date))}} | {{$comments->user->name_user}}: {{$comments->comment}}</li>
+							  @endforeach
+							  </ul>
+							  @endif
+							  <h5>Ajouter un commentaire</h5>
 							@if(!isset($user))
 								<div class="alert alert-danger">
 									Vous devez être connecté pour poster un commentaire !
 								</div>
 							@else
-							<!-- POST -->
+								<form method="post" class="row" action="<!--lien ajout photo-->" id="form_add_picture">
+								  <div class="form-group col-md-12">
+									
+									  <input type="text" class="form-control" id="idea_title" placeholder="Votre commentaire" name="idea_title">
+									  <div class="invalid-feedback">
+										Veuiller rentrer un commentaire
+									  </div>
+									
+								  </div>
+								  <div class="form-group">
+
+									<div class="col-md-12">
+									  <button type="submit" class="btn btn-outline-dark">Poster le commentaire</button>
+									</div>
+								  </div>
+								</form>
 							@endif
 							</div>
-							<div class="modal-footer">
-								<div class="row">
+							<div class="modal-footer row">
+								
 									@if(isset($user))
-									<div class="col-md-4">
+									<div class="col-md-1">
 										<span class="like-picture" id="{{ $picture->picture_id }}">
 											<i class="fas fa-thumbs-up"></i>
 										</span>
 									</div>
 									@endif
-									<div class="col-md-4">
-										<small class="text-muted" id="number-{{ $picture->picture_id }}">{{ $picture->picture_number_like }}</small>
+									<div class="col-md-1">
+										<small class="text-muted" id="number-{{ $picture->picture_id }}">{{ $picture->picture_number_like }} like</small>
 									</div>
-									<div class="col-md-4">
+									<div class="col-md-3">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
 									</div>
-								</div>
+								
 							</div>
 						  </div>
 						</div>

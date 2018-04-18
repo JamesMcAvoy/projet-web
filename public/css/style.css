@@ -314,4 +314,28 @@ h3.profil
 {
 	height: auto;
 	max-width: 250px;
+	box-shadow: 8px 8px 12px #aaa;
 }
+
+.img_event
+{
+	max-width: 200px;
+	height: auto;
+}
+
+.img_event:hover
+{
+	box-shadow: 8px 8px 12px #aaa;
+}
+
+.afficher_image
+{
+	max-width: 100%;
+	box-shadow: 8px 8px 12px #aaa;
+}
+
+.modal-body h5
+{
+	margin: 10px;
+}
+
