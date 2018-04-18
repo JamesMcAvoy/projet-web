@@ -34,9 +34,12 @@ final class PictureController extends Controller {
 
         $post = $req->getParsedBody();
 
+        //If active session
+        //and event exist
+        //and user exist
         if(self::sessionUserActive($req) &&
-            empty(Model\Event::where('event_id', '=', $id)) &&
-            empty(Model\User::where('user_id', '=', $sessionUser['id']))
+            !empty(Model\Event::where('event_id', '=', $id)) &&
+            !empty(Model\User::where('user_id', '=', $sessionUser['id']))
             ){
                 $picture = new Model\Picture;
                 $picture->picture_title = $post['picture_title'];
@@ -88,7 +91,7 @@ final class PictureController extends Controller {
     }
 
     /**
-     * like Pictures
+     * like Picture
      * Ajax
      */
     public static function like($req, $res, $id) {
