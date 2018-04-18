@@ -6,7 +6,21 @@
 	
 	@section('main_content')
 
+<div class="profilHeader">
+
 	<h1>Profil</h1>
+	<div></div>
+	@if($user['type'] == 'BDE')
+
+	<a class="button admin"  href="profil/admin">administration</a>
+
+	@else
+
+	
+
+	@endif
+</div>
+	
 	<h2 class="profil" >information du compte</h2 >
 
 	<div class="container">
@@ -64,10 +78,12 @@
 
 	
 
-	<h2 class="profil">Achats</h2>
+	<h2 class="profil">Achat</h2 >
 
-	<h3 id="panier" class="profil">Panier</h3>
-
+	<h3 class="profil">Panier</h3>
+		<div>
+			
+		</div>
 
 
 	<h3 class="profil">Commandes</h3>
