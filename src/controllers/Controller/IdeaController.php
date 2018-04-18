@@ -116,7 +116,7 @@ final class IdeaController extends Controller {
         $user = $sessionUser['type'];
 
         if( self::sessionUserActive($req) &&
-            ($user = 'employee' || $user = 'BDE') &&
+            ($user == 'employee' || $user == 'BDE') &&
             $idea->idea_state != 'blocked'
             ) {
                 $idea->update(['idea_state' => 'blocked']);

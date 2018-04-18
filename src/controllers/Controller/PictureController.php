@@ -74,7 +74,7 @@ final class PictureController extends Controller {
         $user = $sessionUser['type'];
 
         if( self::sessionUserActive($req) &&
-            ($user = 'employee' || $user = 'BDE') &&
+            ($user == 'employee' || $user == 'BDE') &&
             $picture->picture_state != 'blocked'
             ) {
                 $picture->update(['picture_state' => 'blocked']);
