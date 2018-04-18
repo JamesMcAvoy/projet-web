@@ -9,7 +9,9 @@
 	<div class="container">
 		<div class="row">
 			<a type="button" href="/events" class="btn btn-secondary btn-lg btn-block col-md-12 retour_accueil">Retour à l'accueil</a>
-			<img class="col-md-3 col-sm-12" id="image_event" src="/events/img/{{ $event->event_id }}" alt="image évènement">
+			<div class="col-md-3 col-sm-12">
+				<img id="image_event" src="/events/img/{{ $event->event_id }}" alt="image évènement">
+			</div>
 			<div class="row col-md-9 col-sm-12">
 				<h2 class="col-md-8">{{ $event->event_title }}</h2>
 				<h3 class="col-md-4">{{ $event->event_price }} €</h3>
