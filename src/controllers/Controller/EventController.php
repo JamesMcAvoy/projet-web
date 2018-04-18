@@ -147,13 +147,8 @@ final class EventController extends Controller {
     }
 
     /**
-    * Manage events 
-    ********/
-    /* faudrait auto compléter le forms avec les infos de la BDD sur l'évenement
-    $post = $req->getParsedBody(); 
-    $event = Model\Event::where('item_id', '=', $post['item_id'])->get()->first();
-    return self::render($res,'ManageEvent',$event);*/
-
+     * modify event 
+     */
     public static function eventManage($req, $res){
 
         $post = $req->getParsedBody();       

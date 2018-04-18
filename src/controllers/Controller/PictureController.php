@@ -96,13 +96,14 @@ final class PictureController extends Controller {
      */
     public static function like($req, $res, $id) {
 
-
+        
         $pic = Model\Picture::where('picture_id', '=', $id)->get()->first();
 
         if(empty($pic) || !self::sessionUserActive($req))
             return $res->withStatus(400);
 
         $userId = self::getSessionUser($req)['id'];
+
 
         $liked = Model\Liked::where([
             ['picture_id', '=', $id],
@@ -112,6 +113,7 @@ final class PictureController extends Controller {
         if(!empty($liked))
             return $res->withStatus(400);
 
+        //creation like into the table Liked
         $liked = new Model\Liked;
         $liked->picture_id=$id;
         $liked->user_id=$userId;

@@ -115,6 +115,7 @@ final class IdeaController extends Controller {
         $idea = Model\Idea::where('idea_id', '=', $params['idea_id'])->get()->first(); 
         $user = $sessionUser['type'];
 
+        //If BDE or empoyee : block idea
         if( self::sessionUserActive($req) &&
             ($user == 'employee' || $user == 'BDE') &&
             $idea->idea_state != 'blocked'
