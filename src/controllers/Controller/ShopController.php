@@ -148,11 +148,10 @@ final class ShopController extends Controller {
     /**
      * Validate the basket
      */
-
-    public static function validate($req, $res, $id){
+    public static function validate($req, $res){
 
         $session = self::getSession($req);
-
+        
         if(!self::sessionUserActive($req)) {
             $session->setContents([
                 'msg' => [
@@ -165,16 +164,16 @@ final class ShopController extends Controller {
         $sessionUser = self::getSessionUser($req);
 
         $basket = Model\Basket::where('user_id', '=', $sessionUser['id'])->get()->first();
-        $contains = Model\Basket::where('basket_id', $basket['basket_id'])->get();
+        $contains = Model\Contain::where('basket_id', $basket['basket_id'])->get();
 
         //create new order
         $order = new Model\Order;
         $order->order_price = $basket['basket_price'];
         $order->user_id = $sessionUser['id'];
-        $order->save()->get();
+        $order->save();
 
         //create contains order
-        foreach($contain as $key){
+        foreach($contains as $key =>$value){
             $orderContain = new Model\HasContained;
             $orderContain->item_number = $contains[$key]['item_number'];
             $orderContain->item_id = $contains[$key]['item_id'];
@@ -185,20 +184,22 @@ final class ShopController extends Controller {
         //delet contain basket, update basket, modify number item 
         if( self::sessionUserActive($req)
             ) {
-                foreach($contain as $key){
+                foreach($contains as $key => $value){
                     $item = Model\item::where('item_id', '=', $contains[$key]['item_id'])->get()->first();
-                    $total = $item->item_number - $contains->item_number;
-                    Model\item::where('item_id', '=', $contains[$key]['item_id'])->first()->update(['item_number' => $total]);
+                    $total = ($item['item_number']) - ($contains[$key]['item_number']);
+                    Model\item::where('item_id', '=', $contains[$key]['item_id'])->update(['item_number' => $total]);
                 }
-                $contains->delet();
-                $basket->update(['basket_price' => 0]);
+                Model\Contain::where('basket_id', $basket['basket_id'])->delete();
+                Model\Basket::where('user_id', '=', $sessionUser['id'])->update(['basket_price' => 0]);
         }
         else{
             $session->setContents([
-                'msg' => ['error']
+                'msg' => ['error delet']
             ]);
-            return $res->withStatus(302)->withHeader('Location', '/events');
+            return $res->withStatus(302)->withHeader('Location', '/profil');
         }
+
+        return $res->withStatus(302)->withHeader('Location', '/Profil');
 
 
 

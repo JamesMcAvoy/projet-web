@@ -70,7 +70,7 @@
 			</tbody>
 
 		</table>
-		<button type="button" class="btn btn-success">Valider le panier</button>
+		<a href="/basket" class="btn btn-success">Valider le panier</a>
 		
 		</p>
 

@@ -151,6 +151,12 @@ $router->get('/shop/{id}', function(Request $request, Response $response, $slug)
 
 });
 
+$router->get('/basket', function(Request $request, Response $response) {
+    
+    return Control\ShopController::validate($request, $response);
+
+});
+
 
 /**
  * @todo
