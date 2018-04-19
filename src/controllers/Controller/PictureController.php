@@ -128,5 +128,9 @@ final class PictureController extends Controller {
 
     }
 
+    public static function DownloadPicture(){
+        
+    }
+
 
 }

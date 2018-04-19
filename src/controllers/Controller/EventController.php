@@ -186,4 +186,9 @@ final class EventController extends Controller {
 
     }
 
+    public static function liste(){
+        
+    }
+
+
 }

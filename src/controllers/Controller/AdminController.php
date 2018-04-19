@@ -53,5 +53,46 @@ final class AdminController extends Controller {
             return $res->withStatus(302)->withHeader('Location', '/CreateEvent');
     }
 
+    public static function addCategory($req, $res){
+        //get session
+        $session = parent::getSession($req)->getContents();
+
+        //get post from form
+        $post = $req->getParsedBody();       
+
+        //create new event
+        $category = new Model\Category;
+        $category->category_name = $post[''];
+        $Category->save();
+        
+        return $res->withStatus(302)->withHeader('Location', '/Add');
+    }
+
+    public static function addItem($req, $res){
+        //get session
+        $session = parent::getSession($req)->getContents();
+
+        //get post from form
+        $post = $req->getParsedBody();       
+        
+        //get file from from
+        $file = $req->getUploadedFiles();
+        $filePicture = $file[''];
+        $stream = $filePicture->getStream();
+
+        //create new event
+        $item = new Model\Item;
+        $item->item_name = $post[''];
+        $item->item_desc = $post[''];
+        $item->item_price = $post[''];
+        $item->item_picture = $stream;
+        $item->item_number = $post[''];
+        $item->category_id = $post[''];
+        $item->save();
+        
+        return $res->withStatus(302)->withHeader('Location', '/Add');
+    }
+
+
 
 }
