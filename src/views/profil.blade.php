@@ -46,11 +46,32 @@
 	<h2 class="profil">Achats</h2 >
 
 	<h3 class="profil" id="panier">Panier</h3>
-		<p>Total : {{ $basket->basket_price }} € :</p>
+		<h4 id="total">Total : {{ $basket->basket_price }} € </h4>
 		<p>
+		<table id="events-list">
+			<thead>
+				<tr>
+					<th><h4>Nom</h4></th>
+					<th><h4>Prix</h4></th>
+				</tr>
+			</thead>
+			<tbody>
 		@foreach($basket->contain as $contained)
-			{{ $contained->item_number }} fois {{ $contained->item->item_name }}<br />
+				<tr>
+					<td>
+						{{ $contained->item_number }}
+					</td>
+					<td>
+						{{ $contained->item->item_name }}
+					</td>
+
+				</tr>
 		@endforeach
+			</tbody>
+
+		</table>
+		<button type="button" class="btn btn-success">Valider le panier</button>
+		
 		</p>
 
 	<h3 class="profil">Commandes</h3>
