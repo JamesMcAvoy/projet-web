@@ -53,6 +53,10 @@ final class AdminController extends Controller {
             return $res->withStatus(302)->withHeader('Location', '/CreateEvent');
     }
 
+
+    /**
+     * create New category
+     */
     public static function addCategory($req, $res){
         //get session
         $session = parent::getSession($req)->getContents();
@@ -68,6 +72,9 @@ final class AdminController extends Controller {
         return $res->withStatus(302)->withHeader('Location', '/Add');
     }
 
+    /**
+     * create a new item
+     */
     public static function addItem($req, $res){
         //get session
         $session = parent::getSession($req)->getContents();
@@ -80,6 +87,9 @@ final class AdminController extends Controller {
         $filePicture = $file[''];
         $stream = $filePicture->getStream();
 
+        //get category
+        $category = Model\Category::where('category_name', '=', $post['category_name'])->get()->first();
+
         //create new event
         $item = new Model\Item;
         $item->item_name = $post[''];
@@ -87,7 +97,7 @@ final class AdminController extends Controller {
         $item->item_price = $post[''];
         $item->item_picture = $stream;
         $item->item_number = $post[''];
-        $item->category_id = $post[''];
+        $item->category_id = $category['category_id'];
         $item->save();
         
         return $res->withStatus(302)->withHeader('Location', '/Add');
