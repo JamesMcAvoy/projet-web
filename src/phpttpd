@@ -74,7 +74,7 @@ $server = new Server([
     }
 ]);
 
-$socket = new HttpSocketServer(CONF_IP_SERVER.CONF_PORT_SERVER, $loop);
+$socket = new HttpSocketServer(CONF_PORT_SERVER, $loop);
 $server->listen($socket);
 echo date('d/m H:i:s : '), "server running at http://127.0.0.1:".CONF_PORT_SERVER."\n";
 
