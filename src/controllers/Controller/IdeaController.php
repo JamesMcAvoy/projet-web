@@ -106,13 +106,13 @@ final class IdeaController extends Controller {
     /**
      * block idea only BDE and amployee
      */
-    public static function blockIdea($res, $req){
+    public static function blockIdea($req, $res, $id){
 
         $sessionUser = self::getSessionUser($req);
         $session = self::getSession($req);
-        $params = $req->getQueryParams();
 
-        $idea = Model\Idea::where('idea_id', '=', $params['idea_id'])->get()->first(); 
+
+        $idea = Model\Idea::where('idea_id', '=', $id)->get()->first(); 
         $user = $sessionUser['type'];
 
         //If BDE or empoyee : block idea
@@ -120,7 +120,7 @@ final class IdeaController extends Controller {
             ($user == 'employee' || $user == 'BDE') &&
             $idea->idea_state != 'blocked'
             ) {
-                $idea->update(['idea_state' => 'blocked']);
+                Model\Idea::where('idea_id', '=', $id)->update(['idea_state' => 'blocked']);
         }
         else{
             $session->setContents([

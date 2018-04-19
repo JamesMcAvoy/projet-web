@@ -115,6 +115,17 @@ $router->post('/ideas/like/{id}', function(Request $request, Response $response,
 
 });
 
+$router->get('/ideas/block/{id}', function(Request $request, Response $response, $slug) {
+
+    return Control\IdeaController::blockIdea($request, $response, $slug['id']);
+
+});
+$router->get('/events/block/{id}', function(Request $request, Response $response, $slug) {
+
+    return Control\EventController::blockEvent($request, $response, $slug['id']);
+
+});
+
 /**
  * Add/get pictures
  */

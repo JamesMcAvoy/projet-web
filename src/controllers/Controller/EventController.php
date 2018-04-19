@@ -161,4 +161,29 @@ final class EventController extends Controller {
 
     }
 
+    public static function blockEvent($req, $res, $id){
+
+        $sessionUser = self::getSessionUser($req);
+        $session = self::getSession($req);
+
+        $event = Model\Event::where('event_id', '=', $id)->get()->first(); 
+        $user = $sessionUser['type'];
+
+        if( self::sessionUserActive($req) &&
+            ($user == 'employee' || $user == 'BDE') &&
+            $event->event_state != 'blocked'
+            ) {
+                Model\Event::where('event_id', '=', $id)->update(['event_state' => 'blocked']);
+        }
+        else{
+            $session->setContents([
+                'msg' => ['error']
+            ]);
+            return $res->withStatus(302)->withHeader('Location', '/events');
+        }
+
+        return $res->withStatus(302)->withHeader('Location', '/events');
+
+    }
+
 }

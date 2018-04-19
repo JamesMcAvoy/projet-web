@@ -181,9 +181,9 @@
 					@endif
 			</div>
 			@if($user['type'] == 'employee')
-				<a type="button" href="<!-- lien Bloquer event-->" class="btn btn-danger btn-lg col-md-12">Bloquer l'évènement</a>
+				<a type="button" href="/events/block/{{ $event->event_id }}" class="btn btn-danger btn-lg col-md-12">Bloquer l'évènement</a>
 			@elseif($user['type'] == 'BDE')
-				<a type="button" href="<!-- lien supprimer event-->" class="btn btn-danger btn-lg col-md-12">Supprimer l'évènement</a>
+				<a type="button" href="/events/block/{{ $event->event_id }}" class="btn btn-danger btn-lg col-md-12">Supprimer l'évènement</a>
 			@endif
 			</div>
 		</div>

@@ -68,20 +68,19 @@ final class PictureController extends Controller {
     /**
      * Block a picture
      */
-    public static function blockPicture($res, $req){
+    public static function blockPicture($req, $res, $id){
 
         $sessionUser = self::getSessionUser($req);
         $session = self::getSession($req);
-        $params = $req->getQueryParams();
 
-        $picture = Model\Picture::where('picture_id', '=', $params['picture_id'])->get()->first(); 
+        $picture = Model\Picture::where('picture_id', '=', $id)->get()->first(); 
         $user = $sessionUser['type'];
 
         if( self::sessionUserActive($req) &&
             ($user == 'employee' || $user == 'BDE') &&
             $picture->picture_state != 'blocked'
             ) {
-                $picture->update(['picture_state' => 'blocked']);
+                Model\Picture::where('picture_id', '=', $id)->update(['picture_state' => 'blocked']);
         }
         else{
             $session->setContents([

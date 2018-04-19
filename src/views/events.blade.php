@@ -83,9 +83,9 @@
 						@endif
 						<small class="text-muted col-md-4">{{ $idea->idea_number_vote }} like</small>
 						@if($user['type'] == 'employee')
-							<a type="button" href="<!-- lien Bloquer idee-->" class="btn btn-danger col-md-6">Bloquer</a>
+							<a type="button" href="/ideas/block/{{ $idea->idea_id }}" class="btn btn-danger col-md-6">Bloquer</a>
 						@elseif($user['type'] == 'BDE')
-							<a type="button" href="<!-- lien supprimer idee-->" class="btn btn-danger col-md-6">Supprimer</a>
+							<a type="button" href="/ideas/block/{{ $idea->idea_id }}" class="btn btn-danger col-md-6">Supprimer</a>
 						@endif
 					</div>
 				  </div>
