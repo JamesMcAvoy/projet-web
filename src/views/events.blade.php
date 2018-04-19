@@ -71,14 +71,23 @@
 			  <div class="card mb-4 box-shadow">
 				<div class="card-body">
 				  <p class="card-text">{{ $idea->idea_title }}<span class="text-muted">, {{ $idea->User->first_name }} {{ $idea->User->name_user }}</span></p>
-				  <div class="d-flex justify-content-between align-items-center">
-				  	{{ $idea->idea }}
-				  	@if(isset($user))
-					<span class="like" id="{{ $idea->idea_id }}">
-						<i class="fas fa-thumbs-up"></i>
-					</span>
-					@endif
-					<small class="text-muted">{{ $idea->idea_number_vote }}</small>
+				  <div class="">
+				  	<div class="row">
+						<p class="col-md-12">{{ $idea->idea }}</p>
+					</div>
+					<div class="row">
+						@if(isset($user))
+						<span class="like col-md-2" id="{{ $idea->idea_id }}">
+							<i class="fas fa-thumbs-up"></i>
+						</span>
+						@endif
+						<small class="text-muted col-md-4">{{ $idea->idea_number_vote }} like</small>
+						@if($user['type'] == 'employee')
+							<a type="button" href="<!-- lien Bloquer idee-->" class="btn btn-danger col-md-6">Bloquer</a>
+						@elseif($user['type'] == 'BDE')
+							<a type="button" href="<!-- lien supprimer idee-->" class="btn btn-danger col-md-6">Supprimer</a>
+						@endif
+					</div>
 				  </div>
 				</div>
 				<div class="card-footer text-muted">

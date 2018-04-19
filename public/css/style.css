@@ -414,3 +414,9 @@ div.profilHeader
 {
 	margin: 10px;
 }
+
+#total
+{
+	color: green;
+	font-weight: bold;
+}

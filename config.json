@@ -1,4 +1,5 @@
 {
+	"CONF_IP_SERVER": "127.0.0.1",
 	"CONF_PORT_SERVER": 8080,
 	"CONF_COOKIE_NAME": "PHPSESSID",
 	"CONF_VIEWS_FOLDER": "/src/views",
@@ -10,5 +11,5 @@
 	"CONF_DBPORT": 3306,
 	"CONF_DBNAME": "bde_website",
 	"CONF_DBUSER": "root",
-	"CONF_DBPASS": "root"
+	"CONF_DBPASS": ""
 }
