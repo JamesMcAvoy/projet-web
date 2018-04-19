@@ -145,4 +145,66 @@ final class ShopController extends Controller {
 
     }
 
+    /**
+     * Validate the basket
+     */
+
+    public static function validate($req, $res, $id){
+
+        $session = self::getSession($req);
+
+        if(!self::sessionUserActive($req)) {
+            $session->setContents([
+                'msg' => [
+                    'error' => 'Vous devez être connecté'
+                ]
+            ]);
+            return $res->withStatus(302)->withHeader('Location', '/profil');
+        }
+
+        $sessionUser = self::getSessionUser($req);
+
+        $basket = Model\Basket::where('user_id', '=', $sessionUser['id'])->get()->first();
+        $contains = Model\Basket::where('basket_id', $basket['basket_id'])->get();
+
+        //create new order
+        $order = new Model\Order;
+        $order->order_price = $basket['basket_price'];
+        $order->user_id = $sessionUser['id'];
+        $order->save()->get();
+
+        //create contains order
+        foreach($contain as $key){
+            $orderContain = new Model\HasContained;
+            $orderContain->item_number = $contains[$key]['item_number'];
+            $orderContain->item_id = $contains[$key]['item_id'];
+            $orderContain->order_id = $order['order_id'];
+            $orderContain->save();
+        } 
+
+        //delet contain basket, update basket, modify number item 
+        if( self::sessionUserActive($req)
+            ) {
+                foreach($contain as $key){
+                    $item = Model\item::where('item_id', '=', $contains[$key]['item_id'])->get()->first();
+                    $total = $item->item_number - $contains->item_number;
+                    Model\item::where('item_id', '=', $contains[$key]['item_id'])->first()->update(['item_number' => $total]);
+                }
+                $contains->delet();
+                $basket->update(['basket_price' => 0]);
+        }
+        else{
+            $session->setContents([
+                'msg' => ['error']
+            ]);
+            return $res->withStatus(302)->withHeader('Location', '/events');
+        }
+
+
+
+    }
+
+
+
+
 }
