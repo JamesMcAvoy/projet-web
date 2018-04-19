@@ -32,6 +32,10 @@ final class PictureController extends Controller {
         $session = parent::getSession($req);
         $sessionUser = self::getSessionUser($req);
 
+        $file = $req->getUploadedFiles();
+        $filePicture = $file['picture'];
+        $stream = $filePicture->getStream();
+
         $post = $req->getParsedBody();
 
         //If active session
@@ -43,7 +47,7 @@ final class PictureController extends Controller {
             ){
                 $picture = new Model\Picture;
                 $picture->picture_title = $post['picture_title'];
-                $picture->picture = $post['picture'];
+                $picture->picture = $stream;
                 $picture->picture_desc = $post['picture_desc'];
                 $picture->event_id = $id;
                 $picture->user_id = $sessionUser['id'];

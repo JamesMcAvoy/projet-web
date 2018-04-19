@@ -145,17 +145,17 @@
 							Vous devez être inscrit à l'événement pour poster une image !
 						</div>
 					@else
-						<form method="post" action="<!--lien ajout photo-->" id="form_add_picture">
+						<form method="post" action="/events/picture/{{ $event->event_id }}" id="form_add_picture" enctype="multipart/form-data">
 						  <div class="form-group col-md-12">
 							  <div class="custom-file">
-								<input type="file" class="custom-file-input" id="customFile">
+								<input type="file" class="custom-file-input" id="customFile" name="picture">
 								<label class="custom-file-label" for="customFile">Choisissez une image</label>
 							  </div>
 						  </div>
 						  <div class="form-group col-md-12">
 							<label for="idea_title" class="col-form-label">Titre</label>
 							
-							  <input type="text" class="form-control" id="idea_title" placeholder="Titre de l'image" name="idea_title">
+							  <input type="text" class="form-control" id="idea_title" placeholder="Titre de l'image" name="picture_title">
 							  <div class="invalid-feedback">
 								Veuillez rentrer le titre de l'image
 							  </div>
@@ -165,7 +165,7 @@
 
 							<label for="idea" class="col-form-label">Description</label>
 							
-							  <textarea class="form-control" id="idea" name="idea" placeholder="Description de l'image"></textarea>
+							  <textarea class="form-control" id="idea" name="picture_desc" placeholder="Description de l'image"></textarea>
 							  <div class="invalid-feedback">
 								Veuillez rentrer la description de l'image
 							  </div>

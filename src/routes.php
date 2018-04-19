@@ -129,6 +129,11 @@ $router->post('/picture/like/{id}', function(Request $request, Response $respons
     return Control\PictureController::like($request, $response, $slug['id']);
 
 });
+$router->post('/events/picture/{id}', function(Request $request, Response $response, $slug) {
+
+    return Control\PictureController::newPicture($request, $response, $slug['id']);
+
+});
 
 /**
  * Shop
