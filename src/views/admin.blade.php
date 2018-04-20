@@ -187,22 +187,40 @@
 <h3>-autres utilisateurs</h3>
 
 <h2 class="h2Admin">Gestion de la boutique</h2>
-<h3>Ajouter un article </h3>
+
+<h3>Créé une categorie d'article</h3>
+
 <div class="jumbotron jumbotron-fluid">
 		<div class="container">
-		<form method="post" action="/createItem" enctype="multipart/form-data">
+		<form method="post" action="/createCategory" enctype="multipart/form-data">
 		  
 		  <div class="form-group row">
 			<div class="col-sm-2">
 			</div>
-			<label for="item_name" class="col-sm-2 col-form-label">Nom de l'article</label>
+			<label for="category_name" class="col-sm-2 col-form-label">Nom de la categorie</label>
 			<div class="col-sm-6">
-			  <input type="text" class="form-control" id="item_name" placeholder="Nom de l'article" name="item_name">
+			  <input type="text" class="form-control" id="category_name" placeholder="Nom de la categorie" name="category_name">
 			  <div class="invalid-feedback">
-				Veuillez rentrer le nom de l'article
+				Veuillez rentrer le nom de la categorie
 			  </div>
 			</div>
 		  </div>
+
+		  <div class="form-group row">
+			<div class="col-sm-5">
+			</div>
+			<div class="col-sm-4">
+			  <button type="submit" class="btn btn-outline-dark">ajouter</button>
+			</div>
+		  </div>
+
+		  <br>
+		  <br>
+		  
+
+<h3>Ajouter un article </h3>
+
+
 
 		  <div class="form-group row">
 			<div class="col-sm-2">
@@ -264,6 +282,7 @@
           </select>
 			</div>
 		  </div>
+
 		  <div class="form-group row">
 			<div class="col-sm-5">
 			</div>
@@ -271,6 +290,7 @@
 			  <button type="submit" class="btn btn-outline-dark">ajouter</button>
 			</div>
 		  </div>
+
 		  <div class="row">
 				<div class="col-sm-2">
 				</div>

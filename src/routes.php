@@ -207,3 +207,16 @@ $router->post('/CreateItem', function(Request $request, Response $response) {
     return Control\AdminController::addItem($request, $response);
 
 });
+
+
+
+$router->get('/createCategory', function(Request $request, Response $response) {
+    
+    return Control\AdminController::index($request, $response);
+
+});
+$router->post('/createCategory', function(Request $request, Response $response) {
+
+    return Control\AdminController::addCategory($request, $response);
+
+});
