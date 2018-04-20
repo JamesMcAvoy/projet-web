@@ -431,9 +431,17 @@ div.profilHeader
 }
 }
 
-@media screen and (max-width: 550px)
+@media screen and (max-width: 1000px)
 {
 .cacher
+{
+	display: none;
+}
+}
+
+@media screen and (max-width: 400px)
+{
+	.extr_cacher
 {
 	display: none;
 }

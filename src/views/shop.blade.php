@@ -43,12 +43,12 @@
       <table id="goodies-list">
         <thead>
           <tr>
-            <th></th>
+            <th class="cacher"></th>
             <th class="cacher"><h4>Catégorie</h4></th>
             <th><h4>Nom</h4></th>
             <th class="cacher"><h4>Description</h4></th>
             <th><h4>Prix</h4></th>
-            <th><h4>Quantité</h4></th>
+            <th class="extr_cacher"><h4>Quantité</h4></th>
             @if(isset($user))
             <th></th>
             @endif
@@ -58,17 +58,17 @@
       	@foreach($goodies as $item)
         @if($item->item_number > 0)
           <tr class="ligne_item">
-            <td>
+            <td class="cacher">
               <img src="/shop/img/{{ $item->item_id }}" class="image_item" alt="Image item">
             </td>
             <td class="cacher">{{ $item->category->category_name }}</td>
             <td>{{ $item->item_name }}</td>
             <td class="cacher">{{ $item->item_desc }}</td>
             <td>{{ $item->item_price }} €</td>
-            <td>{{ $item->item_number }}</td>
+            <td class="extr_cacher">{{ $item->item_number }}</td>
             @if(isset($user))
               <td>
-                <a href="/shop/{{ $item->item_id }}" class="btn btn-primary">Ajouter au panier</a>
+                <a href="/shop/{{ $item->item_id }}" class="btn btn-primary"><h6>Ajouter</h6><h6 class="cacher"> au panier</h6></a>
               </td>
             @endif
           </tr>
@@ -77,12 +77,12 @@
         </tbody>
         <tfoot>
           <tr>
-            <th></th>
+            <th class="cacher"></th>
             <th class="cacher"><h4>Catégorie</h4></th>
             <th><h4>Nom</h4></th>
             <th class="cacher"><h4>Description</h4></th>
             <th><h4>Prix</h4></th>
-            <th><h4>Quantité</h4></th>
+            <th class="extr_cacher"><h4>Quantité</h4></th>
             @if(isset($user))
             <th></th>
             @endif
