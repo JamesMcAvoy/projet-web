@@ -196,7 +196,7 @@
 								</div>
 								<label for="event_title" class="col-sm-2 col-form-label">Nom de l'évenement</label>
 								<div class="col-sm-6">
-								  <input type="text" class="form-control" id="event_title" placeholder="Titre" name="event_title">
+								  <input type="text" class="form-control" id="event_title"  name="event_title" value="{{ $idea->idea_title }}">
 								  <div class="invalid-feedback">
 									Veuillez rentrer le titre de l'évenement
 								  </div>
@@ -207,7 +207,7 @@
 								</div>
 								<label for="Evenement" class="col-sm-2 col-form-label">Description</label>
 								<div class="col-sm-6">
-								  <input type="text" class="form-control" id="Evenement" placeholder="Evenement" name="event">
+								  <input type="text" class="form-control" id="Evenement"  name="event" value="{{ $idea->idea }}">
 								  <div class="invalid-feedback">
 									Veuillez rentrer La description de l'evenment
 								  </div>
@@ -314,7 +314,7 @@
 					</div>
 				</div>
 			  </div>
-					
+
 				</div>
 			  </div>
 			</div>
