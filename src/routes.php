@@ -238,3 +238,17 @@ $router->post('/events/{id}/comments', function(Request $request, Response $resp
     return Control\CommentsController::createComment($request, $response, $slug['id']);
 
 });
+
+/**
+ * Validate Idea
+ */
+$router->get('/profil/admin/validate/idea/{id}', function(Request $request, Response $response, $slug) {
+    
+    return Control\IdeaController::index($request, $response, $slug['id']);
+
+});
+$router->post('/profil/admin/validate/idea/{id}', function(Request $request, Response $response, $slug) {
+
+    return Control\IdeaController::validate($request, $response, $slug['id']);
+
+});

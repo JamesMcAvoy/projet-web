@@ -9,7 +9,7 @@
 	@stop
 	
 	@section('main_content')
-<h1 class="h1Admin" >Binvenue sur la page d'administration du site</h1>
+<h1 class="h1Admin" >Bienvenue sur la page d'administration du site</h1>
 
 <h2 class="h2Admin">Gestion des evenement</h2>
 
@@ -190,13 +190,13 @@
 
 					        <div class="jumbotron jumbotron-fluid">
 							<div class="container">
-							<form method="post" action="/createEvent" enctype="multipart/form-data">
+							<form method="post" action="/profil/admin/validate/idea/{{ $idea->idea_id }}" enctype="multipart/form-data">
 							  <div class="form-group row">
 								<div class="col-sm-2">
 								</div>
-								<label for="event_title" class="col-sm-2 col-form-label">Nom de l'évenement</label>
+
 								<div class="col-sm-6">
-								  <input type="text" class="form-control" id="event_title"  name="event_title" value="{{ $idea->idea_title }}">
+								  <input type="text" class="form-control" id="event_title"  name="event_title" placeholder="Titre">
 								  <div class="invalid-feedback">
 									Veuillez rentrer le titre de l'évenement
 								  </div>
@@ -205,9 +205,9 @@
 							  <div class="form-group row">
 								<div class="col-sm-2">
 								</div>
-								<label for="Evenement" class="col-sm-2 col-form-label">Description</label>
+
 								<div class="col-sm-6">
-								  <input type="text" class="form-control" id="Evenement"  name="event" value="{{ $idea->idea }}">
+								  <input type="text" class="form-control" id="Evenement"  name="event" placeholder="Evenement">
 								  <div class="invalid-feedback">
 									Veuillez rentrer La description de l'evenment
 								  </div>
@@ -216,7 +216,7 @@
 							  <div class="form-group row">
 								<div class="col-sm-2">
 								</div>
-								<label for="Prix" class="col-sm-2 col-form-label">Prix</label>
+
 								<div class="col-sm-6">
 								  <input type="number" class="form-control" id="Prix" placeholder="Prix" name="event_price" min="0" max="100">
 								  <div class="invalid-feedback">
@@ -227,7 +227,7 @@
 							  <div class="form-group row">
 								<div class="col-sm-2">
 								</div>
-								<label for="image" class="col-sm-2 col-form-label">Image</label>
+
 								<div class="col-sm-6">
 								  <input type="file" class="form-control" id="image" placeholder="image" name="event_picture">
 								  <div class="invalid-feedback">
@@ -238,7 +238,7 @@
 								<div class="form-group row">
 								<div class="col-sm-2">
 							  </div>
-								<label for="date" class="col-sm-2 col-form-label">date </label>
+
 								<div class="col-sm-6">
 								  <input type="date" class="form-control" id="date" placeholder="Date" name="date" >
 									<div id="feedbackMDP" class="invalid-feedback">
@@ -248,7 +248,7 @@
 								<div class="form-group row">
 								<div class="col-sm-2">
 							  </div>
-								<label for="hour" class="col-sm-2 col-form-label">Heure </label>
+
 								<div class="col-sm-6">
 								  <input type="time" class="form-control" id="hour" placeholder="Heure" name="hour" >
 									<div id="feedbackMDP" class="invalid-feedback">
@@ -258,7 +258,7 @@
 							  <div class="form-group row">
 								<div class="col-sm-2">
 								</div>
-								<label for="time" class="col-sm-2 col-form-label">Duée de l'évenement</label>
+
 								<div class="col-sm-6">
 					            <input type="number" class="form-control" id="time" placeholder="durée" name="time">
 								  <div class="invalid-feedback">
@@ -269,7 +269,7 @@
 					          <div class="form-group row">
 								<div class="col-sm-2">
 								</div>
-								<label for="between" class="col-sm-2 col-form-label">temps entre deux évenement</label>
+
 								<div class="col-sm-6">
 					            <input type="number" class="form-control" id="between" placeholder="between" name="time_between_each">
 								  <div class="invalid-feedback">
@@ -280,7 +280,7 @@
 					          <div class="form-group row">
 								<div class="col-sm-2">
 								</div>
-								<label for="récurence" class="col-sm-2 col-form-label">récurence de l'évenement</label>
+
 								<div class="col-sm-6">
 					            <input type="number" class="form-control" id="récurence" placeholder="récurence" name="event_number">
 								  <div class="invalid-feedback">
@@ -291,7 +291,7 @@
 					          <div class="form-group row">
 								<div class="col-sm-2">
 								</div>
-								<label for="state" class="col-sm-2 col-form-label">Etat de l'évenement</label>
+
 								<div class="col-sm-6">			
 									<select id="state" placeholder="state" name="event_state">
 					          <option value="up">up</option>

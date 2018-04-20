@@ -190,10 +190,11 @@ final class IdeaController extends Controller {
         $event->save();
 
         //delet idea, and delet voted
-        Model\Idea::where('idea_id', '=',  $id)->delete()->first();
         Model\voted::where('idea_id', '=', $id)->delete();
+        Model\Idea::where('idea_id', '=',  $id)->delete();
 
-        return $res->withStatus(302)->withHeader('Location', '/Profil');
+
+        return $res->withStatus(302)->withHeader('Location', '/profil/admin');
 
     }
 
