@@ -420,3 +420,21 @@ div.profilHeader
 	color: green;
 	font-weight: bold;
 }
+
+@media screen and (max-width: 800px)
+{
+#goodies-list h4,
+#goodies-list p,
+#goodies-list td
+{
+	font-size: 15px!important;
+}
+}
+
+@media screen and (max-width: 550px)
+{
+.cacher
+{
+	display: none;
+}
+}

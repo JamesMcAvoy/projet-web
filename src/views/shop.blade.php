@@ -38,15 +38,15 @@
 
       <div class="container">
       @if($goodies->isEmpty())
-        La boutique est actuellement vide
+        <p>La boutique est actuellement vide</p>
       @endif
       <table id="goodies-list">
         <thead>
           <tr>
             <th></th>
-            <th><h4>Catégorie</h4></th>
+            <th class="cacher"><h4>Catégorie</h4></th>
             <th><h4>Nom</h4></th>
-            <th><h4>Description</h4></th>
+            <th class="cacher"><h4>Description</h4></th>
             <th><h4>Prix</h4></th>
             <th><h4>Quantité</h4></th>
             @if(isset($user))
@@ -61,9 +61,9 @@
             <td>
               <img src="/shop/img/{{ $item->item_id }}" class="image_item" alt="Image item">
             </td>
-            <td>{{ $item->category->category_name }}</td>
+            <td class="cacher">{{ $item->category->category_name }}</td>
             <td>{{ $item->item_name }}</td>
-            <td>{{ $item->item_desc }}</td>
+            <td class="cacher">{{ $item->item_desc }}</td>
             <td>{{ $item->item_price }} €</td>
             <td>{{ $item->item_number }}</td>
             @if(isset($user))
@@ -78,9 +78,9 @@
         <tfoot>
           <tr>
             <th></th>
-            <th><h4>Catégorie</h4></th>
+            <th class="cacher"><h4>Catégorie</h4></th>
             <th><h4>Nom</h4></th>
-            <th><h4>Description</h4></th>
+            <th class="cacher"><h4>Description</h4></th>
             <th><h4>Prix</h4></th>
             <th><h4>Quantité</h4></th>
             @if(isset($user))
