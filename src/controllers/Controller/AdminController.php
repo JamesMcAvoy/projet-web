@@ -66,7 +66,7 @@ final class AdminController extends Controller {
 
         //create new event
         $category = new Model\Category;
-        $category->category_name = $post[''];
+        $category->category_name = $post['category_name'];
         $Category->save();
         
         return $res->withStatus(302)->withHeader('Location', '/Add');
@@ -84,7 +84,7 @@ final class AdminController extends Controller {
         
         //get file from from
         $file = $req->getUploadedFiles();
-        $filePicture = $file[''];
+        $filePicture = $file['item_picture'];
         $stream = $filePicture->getStream();
 
         //get category
@@ -92,11 +92,11 @@ final class AdminController extends Controller {
 
         //create new event
         $item = new Model\Item;
-        $item->item_name = $post[''];
-        $item->item_desc = $post[''];
-        $item->item_price = $post[''];
+        $item->item_name = $post['item_name'];
+        $item->item_desc = $post['item_desc'];
+        $item->item_price = $post['item_price'];
         $item->item_picture = $stream;
-        $item->item_number = $post[''];
+        $item->item_number = $post['item_number'];
         $item->category_id = $category['category_id'];
         $item->save();
         
