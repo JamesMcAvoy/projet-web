@@ -438,3 +438,12 @@ div.profilHeader
 	display: none;
 }
 }
+
+
+
+
+div.flex-container.btnadmin
+{
+	display: flex;
+	font-size: 1
+}
