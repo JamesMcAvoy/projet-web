@@ -86,10 +86,10 @@
 											Vous devez être connecté pour poster un commentaire !
 										</div>
 									@else
-										<form method="post" class="row" action="<!--lien ajout photo-->" id="form_add_picture">
+									<form method="post" class="row" action="/events/{{ $event->event_id }}/comments" id="form_add_picture">
 										  <div class="form-group col-md-12">
 											
-											  <input type="text" class="form-control" id="idea_title" placeholder="Votre commentaire" name="idea_title">
+											  <input type="text" class="form-control" id="comment_text" placeholder="Votre commentaire" name="comment">
 											  <div class="invalid-feedback">
 												Veuiller rentrer un commentaire
 											  </div>

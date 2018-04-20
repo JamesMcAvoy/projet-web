@@ -12,7 +12,7 @@ final class commentsController extends Controller {
      */
     public static function get() {
 
-        
+
 
     }
 
@@ -26,10 +26,11 @@ final class commentsController extends Controller {
 
         $post = $req->getParsedBody();
 
+        var_dump($id);
+        var_dump($sessionUser);
         //If active session
         //and registry not exist
-        if(self::sessionUserActive($req) &&
-            empty(Model\Picture::where(function ($query) { 
+        if(!empty(Model\Picture::where(function ($query) { 
                 $query->where('picture_id', $id)
                     ->where('user_id', $sessionUser['id']);}))
             ){
@@ -38,6 +39,7 @@ final class commentsController extends Controller {
                 $comment->user_id = $sessionUser['id'];
                 $comment->picture_id = $id;
                 $comment->save();
+                var_dump('fin');
         }
         else{
             $session->setContents([

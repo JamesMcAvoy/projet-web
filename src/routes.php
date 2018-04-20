@@ -195,8 +195,9 @@ $router->post('/CreateEvent', function(Request $request, Response $response) {
 });
 
 
-
-
+/**
+ * create category
+ */
 $router->get('/CreateItem', function(Request $request, Response $response) {
     
     return Control\AdminController::index($request, $response);
@@ -209,7 +210,9 @@ $router->post('/CreateItem', function(Request $request, Response $response) {
 });
 
 
-
+/**
+ * create category
+ */
 $router->get('/createCategory', function(Request $request, Response $response) {
     
     return Control\AdminController::index($request, $response);
@@ -218,5 +221,20 @@ $router->get('/createCategory', function(Request $request, Response $response) {
 $router->post('/createCategory', function(Request $request, Response $response) {
 
     return Control\AdminController::addCategory($request, $response);
+
+});
+
+
+/**
+ * comments
+ */
+$router->get('/events/{id}/comments', function(Request $request, Response $response, $slug) {
+    
+    return Control\CommentsController::index($request, $response, $slug['id']);
+
+});
+$router->post('/events/{id}/comments', function(Request $request, Response $response, $slug) {
+
+    return Control\CommentsController::createComment($request, $response, $slug['id']);
 
 });
