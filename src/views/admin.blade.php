@@ -320,6 +320,5 @@
 		</form>
 		</div>
 	</div>
-	@stop
 
-	
+	@stop
