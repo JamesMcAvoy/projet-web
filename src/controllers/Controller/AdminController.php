@@ -14,7 +14,7 @@ final class AdminController extends Controller {
             'route' => 'admin',
             'user' => self::getSessionUser($req),
             'ideas' => Controller\IdeaController::get(),
-            'category' => Model\Category::all()
+            'categories' => Model\Category::all()
         ]);
 
         }
@@ -63,12 +63,12 @@ final class AdminController extends Controller {
         $session = parent::getSession($req)->getContents();
 
         //get post from form
-        $post = $req->getParsedBody();       
+        $post = $req->getParsedBody();
 
         //create new event
         $category = new Model\Category;
         $category->category_name = $post['category_name'];
-        $Category->save();
+        $category->save();
         
         return $res->withStatus(302)->withHeader('Location', '/profil/admin');
     }
@@ -77,6 +77,7 @@ final class AdminController extends Controller {
      * create a new item
      */
     public static function addItem($req, $res){
+
         //get session
         $session = parent::getSession($req)->getContents();
 
@@ -88,9 +89,6 @@ final class AdminController extends Controller {
         $filePicture = $file['item_picture'];
         $stream = $filePicture->getStream();
 
-        //get category
-        $category = Model\Category::where('category_name', '=', $post['category_name'])->get()->first();
-
         //create new item
         $item = new Model\Item;
         $item->item_name = $post['item_name'];
@@ -98,9 +96,9 @@ final class AdminController extends Controller {
         $item->item_price = $post['item_price'];
         $item->item_picture = $stream;
         $item->item_number = $post['item_number'];
-        $item->category_id = $category['category_id'];
+        $item->category_id = $post['category_id'];
         $item->save();
-        
+
         return $res->withStatus(302)->withHeader('Location', '/profil/admin');
     }
 
