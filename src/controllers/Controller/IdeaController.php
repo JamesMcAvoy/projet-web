@@ -133,4 +133,54 @@ final class IdeaController extends Controller {
 
     }
 
+
+
+    public static function validate($req, $res, $id){
+
+        $session = self::getSession($req);
+        
+        if(!self::sessionUserActive($req)) {
+            $session->setContents([
+                'msg' => [
+                    'error' => 'Vous devez être connecté'
+                ]
+            ]);
+            return $res->withStatus(302)->withHeader('Location', '/profil');
+        }
+
+        //get session
+        $session = parent::getSession($req)->getContents();
+
+        //get post from form
+        $post = $req->getParsedBody();       
+                
+        //get file from from
+        $file = $req->getUploadedFiles();
+        $filePicture = $file['event_picture'];
+        $stream = $filePicture->getStream();
+        
+        //formats date from form
+        $date_time = htmlentities($post['date'])." ".htmlentities($post['hour']);
+        
+        //create new event
+        $event = new Model\Event;
+        $event->event_title = $post['event_title'];
+        $event->event = $post['event'];
+        $event->event_price = $post['event_price'];
+        $event->event_picture = $stream;
+        $event->start_date = $date_time;
+        $event->time = $post['time'];
+        $event->time_between_each = $post['time_between_each'];
+        $event->event_number = $post['event_number'];
+        $event->event_state = $post['event_state'];
+        $event->save();
+
+        //delet idea, and delet voted
+        Model\Idea::where('idea_id', '=',  $id)->delete()->first();
+        Model\voted::where('idea_id', '=', $id)->delete();
+
+        return $res->withStatus(302)->withHeader('Location', '/Profil');
+
+    }
+
 }
