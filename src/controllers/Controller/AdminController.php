@@ -13,7 +13,8 @@ final class AdminController extends Controller {
               return self::render($res, 'admin', [
             'route' => 'admin',
             'user' => self::getSessionUser($req),
-            'ideas' => Controller\IdeaController::get()
+            'ideas' => Controller\IdeaController::get(),
+            'category' => Model\Category::all()
         ]);
 
         }
@@ -50,7 +51,7 @@ final class AdminController extends Controller {
         $event->event_state = $post['event_state'];
         $event->save();
         
-            return $res->withStatus(302)->withHeader('Location', '/CreateEvent');
+            return $res->withStatus(302)->withHeader('Location', '/profil/admin');
     }
 
 
@@ -69,7 +70,7 @@ final class AdminController extends Controller {
         $category->category_name = $post['category_name'];
         $Category->save();
         
-        return $res->withStatus(302)->withHeader('Location', '/Add');
+        return $res->withStatus(302)->withHeader('Location', '/profil/admin');
     }
 
     /**
@@ -90,7 +91,7 @@ final class AdminController extends Controller {
         //get category
         $category = Model\Category::where('category_name', '=', $post['category_name'])->get()->first();
 
-        //create new event
+        //create new item
         $item = new Model\Item;
         $item->item_name = $post['item_name'];
         $item->item_desc = $post['item_desc'];
@@ -100,7 +101,7 @@ final class AdminController extends Controller {
         $item->category_id = $category['category_id'];
         $item->save();
         
-        return $res->withStatus(302)->withHeader('Location', '/Add');
+        return $res->withStatus(302)->withHeader('Location', '/profil/admin');
     }
 
 

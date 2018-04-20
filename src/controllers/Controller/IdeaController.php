@@ -133,8 +133,22 @@ final class IdeaController extends Controller {
 
     }
 
+    /**
+     * get idea
+     */
+    public static function getValidation($req, $res, $id){
 
+        return self::render($res, 'CreateEvent', [
+            'route' => 'admin',
+            'user' => self::getSessionUser($req),
+            'idea' => Model\Idea::where('idea_id', '=', $id)->get()->first()
+        ]);
 
+    }
+
+    /**
+     * validate idea
+     */
     public static function validate($req, $res, $id){
 
         $session = self::getSession($req);
