@@ -193,3 +193,17 @@ $router->post('/CreateEvent', function(Request $request, Response $response) {
     return Control\AdminController::eventCreate($request, $response);
 
 });
+
+
+
+
+$router->get('/CreateItem', function(Request $request, Response $response) {
+    
+    return Control\AdminController::index($request, $response);
+
+});
+$router->post('/CreateItem', function(Request $request, Response $response) {
+
+    return Control\AdminController::addItem($request, $response);
+
+});

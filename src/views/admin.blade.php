@@ -11,7 +11,7 @@
 	@section('main_content')
 <h1 class="h1Admin" >Binvenue sur la page d'administration du site</h1>
 
-<h2 class="h2Admin">gestion des evenement</h2>
+<h2 class="h2Admin">Gestion des evenement</h2>
 
 <h3>-créé un evenement</h3>
 <div class="jumbotron jumbotron-fluid">
@@ -174,7 +174,7 @@
 
 <h3></h3>
 
-<h2 class="h2Admin">gestion des utilisateurs</h2>
+<h2 class="h2Admin">Gestion des utilisateurs</h2>
 
 <h3>-membres du BDE</h3>
 
@@ -186,8 +186,100 @@
 
 <h3>-autres utilisateurs</h3>
 
-<h2></h2>
+<h2 class="h2Admin">Gestion de la boutique</h2>
+<h3>Ajouter un article </h3>
+<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+		<form method="post" action="/createItem" enctype="multipart/form-data">
+		  
+		  <div class="form-group row">
+			<div class="col-sm-2">
+			</div>
+			<label for="item_name" class="col-sm-2 col-form-label">Nom de l'article</label>
+			<div class="col-sm-6">
+			  <input type="text" class="form-control" id="item_name" placeholder="Nom de l'article" name="item_name">
+			  <div class="invalid-feedback">
+				Veuillez rentrer le nom de l'article
+			  </div>
+			</div>
+		  </div>
 
+		  <div class="form-group row">
+			<div class="col-sm-2">
+			</div>
+			<label for="item_desc" class="col-sm-2 col-form-label">Description</label>
+			<div class="col-sm-6">
+			  <input type="text" class="form-control" id="item_desc" placeholder="description" name="item_desc">
+			  <div class="invalid-feedback">
+				Veuillez rentrer La description de l'article
+			  </div>
+			</div>
+		  </div>
+
+		  <div class="form-group row">
+			<div class="col-sm-2">
+			</div>
+			<label for="item_price" class="col-sm-2 col-form-label">Prix</label>
+			<div class="col-sm-6">
+			  <input type="number" class="form-control" id="item_price" placeholder="Prix" name="item_price">
+			  <div class="invalid-feedback">
+				Veuillez rentrer le prix de l'évenement
+			  </div>
+			</div>
+		  </div>
+
+		  <div class="form-group row">
+			<div class="col-sm-2">
+			</div>
+			<label for="image" class="col-sm-2 col-form-label">Image</label>
+			<div class="col-sm-6">
+			  <input type="file" class="form-control" id="image" placeholder="image" name="item_picture">
+			  <div class="invalid-feedback">
+				Veuillez ajouter une photo
+			  </div>
+			</div>
+			</div>
+			
+		  <div class="form-group row">
+			<div class="col-sm-2">
+			</div>
+			<label for="stock" class="col-sm-2 col-form-label">quantité de stock</label>
+			<div class="col-sm-6">
+            <input type="number" class="form-control" id="item_number" placeholder="stock" name="item_number">
+			  <div class="invalid-feedback">
+				Veuillez rentrer la quantité d'article disponible
+			  </div>
+			</div>
+		  </div>
+
+          <div class="form-group row">
+			<div class="col-sm-2">
+			</div>
+			<label for="category" class="col-sm-2 col-form-label">category de l'article</label>
+			<div class="col-sm-6">			
+				<select id="category_name" placeholder="category" name="category_name">
+          <option value="up">up</option>
+          <option value="ended">ended</option>
+          <option value="blocked">blocked</option>
+          </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-5">
+			</div>
+			<div class="col-sm-4">
+			  <button type="submit" class="btn btn-outline-dark">ajouter</button>
+			</div>
+		  </div>
+		  <div class="row">
+				<div class="col-sm-2">
+				</div>
+				<div class="col-sm-7">
+				</div>
+			</div>
+		</form>
+		</div>
+	</div>
 	@stop
 
 	
