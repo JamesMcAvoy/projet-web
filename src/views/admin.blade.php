@@ -53,9 +53,10 @@
 		  <div class="form-group row">
 			<div class="col-sm-2">
 			</div>
-			<label for="image" class="col-sm-2 col-form-label">Image</label>
+			<label for="event_picture" class="col-sm-2 col-form-label">Image</label>
 			<div class="col-sm-6">
 			  <input type="file" class="form-control" id="image" placeholder="image" name="event_picture">
+			  <input type="file" class="form-control" id="event_picture" placeholder="image" name="event_picture">
 			  <div class="invalid-feedback">
 				Veuillez ajouter une photo
 			  </div>
@@ -309,14 +310,13 @@
 							  </div>
 							</form>
 					      </div>
-
-					      
 					    </div>
 					  </div>
 					</div>
-
 				</div>
 			  </div>
+
+
 			</div>
 		</div>
 	</div>
@@ -363,18 +363,19 @@
 			<div class="col-sm-5">
 			</div>
 			<div class="col-sm-4">
-			  <button type="submit" class="btn btn-outline-dark">ajouter</button>
+			  <button type="submit" class="btn btn-outline-dark">ajouter
+			  </button>
 			</div>
 		  </div>
 		</form>
-	
+		</div>
 		  <br>
 		  <br>
 
 
 <h3>Ajouter un article </h3>
 
-
+		<div>
 		<form method="post" action="/createItem" enctype="multipart/form-data">
 
 		  <div class="form-group row">
@@ -404,9 +405,9 @@
 		  <div class="form-group row">
 			<div class="col-sm-2">
 			</div>
-			<label for="image" class="col-sm-2 col-form-label">Image</label>
+			<label for="item_picture" class="col-sm-2 col-form-label">Image</label>
 			<div class="col-sm-6">
-			  <input type="file" class="form-control" id="image" placeholder="image" name="item_picture">
+			  <input type="file" class="form-control" id="item_picture" placeholder="image" name="item_picture">
 			  <div class="invalid-feedback">
 				Veuillez ajouter une photo
 			  </div>
@@ -428,12 +429,10 @@
           <div class="form-group row">
 			<div class="col-sm-2">
 			</div>
-			<label for="category" class="col-sm-2 col-form-label">category de l'article</label>
+			<label for="category" class="col-sm-2 col-form-label">categories de l'article</label>
 			<div class="col-sm-6">			
-				<select id="category_name" placeholder="category" name="category_name">
-          <option value="up">up</option>
-          <option value="ended">ended</option>
-          <option value="blocked">blocked</option>
+				<select id="category" placeholder="category" name="category_id">
+          
           </select>
 			</div>
 		  </div>
